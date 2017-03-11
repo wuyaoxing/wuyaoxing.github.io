@@ -1,0 +1,25 @@
+{
+  "name": "hexo-theme-material-indigo",
+  "version": "1.4.10",
+  "description": "Material Design theme for Hexo.",
+  "keywords": [
+    "hexo",
+    "theme",
+    "material design"
+  ],
+  "author": {
+    "name": "yusen",
+    "email": "634206017@qq.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "git+https://github.com/yscoder/hexo-theme-indigo.git",
+    "type": "git"
+  },
+  "dependencies": {
+    "hexo-generator-feed": "^1.2.0",
+    "hexo-generator-json-content": "^3.0.1",
+    "hexo-helper-qrcode": "^1.0.2",
+    "hexo-renderer-less": "^0.2.0"
+  }
+}
