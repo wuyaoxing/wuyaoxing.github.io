@@ -5,7 +5,7 @@
   <link href="/public/atom.xml" rel="self"/>
   
   <link href="https://wuyaoxing.github.io/public/"/>
-  <updated>2017-03-11T13:12:16.664Z</updated>
+  <updated>2017-03-11T13:51:52.049Z</updated>
   <id>https://wuyaoxing.github.io/public/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试theme</title>
+    <link href="https://wuyaoxing.github.io/public/2017/03/11/%E6%B5%8B%E8%AF%95theme/"/>
+    <id>https://wuyaoxing.github.io/public/2017/03/11/测试theme/</id>
+    <published>2017-03-11T13:51:52.000Z</published>
+    <updated>2017-03-11T13:51:52.049Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>测试color</title>
+    <link href="https://wuyaoxing.github.io/public/2017/03/11/%E6%B5%8B%E8%AF%95color/"/>
+    <id>https://wuyaoxing.github.io/public/2017/03/11/测试color/</id>
+    <published>2017-03-11T13:50:16.000Z</published>
+    <updated>2017-03-11T13:50:16.815Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>test.</title>
