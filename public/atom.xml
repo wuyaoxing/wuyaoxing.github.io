@@ -5,7 +5,7 @@
   <link href="/public/atom.xml" rel="self"/>
   
   <link href="https://wuyaoxing.github.io/public/"/>
-  <updated>2017-03-11T08:08:45.353Z</updated>
+  <updated>2017-03-11T13:12:16.664Z</updated>
   <id>https://wuyaoxing.github.io/public/</id>
   
   <author>
@@ -16,11 +16,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>test.</title>
+    <link href="https://wuyaoxing.github.io/public/2017/03/11/test/"/>
+    <id>https://wuyaoxing.github.io/public/2017/03/11/test/</id>
+    <published>2017-03-11T13:12:16.000Z</published>
+    <updated>2017-03-11T13:12:16.664Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>测试文章</title>
+    <link href="https://wuyaoxing.github.io/public/2017/03/11/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
+    <id>https://wuyaoxing.github.io/public/2017/03/11/测试文章/</id>
+    <published>2017-03-11T13:06:19.000Z</published>
+    <updated>2017-03-11T13:06:19.359Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="https://wuyaoxing.github.io/public/2017/03/11/hello-world/"/>
     <id>https://wuyaoxing.github.io/public/2017/03/11/hello-world/</id>
-    <published>2017-03-11T08:08:45.350Z</published>
-    <updated>2017-03-11T08:08:45.353Z</updated>
+    <published>2017-03-11T11:43:01.447Z</published>
+    <updated>2017-03-11T11:43:01.447Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>

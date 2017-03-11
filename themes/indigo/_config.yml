@@ -13,20 +13,20 @@ menu:
     url: /
   archives:
     url: /archives
-  tags:
-    url: /tags
-  th-list:
-    text: Categories
-    url: /categories
+  # tags:
+  #   url: /tags
+  # th-list:
+  #   text: Categories
+  #   url: /categories
   github:
     url: https://github.com/wuyaoxing
     target: _blank
   weibo:
     url: http://www.weibo.com/
     target: _blank
-  link:
-    text: 测试
-    url: /custom
+  # link:
+  #   text: 测试
+  #   url: /custom
 
 rss: /atom.xml
 
@@ -39,7 +39,8 @@ favicon: /favicon.ico
 email: 82565097@qq.com
 
 # 设置 Android L Chrome 浏览器状态栏颜色
-color: '#3F51B5'
+# color: '#3F51B5'#9B26AF
+color: '#6639B6'
 
 # 页面标题
 tags_title: Tags
@@ -62,8 +63,8 @@ share: true
 # 是否开启打赏，关闭 reward: false
 reward:
   title: 谢谢大爷~
-  wechat: /img/img-loading.jpg     #微信，关闭设为 false
-  alipay: /img/img-loading.jpg     #支付宝，关闭设为 false
+  wechat: /img/wechat.png     #微信，关闭设为 false
+  alipay: /img/alipay.png     #支付宝，关闭设为 false
 
 # 是否开启搜索
 search: true
