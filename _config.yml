@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 我的博客
 subtitle:
 description:
-author: John Doe
-language:
+author: 吴尧星
+language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
-root: /
+url: https://wuyaoxing.github.io/public
+root: /public/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
