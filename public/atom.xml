@@ -40,38 +40,11 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://wuyaoxing.github.io/public/2017/03/19/hello-world/"/>
-    <id>https://wuyaoxing.github.io/public/2017/03/19/hello-world/</id>
-    <published>2017-03-18T16:57:28.329Z</published>
-    <updated>2017-03-18T16:57:28.330Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>HEXO搭建个人博客30分钟快速入门</title>
     <link href="https://wuyaoxing.github.io/public/2017/03/13/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A230%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
     <id>https://wuyaoxing.github.io/public/2017/03/13/HEXO搭建个人博客30分钟快速入门/</id>
     <published>2017-03-13T05:35:35.000Z</published>
-    <updated>2017-03-18T16:57:28.328Z</updated>
+    <updated>2017-03-20T06:43:29.151Z</updated>
     
     <content type="html"><![CDATA[<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo?"></a>什么是Hexo?</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="http://markdownpad.com/" target="_blank" rel="external">Markdown</a> (<a href="http://www.appinn.com/markdown/" target="_blank" rel="external">Markdown语法说明中文</a>) （或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。官网如是说，跟多介绍请移步<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo文档</a>，我在这里就不废话了。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Window环境（虽然很烂，却一直在用…），通过npm执行以下命令</p>
@@ -114,11 +87,38 @@
   </entry>
   
   <entry>
+    <title>Hello World</title>
+    <link href="https://wuyaoxing.github.io/public/2017/03/13/hello-world/"/>
+    <id>https://wuyaoxing.github.io/public/2017/03/13/hello-world/</id>
+    <published>2017-03-13T05:26:11.203Z</published>
+    <updated>2017-03-13T05:26:11.206Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>我要读些什么</title>
     <link href="https://wuyaoxing.github.io/public/2017/03/11/%E6%88%91%E8%A6%81%E8%AF%BB%E4%BA%9B%E4%BB%80%E4%B9%88/"/>
     <id>https://wuyaoxing.github.io/public/2017/03/11/我要读些什么/</id>
     <published>2017-03-11T13:50:30.000Z</published>
-    <updated>2017-03-18T17:15:17.303Z</updated>
+    <updated>2017-03-20T06:43:29.160Z</updated>
     
     <content type="html"><![CDATA[<p>未完待续…</p>
 ]]></content>
@@ -138,7 +138,7 @@
     <link href="https://wuyaoxing.github.io/public/2017/03/11/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/"/>
     <id>https://wuyaoxing.github.io/public/2017/03/11/我为什么要读书/</id>
     <published>2017-03-11T13:50:16.000Z</published>
-    <updated>2017-03-18T17:09:52.960Z</updated>
+    <updated>2017-03-20T06:43:29.156Z</updated>
     
     <summary type="html">
     
@@ -152,7 +152,7 @@
     <link href="https://wuyaoxing.github.io/public/2017/03/11/%E6%88%91%E8%A6%81%E5%86%99%E4%BA%9B%E4%BB%80%E4%B9%88/"/>
     <id>https://wuyaoxing.github.io/public/2017/03/11/我要写些什么/</id>
     <published>2017-03-11T13:06:30.000Z</published>
-    <updated>2017-03-18T17:13:05.303Z</updated>
+    <updated>2017-03-20T06:43:29.158Z</updated>
     
     <summary type="html">
     
@@ -166,7 +166,7 @@
     <link href="https://wuyaoxing.github.io/public/2017/03/11/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99%E5%8D%9A%E5%AE%A2/"/>
     <id>https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/</id>
     <published>2017-03-11T13:06:19.000Z</published>
-    <updated>2017-03-18T17:15:08.584Z</updated>
+    <updated>2017-03-20T06:43:29.154Z</updated>
     
     <content type="html"><![CDATA[<p>未完待续…</p>
 ]]></content>
