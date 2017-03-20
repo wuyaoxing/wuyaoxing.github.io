@@ -33,7 +33,7 @@ rss: /atom.xml
 # 你的头像url
 avatar: /img/avatar.jpg
 # favicon
-favicon: /favicon.ico
+favicon: /img/favicon.ico
 
 # email
 email: 82565097@qq.com
