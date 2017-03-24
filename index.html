@@ -4,10 +4,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>blog</title>
+    <style>
+        #tw-app-loding {
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /*margin-top: -25%;*/
+            margin-left: -25%;
+            text-align: center;
+        }
+        .tw-loading {
+            display: inline-flex;
+            position: relative;
+            vertical-align: middle;
+            margin: auto;
+            width: auto;
+            text-align: center;
+        }
+        .tw-loading.\--smallest .tw-loading__child {
+            width: 8px;
+            height: 8px;
+        }
+        .tw-loading.\--smaller .tw-loading__child {
+            width: 12px;
+            height: 12px;
+        }
+        .tw-loading.\--small .tw-loading__child {
+            width: 14px;
+            height: 14px;
+        }
+        .tw-loading.\--medium .tw-loading__child {
+            width: 18px;
+            height: 18px;
+        }
+        .tw-loading.\--large .tw-loading__child {
+            width: 20px;
+            height: 20px;
+        }
+        .tw-loading__child {
+            width: 18px;
+            height: 18px;
+            background-color: #27b6ba;
+            border-radius: 100%;
+            display: inline-block;
+            animation: sk-threeBounceDelay 1.4s infinite ease-in-out both;
+        }
+        .tw-loading .tw-loading-bounce1 {
+            animation-delay: -0.32s;
+        }
+        .tw-loading .tw-loading-bounce2 {
+            animation-delay: -0.16s;
+        }
+        @-moz-keyframes sk-threeBounceDelay {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+        @-webkit-keyframes sk-threeBounceDelay {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+        @-o-keyframes sk-threeBounceDelay {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+        @keyframes sk-threeBounceDelay {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 <body>
+
+    <div id="tw-app-loding">
+        <div class="tw-system-load-page animated js-tw-app-loading-curtain fadeOut">
+            <div class="tw-system-load-page__loading-box">
+                <span class="tw-loading-large tw-loading">
+                    <div class="tw-loading__child tw-loading-bounce1"></div>
+                    <div class="tw-loading__child tw-loading-bounce2"></div>
+                    <div class="tw-loading__child tw-loading-bounce3"></div>
+                </span>
+            </div>
+        </div>
+    </div>
+
 <script>
-    window.location.href = '/public';
+
+    setTimeout(function () {
+        window.location.href = '/public';
+    }, 1500)
+
 </script>
 </body>
 </html>
