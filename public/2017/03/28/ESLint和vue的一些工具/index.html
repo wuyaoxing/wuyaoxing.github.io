@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>ESLint和vue的一些工具 | Welcome to my blog | null</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#673AB7">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="任何实际项目的开发都不仅仅是完成编码，规范的开发流程和严谨的测试都是不可或缺的。合理使用各种工具来进行测试开发与调试，能极大地提升编码的效率以及团队协作效率，使开发过程事半功倍，对于提高代码质量、稳定线上服务至关重要。
+ESLint在日常的团队开发中，为了避免出现低级bug和统一代码风格，通常会在开发之前约定一套编码规范。使用 Lint 工具和代码风格检测工具，则可以辅助编码规范执行，有效控制代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESLint和vue的一些工具">
+<meta property="og:url" content="https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/index.html">
+<meta property="og:site_name" content="Welcome to my blog">
+<meta property="og:description" content="任何实际项目的开发都不仅仅是完成编码，规范的开发流程和严谨的测试都是不可或缺的。合理使用各种工具来进行测试开发与调试，能极大地提升编码的效率以及团队协作效率，使开发过程事半功倍，对于提高代码质量、稳定线上服务至关重要。
+ESLint在日常的团队开发中，为了避免出现低级bug和统一代码风格，通常会在开发之前约定一套编码规范。使用 Lint 工具和代码风格检测工具，则可以辅助编码规范执行，有效控制代码">
+<meta property="og:updated_time" content="2017-03-28T07:13:07.028Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ESLint和vue的一些工具">
+<meta name="twitter:description" content="任何实际项目的开发都不仅仅是完成编码，规范的开发流程和严谨的测试都是不可或缺的。合理使用各种工具来进行测试开发与调试，能极大地提升编码的效率以及团队协作效率，使开发过程事半功倍，对于提高代码质量、稳定线上服务至关重要。
+ESLint在日常的团队开发中，为了避免出现低级bug和统一代码风格，通常会在开发之前约定一套编码规范。使用 Lint 工具和代码风格检测工具，则可以辅助编码规范执行，有效控制代码">
+    
+        <link rel="alternative" href="/atom.xml" title="Welcome to my blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/public/img/favicon.ico">
+    <link rel="stylesheet" href="/public/css/style.css?v=1.4.10">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/public/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/public/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wuyaoxing</h5>
+          <a href="mailto:82565097@qq.com" title="82565097@qq.com" class="mail">82565097@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/public/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/public/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wuyaoxing" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/public/../calendar"  >
+                <i class="icon icon-lg icon-link"></i>
+                日历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ESLint和vue的一些工具</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ESLint和vue的一些工具</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-28T07:10:02.000Z" itemprop="datePublished" class="page-time">
+  2017-03-28
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ESLint"><span class="post-toc-number">1.</span> <span class="post-toc-text">ESLint</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用方法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">使用方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开发工具"><span class="post-toc-number">2.</span> <span class="post-toc-text">开发工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调试工具"><span class="post-toc-number">3.</span> <span class="post-toc-text">调试工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">4.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-ESLint和vue的一些工具"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ESLint和vue的一些工具</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月28日 15:10" datetime="2017-03-28T07:10:02.000Z"  itemprop="datePublished">2017-03-28</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>任何实际项目的开发都不仅仅是完成编码，规范的开发流程和严谨的测试都是不可或缺的。合理使用各种工具来进行测试开发与调试，能极大地提升编码的效率以及团队协作效率，使开发过程事半功倍，对于提高代码质量、稳定线上服务至关重要。</p>
+<h2 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a>ESLint</h2><p>在日常的团队开发中，为了避免出现低级bug和统一代码风格，通常会在开发之前约定一套编码规范。使用 Lint 工具和代码风格检测工具，则可以辅助编码规范执行，有效控制代码质量。</p>
+<p>ESLint 由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写， 2013 年发布第一个版本。 NCZ 的初衷不是重复造一个轮子，而是在实际需求得不到 JSHint 团队响应 的情况下做出的选择：以可扩展、每条规则独立、不内置编码风格为理念编写一个 lint 工具。</p>
+<p>ESLint被设计为完全可配置的，主要有两种方式来配置ESLint：</p>
+<ul>
+<li>在注释中配置：使用JavaScript注释直接把配置嵌入到文件中。</li>
+<li>配置文件：使用一个JSON或YAML文件来为全部的目录和它的子目录指定配置信息。</li>
+</ul>
+<p>有很多信息是可以被配置的：</p>
+<ul>
+<li>Environments：你的脚步将要运行在什么环境中。如browser、node环境变量、es6环境变量、mocha环境变量等。</li>
+</ul>
+<blockquote>
+<p>{<br>   “env”: {<br>       “browser”: true,<br>       “node”: true<br>   }<br>}</p>
+</blockquote>
+<ul>
+<li>Globals：额外的全局变量。如指定你所要使用的全局变量，true代表允许重写、false代表不允许重写。</li>
+</ul>
+<blockquote>
+<p>{<br>   “globals”: {<br>       “var1”: true,<br>       “var2”: false<br>   }<br>}</p>
+</blockquote>
+<ul>
+<li>Rules：开启规则和发生错误时报告的等级。</li>
+</ul>
+<p>ESLint 主要有以下特点：</p>
+<ul>
+<li>默认规则包含所有 JSLint、JSHint 中存在的规则，易迁移；</li>
+<li>规则可配置性高：可设置「警告」、「错误」两个 error 等级，或者直接禁用；</li>
+<li>包含代码风格检测的规则（可以丢掉 JSCS 了）；</li>
+<li>支持插件扩展、自定义规则。</li>
+</ul>
+<p>EsLint提供以下几种校验：</p>
+<ul>
+<li>语法错误校验</li>
+<li>不重要或丢失的标点符号，如分号</li>
+<li>没法运行到的代码块（使用过WebStorm的童鞋应该了解）</li>
+<li>未被使用的参数提醒</li>
+<li>漏掉的结束符，如}</li>
+<li>确保样式的统一规则，如sass或者less</li>
+<li>检查变量的命名</li>
+</ul>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><blockquote>
+<p>npm install -g eslint</p>
+</blockquote>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>如果你的项目还没有配置文件（.eslintrc）的话，可以通过指定–init参数来生成一个新的配置文件：</p>
+<blockquote>
+<p>eslint –init</p>
+</blockquote>
+<p>然后，就可以在任何JavaScript中运行ESLint了。.eslintrc 放在项目根目录，则会应用到整个项目；如果子目录中也包含 .eslintrc 文件，则子目录会忽略根目录的配置文件，应用该目录中的配置文件。这样可以方便地对不同环境的代码应用不同的规则。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>运行eslint –init后，会在当前目录下生成一个.eslintrc文件，你可以在这个文件中配置一些规则。</p>
+<p>规则的错误等级有三种：</p>
+<ul>
+<li>0：关闭规则。</li>
+<li>1：打开规则，并且作为一个警告（不影响exit code）。</li>
+<li>2：打开规则，并且作为一个错误（exit code将会是1）。</li>
+</ul>
+<p>具体的规则可以在官网 (<a href="http://eslint.org/" target="_blank" rel="external">http://eslint.org/</a>) 上找到，或者使用别人写好的配置，例如eslint-config-airbnb (<a href="https://www.npmjs.com/package/eslint-config-airbnb" target="_blank" rel="external">https://www.npmjs.com/package/eslint-config-airbnb</a>) 。</p>
+<p>在团队协作中，统一的代码风格更具可读性、可维护性。ESLint 内置了一系列有关代码风格的 规则 ，可以根据团队的编码规范设置。</p>
+<h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><p>开发vuejs项目是可能会遇到一个问题，就是.vue后缀文件中的内容是不会被自动高亮显示的，感觉像是在记事本中开发一样。不过现在你不用担心，各大流行的IDE基本都已经支持.vue文件的语法高亮了，例如Sublime、WebStorm、idea、VSC等，就像安装普通插件一样安装vue插件。</p>
+<h2 id="调试工具"><a href="#调试工具" class="headerlink" title="调试工具"></a>调试工具</h2><p>vuejs团队为大家提供了Chrome下的调试工具，可以在Chrome的插件商定找到并安装。国内可能需要翻墙。我们可以到github上找到 <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">vue-devtools</a>,然后按照文档编译安装。</p>
+<p>安装成功后，打开开发者工具，在工具栏中就会出现Vue Devtools选项。该工具可以展示出各个组件的层级结构、组件当前状态、组件的prop值。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.tuicool.com/articles/7JZZJzn" target="_blank" rel="external">http://www.tuicool.com/articles/7JZZJzn</a></li>
+<li><a href="http://www.jianshu.com/p/2bcdce1dc8d4" target="_blank" rel="external">http://www.jianshu.com/p/2bcdce1dc8d4</a></li>
+<li>vuejs权威指南</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-28T07:13:07.028Z" itemprop="dateUpdated">2017年3月28日 15:13</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/public/2017/03/28/ESLint和vue的一些工具/" target="_blank" rel="external">https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/</a>
+    </div>
+    <footer>
+        <a href="https://wuyaoxing.github.io/public">
+            <img src="/public/img/avatar.jpg" alt="wuyaoxing">
+            wuyaoxing
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/&title=《ESLint和vue的一些工具》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/&title=《ESLint和vue的一些工具》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ESLint和vue的一些工具》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/public/2017/03/28/甘特图技术分析/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">甘特图技术分析</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/public/2017/03/19/报国寺之行有感/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">报国寺之行有感</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="ESLint和vue的一些工具" data-title="ESLint和vue的一些工具" data-url="https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'yxblog', theme: 'none'};
+lazyScripts.push('/public/js/embed.min.js?v=1.4.10');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/public/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/public/img/alipay.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Welcome to my blog &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/&title=《ESLint和vue的一些工具》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/&title=《ESLint和vue的一些工具》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ESLint和vue的一些工具》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACp0lEQVR42u3aQU7EMAwFUO5/aZAQCxa0fNvxFKTX1agMGb8ukvQ7b2/x9f55ff+c3Lka4X7M5P7hCw8PD69V+tV1VdzVCPek5H4yWlIzHh4e3jYvWQzmRScPK1+Kohrw8PDwHuXd/0zv53sPBQ8PD++/8PKAoLc5zh8ZHh4e3l/gJWFEUkr1f/OYYz1rwcPDw4t5vQbYs5/X+3t4eHh4ra56cuVT/Cur+qoEDw8Pb4HXK+4qXLi/X31AyZjRgoGHh4d3lDcvqNfar8LuR778Ph4eHt4Cr9e4qsLyVll+yKC5rcfDw8Nb4M1bUPnhql5TLRkZDw8P75W8fKBJxJDzHlj38PDw8G55OaOKr7ayesewfqkZDw8Pb42XRwa9ttmcnYz5w308PDy8h3j5y/8ktqguUdFDx8PDw1vgJRvo3uSeBKzz8KKQr+Dh4eEt8Kqt/aTEeZBR/VwIc/Hw8PAO8fI2/PwYQTXM7YXLeHh4eHu8amv/1IPojVmIofHw8PDWeMlLfq+V1Yt6k+A4egHAw8PDW+CVN6lByNubxPPNdLUxhoeHh3eWV21lzReP3uRePViAh4eH9xSvulHuTfTNoGH+xoCHh4dX5PUWg0lQ2wsmmsew8PDw8BZ4G6X3jhH04tpo446Hh4e3wMuR+XeqYybtrtGBAzw8PLyjvGrDKT+wVT1wkPw1Xx7w8PDwXsM7VWLS5r+f0CfJNB4eHt4eb9L0mjS0qo23XkCMh4eHt8HLr962u7oR7y0qhcQFDw8P7xAvn5SrwW60o2/FxPe8y/4eHh4e3lHefKOcb6bzAwr5ovXLoQE8PDy8P8/LQ95eoJAvYHh4eHjP8kYt/HjkavCBh4eH9xRv3nyalLWxTcfDw8Pb480bYMmWen5oYL4Rx8PDwxvzPgCJsZKX8+5E4AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/public/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/public/js/main.min.js?v=1.4.10"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/public/js/search.min.js?v=1.4.10" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

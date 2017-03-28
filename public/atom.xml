@@ -5,7 +5,7 @@
   <link href="/public/atom.xml" rel="self"/>
   
   <link href="https://wuyaoxing.github.io/public/"/>
-  <updated>2017-03-20T06:43:29.163Z</updated>
+  <updated>2017-03-28T07:41:18.126Z</updated>
   <id>https://wuyaoxing.github.io/public/</id>
   
   <author>
@@ -14,6 +14,234 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式之6大设计原则</title>
+    <link href="https://wuyaoxing.github.io/public/2017/03/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B6%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"/>
+    <id>https://wuyaoxing.github.io/public/2017/03/28/设计模式之6大设计原则/</id>
+    <published>2017-03-28T07:39:08.000Z</published>
+    <updated>2017-03-28T07:41:18.126Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h2><h2 id="里式替换原则"><a href="#里式替换原则" class="headerlink" title="里式替换原则"></a>里式替换原则</h2><h2 id="依赖倒置原则"><a href="#依赖倒置原则" class="headerlink" title="依赖倒置原则"></a>依赖倒置原则</h2><h2 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h2><h2 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h2><h2 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;单一职责原则&quot;&gt;&lt;a href=&quot;#单一职责原则&quot; class=&quot;headerlink&quot; title=&quot;单一职责原则&quot;&gt;&lt;/a&gt;单一职责原则&lt;/h2&gt;&lt;h2 id=&quot;里式替换原则&quot;&gt;&lt;a href=&quot;#里式替换原则&quot; class=&quot;headerlink&quot; titl
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vue2.0源码分析</title>
+    <link href="https://wuyaoxing.github.io/public/2017/03/28/vue2-0%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
+    <id>https://wuyaoxing.github.io/public/2017/03/28/vue2-0源码分析/</id>
+    <published>2017-03-28T07:37:28.000Z</published>
+    <updated>2017-03-28T07:37:28.062Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Web Collection</title>
+    <link href="https://wuyaoxing.github.io/public/2017/03/28/Web-Collection/"/>
+    <id>https://wuyaoxing.github.io/public/2017/03/28/Web-Collection/</id>
+    <published>2017-03-28T07:20:21.000Z</published>
+    <updated>2017-03-28T07:21:01.840Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="框架类"><a href="#框架类" class="headerlink" title="框架类"></a>框架类</h2><ul>
+<li><a href="http://cn.vuejs.org/" target="_blank" rel="external">vuejs中文文档</a></li>
+<li><a href="http://router.vuejs.org/zh-cn/" target="_blank" rel="external">vue-router</a></li>
+<li><a href="http://vuex.vuejs.org/zh-cn/" target="_blank" rel="external">vuex</a></li>
+<li><a href="http://es6.ruanyifeng.com/#README" target="_blank" rel="external">es6阮一峰</a></li>
+<li><a href="http://www.bootcss.com/p/lesscss/" target="_blank" rel="external">less中文</a></li>
+<li><a href="http://momentjs.cn/docs/" target="_blank" rel="external">momentjs</a></li>
+<li><a href="http://www.css88.com/doc/lodash/" target="_blank" rel="external">lodash</a><br>-</li>
+</ul>
+<h2 id="博客类"><a href="#博客类" class="headerlink" title="博客类"></a>博客类</h2><ul>
+<li><p><a href="https://github.com/QingWei-Li/docsify/" target="_blank" rel="external">文档模板</a></p>
+</li>
+<li><p><a href="https://github.com/teambition/teambition-sdk/" target="_blank" rel="external">teambition-sdk</a></p>
+</li>
+<li><p><a href="https://github.com/pablohpsilva/vuejs-component-style-guide/blob/master/README-CN.md" target="_blank" rel="external">vuejs编码规范</a></p>
+</li>
+<li><p><a href="https://github.com/xufei/blog/issues/42" target="_blank" rel="external">徐飞-复杂单页应用的数据层设计</a></p>
+</li>
+<li><p><a href="https://github.com/DDFE/DDFE-blog" target="_blank" rel="external">DDFE-blog</a></p>
+</li>
+</ul>
+<h2 id="源码类"><a href="#源码类" class="headerlink" title="源码类"></a>源码类</h2><h2 id="对标网站"><a href="#对标网站" class="headerlink" title="对标网站"></a>对标网站</h2><ul>
+<li><a href="https://enterprise.taskworld.com" target="_blank" rel="external">taskworld</a></li>
+<li><a href="https://trello.com/" target="_blank" rel="external">trello</a></li>
+<li><a href="https://www.teambition.com/" target="_blank" rel="external">teambition</a></li>
+</ul>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul>
+<li><a href="http://bccto.me/" target="_blank" rel="external">10分钟邮箱</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;框架类&quot;&gt;&lt;a href=&quot;#框架类&quot; class=&quot;headerlink&quot; title=&quot;框架类&quot;&gt;&lt;/a&gt;框架类&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://cn.vuejs.org/&quot; target=&quot;_blank&quot; rel=&quot;external
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>甘特图技术分析</title>
+    <link href="https://wuyaoxing.github.io/public/2017/03/28/%E7%94%98%E7%89%B9%E5%9B%BE%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/"/>
+    <id>https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/</id>
+    <published>2017-03-28T07:16:02.000Z</published>
+    <updated>2017-03-28T07:33:37.442Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="甘特图介绍"><a href="#甘特图介绍" class="headerlink" title="甘特图介绍"></a>甘特图介绍</h2><p>甘特图主要有三种类型:</p>
+<ul>
+<li>甘特计划图 　　</li>
+<li>甘特进度图 　　</li>
+<li>甘特载负图</li>
+</ul>
+<p>甘特图的作用：</p>
+<ul>
+<li>计划项目时间</li>
+<li>跟踪项目进度</li>
+<li>测定工作负荷</li>
+</ul>
+<p>怎么做：</p>
+<ul>
+<li>在纵轴列出项目中的各项活动</li>
+<li>横轴列出连续的各个时间段</li>
+<li>在坐标图中标出每项工作所需的时间长度的横条</li>
+</ul>
+<p>甘特图适用范围：</p>
+<p>甘特图（Gantt Chart）由亨利·甘特于1910年开发的，他通过条状图来显示项目，进度，和其他时间相关的系统进展的内在关系随着时间进展的情况。</p>
+<p>其中，横轴表示时间，纵轴表示活动（项目）。线条表示在整个期间上计划和实际的活动完成情况。甘特图可以直观地表明任务计划在什么时候进行，及实际进展与计划要求的对比。管理者由此可以非常便利地弄清每一项任务（项目）还剩下哪些工作要做，并可评估工作是提前还是滞后，亦或正常进行。除此以外，甘特图还有简单、醒目和便于编制等特点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">gantt</div><div class="line">dateFormat YYYY-MM-DD</div><div class="line">section 房地产开发</div><div class="line">T1: 2017-03-01, 90d</div><div class="line">section 医疗开发</div><div class="line">T2: 2017-03-28, 80d</div><div class="line">section 经济开发</div><div class="line">T3: 2017-06-02, 60d</div></pre></td></tr></table></figure>
+<p>甘特图的含义：</p>
+<ol>
+<li>以图形或表格的形式显示活动；</li>
+<li>现在是一种通用的显示进度的方法；</li>
+<li>构造时应包括实际日历天和持续时间，并且不要将周末和节假日算在进度之内。</li>
+</ol>
+<p>甘特图的优点：</p>
+<ul>
+<li>图形化概要，通用技术，易于理解；</li>
+<li>中小型项目一般不超过30项活动；</li>
+<li>有专业软件支持，无须担心复杂计算和分析</li>
+</ul>
+<p>甘特图的局限：</p>
+<ul>
+<li>甘特图事实上仅仅部分地反映了项目管理的三重约束（时间、成本和范围），因为它主要关注进程管理（时间）；</li>
+<li>软件的不足。尽管能够通过项目管理软件描绘出项目活动的内在关系，但是如果关系过多，纷繁芜杂的线图必将增加甘特图的阅读难度；</li>
+<li>为了不至于转移阅读者的注意力，还最好避免使用栅格。</li>
+</ul>
+<h2 id="甘特图技术分析"><a href="#甘特图技术分析" class="headerlink" title="甘特图技术分析"></a>甘特图技术分析</h2><p>项目中的技术要点</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;甘特图介绍&quot;&gt;&lt;a href=&quot;#甘特图介绍&quot; class=&quot;headerlink&quot; title=&quot;甘特图介绍&quot;&gt;&lt;/a&gt;甘特图介绍&lt;/h2&gt;&lt;p&gt;甘特图主要有三种类型:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;甘特计划图 　　&lt;/li&gt;
+&lt;li&gt;甘特进度图 　　&lt;/li&gt;
+&lt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ESLint和vue的一些工具</title>
+    <link href="https://wuyaoxing.github.io/public/2017/03/28/ESLint%E5%92%8Cvue%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B7%A5%E5%85%B7/"/>
+    <id>https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/</id>
+    <published>2017-03-28T07:10:02.000Z</published>
+    <updated>2017-03-28T07:13:07.028Z</updated>
+    
+    <content type="html"><![CDATA[<p>任何实际项目的开发都不仅仅是完成编码，规范的开发流程和严谨的测试都是不可或缺的。合理使用各种工具来进行测试开发与调试，能极大地提升编码的效率以及团队协作效率，使开发过程事半功倍，对于提高代码质量、稳定线上服务至关重要。</p>
+<h2 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a>ESLint</h2><p>在日常的团队开发中，为了避免出现低级bug和统一代码风格，通常会在开发之前约定一套编码规范。使用 Lint 工具和代码风格检测工具，则可以辅助编码规范执行，有效控制代码质量。</p>
+<p>ESLint 由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写， 2013 年发布第一个版本。 NCZ 的初衷不是重复造一个轮子，而是在实际需求得不到 JSHint 团队响应 的情况下做出的选择：以可扩展、每条规则独立、不内置编码风格为理念编写一个 lint 工具。</p>
+<p>ESLint被设计为完全可配置的，主要有两种方式来配置ESLint：</p>
+<ul>
+<li>在注释中配置：使用JavaScript注释直接把配置嵌入到文件中。</li>
+<li>配置文件：使用一个JSON或YAML文件来为全部的目录和它的子目录指定配置信息。</li>
+</ul>
+<p>有很多信息是可以被配置的：</p>
+<ul>
+<li>Environments：你的脚步将要运行在什么环境中。如browser、node环境变量、es6环境变量、mocha环境变量等。</li>
+</ul>
+<blockquote>
+<p>{<br>   “env”: {<br>       “browser”: true,<br>       “node”: true<br>   }<br>}</p>
+</blockquote>
+<ul>
+<li>Globals：额外的全局变量。如指定你所要使用的全局变量，true代表允许重写、false代表不允许重写。</li>
+</ul>
+<blockquote>
+<p>{<br>   “globals”: {<br>       “var1”: true,<br>       “var2”: false<br>   }<br>}</p>
+</blockquote>
+<ul>
+<li>Rules：开启规则和发生错误时报告的等级。</li>
+</ul>
+<p>ESLint 主要有以下特点：</p>
+<ul>
+<li>默认规则包含所有 JSLint、JSHint 中存在的规则，易迁移；</li>
+<li>规则可配置性高：可设置「警告」、「错误」两个 error 等级，或者直接禁用；</li>
+<li>包含代码风格检测的规则（可以丢掉 JSCS 了）；</li>
+<li>支持插件扩展、自定义规则。</li>
+</ul>
+<p>EsLint提供以下几种校验：</p>
+<ul>
+<li>语法错误校验</li>
+<li>不重要或丢失的标点符号，如分号</li>
+<li>没法运行到的代码块（使用过WebStorm的童鞋应该了解）</li>
+<li>未被使用的参数提醒</li>
+<li>漏掉的结束符，如}</li>
+<li>确保样式的统一规则，如sass或者less</li>
+<li>检查变量的命名</li>
+</ul>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><blockquote>
+<p>npm install -g eslint</p>
+</blockquote>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>如果你的项目还没有配置文件（.eslintrc）的话，可以通过指定–init参数来生成一个新的配置文件：</p>
+<blockquote>
+<p>eslint –init</p>
+</blockquote>
+<p>然后，就可以在任何JavaScript中运行ESLint了。.eslintrc 放在项目根目录，则会应用到整个项目；如果子目录中也包含 .eslintrc 文件，则子目录会忽略根目录的配置文件，应用该目录中的配置文件。这样可以方便地对不同环境的代码应用不同的规则。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>运行eslint –init后，会在当前目录下生成一个.eslintrc文件，你可以在这个文件中配置一些规则。</p>
+<p>规则的错误等级有三种：</p>
+<ul>
+<li>0：关闭规则。</li>
+<li>1：打开规则，并且作为一个警告（不影响exit code）。</li>
+<li>2：打开规则，并且作为一个错误（exit code将会是1）。</li>
+</ul>
+<p>具体的规则可以在官网 (<a href="http://eslint.org/" target="_blank" rel="external">http://eslint.org/</a>) 上找到，或者使用别人写好的配置，例如eslint-config-airbnb (<a href="https://www.npmjs.com/package/eslint-config-airbnb" target="_blank" rel="external">https://www.npmjs.com/package/eslint-config-airbnb</a>) 。</p>
+<p>在团队协作中，统一的代码风格更具可读性、可维护性。ESLint 内置了一系列有关代码风格的 规则 ，可以根据团队的编码规范设置。</p>
+<h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><p>开发vuejs项目是可能会遇到一个问题，就是.vue后缀文件中的内容是不会被自动高亮显示的，感觉像是在记事本中开发一样。不过现在你不用担心，各大流行的IDE基本都已经支持.vue文件的语法高亮了，例如Sublime、WebStorm、idea、VSC等，就像安装普通插件一样安装vue插件。</p>
+<h2 id="调试工具"><a href="#调试工具" class="headerlink" title="调试工具"></a>调试工具</h2><p>vuejs团队为大家提供了Chrome下的调试工具，可以在Chrome的插件商定找到并安装。国内可能需要翻墙。我们可以到github上找到 <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">vue-devtools</a>,然后按照文档编译安装。</p>
+<p>安装成功后，打开开发者工具，在工具栏中就会出现Vue Devtools选项。该工具可以展示出各个组件的层级结构、组件当前状态、组件的prop值。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.tuicool.com/articles/7JZZJzn" target="_blank" rel="external">http://www.tuicool.com/articles/7JZZJzn</a></li>
+<li><a href="http://www.jianshu.com/p/2bcdce1dc8d4" target="_blank" rel="external">http://www.jianshu.com/p/2bcdce1dc8d4</a></li>
+<li>vuejs权威指南</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;任何实际项目的开发都不仅仅是完成编码，规范的开发流程和严谨的测试都是不可或缺的。合理使用各种工具来进行测试开发与调试，能极大地提升编码的效率以及团队协作效率，使开发过程事半功倍，对于提高代码质量、稳定线上服务至关重要。&lt;/p&gt;
+&lt;h2 id=&quot;ESLint&quot;&gt;&lt;a href
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>报国寺之行有感</title>
@@ -107,54 +335,6 @@
     <summary type="html">
     
       &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>我要读些什么</title>
-    <link href="https://wuyaoxing.github.io/public/2017/03/11/%E6%88%91%E8%A6%81%E8%AF%BB%E4%BA%9B%E4%BB%80%E4%B9%88/"/>
-    <id>https://wuyaoxing.github.io/public/2017/03/11/我要读些什么/</id>
-    <published>2017-03-11T13:50:30.000Z</published>
-    <updated>2017-03-20T06:43:29.160Z</updated>
-    
-    <content type="html"><![CDATA[<p>未完待续…</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;未完待续…&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>我为什么要读书</title>
-    <link href="https://wuyaoxing.github.io/public/2017/03/11/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/"/>
-    <id>https://wuyaoxing.github.io/public/2017/03/11/我为什么要读书/</id>
-    <published>2017-03-11T13:50:16.000Z</published>
-    <updated>2017-03-20T06:43:29.156Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>我要写些什么</title>
-    <link href="https://wuyaoxing.github.io/public/2017/03/11/%E6%88%91%E8%A6%81%E5%86%99%E4%BA%9B%E4%BB%80%E4%B9%88/"/>
-    <id>https://wuyaoxing.github.io/public/2017/03/11/我要写些什么/</id>
-    <published>2017-03-11T13:06:30.000Z</published>
-    <updated>2017-03-20T06:43:29.158Z</updated>
-    
-    <summary type="html">
     
     </summary>
     

@@ -24,6 +24,9 @@ menu:
   weibo:
     url: http://www.weibo.com/
     target: _blank
+  link:
+    text: 日历
+    url: ../calendar
   # link:
   #   text: 测试
   #   url: /custom
