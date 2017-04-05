@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>requestAnimationFrame 实现动画 | Welcome to my blog | null</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#673AB7">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="以往JS控制的动画大多使用setInterval 或者setTimeout 每隔一段时间刷新元素的位置，来达到动画的效果，但是这种方式并不能准确地控制动画帧率，尽管主流的浏览器对于这两个函数实现的动画都有一定的优化，但是这依然无法弥补它们性能问题。主要原因是因为JavaScript的单线程机制使得其可能在有阻塞的情况下无法精确到毫秒触发。
+requestAnimationFrame()方法正是为了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="requestAnimationFrame 实现动画">
+<meta property="og:url" content="https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/index.html">
+<meta property="og:site_name" content="Welcome to my blog">
+<meta property="og:description" content="以往JS控制的动画大多使用setInterval 或者setTimeout 每隔一段时间刷新元素的位置，来达到动画的效果，但是这种方式并不能准确地控制动画帧率，尽管主流的浏览器对于这两个函数实现的动画都有一定的优化，但是这依然无法弥补它们性能问题。主要原因是因为JavaScript的单线程机制使得其可能在有阻塞的情况下无法精确到毫秒触发。
+requestAnimationFrame()方法正是为了">
+<meta property="og:updated_time" content="2017-04-05T06:47:11.424Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="requestAnimationFrame 实现动画">
+<meta name="twitter:description" content="以往JS控制的动画大多使用setInterval 或者setTimeout 每隔一段时间刷新元素的位置，来达到动画的效果，但是这种方式并不能准确地控制动画帧率，尽管主流的浏览器对于这两个函数实现的动画都有一定的优化，但是这依然无法弥补它们性能问题。主要原因是因为JavaScript的单线程机制使得其可能在有阻塞的情况下无法精确到毫秒触发。
+requestAnimationFrame()方法正是为了">
+    
+        <link rel="alternative" href="/atom.xml" title="Welcome to my blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/public/img/favicon.ico">
+    <link rel="stylesheet" href="/public/css/style.css?v=1.4.10">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/public/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/public/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wuyaoxing</h5>
+          <a href="mailto:82565097@qq.com" title="82565097@qq.com" class="mail">82565097@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/public/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/public/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wuyaoxing" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/public/../calendar"  >
+                <i class="icon icon-lg icon-link"></i>
+                日历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">requestAnimationFrame 实现动画</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">requestAnimationFrame 实现动画</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-04-05T06:46:12.000Z" itemprop="datePublished" class="page-time">
+  2017-04-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#requestAnimationFrame"><span class="post-toc-number">1.</span> <span class="post-toc-text">requestAnimationFrame</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本语法"><span class="post-toc-number">2.</span> <span class="post-toc-text">基本语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浏览器兼容性"><span class="post-toc-number">3.</span> <span class="post-toc-text">浏览器兼容性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#封装"><span class="post-toc-number">4.</span> <span class="post-toc-text">封装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#推荐"><span class="post-toc-number">5.</span> <span class="post-toc-text">推荐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考链接"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#写在最后"><span class="post-toc-number">7.</span> <span class="post-toc-text">写在最后</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-requestAnimationFrame-实现动画"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">requestAnimationFrame 实现动画</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年04月05日 14:46" datetime="2017-04-05T06:46:12.000Z"  itemprop="datePublished">2017-04-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>以往JS控制的动画大多使用setInterval 或者setTimeout 每隔一段时间刷新元素的位置，来达到动画的效果，但是这种方式并不能准确地控制动画帧率，尽管主流的浏览器对于这两个函数实现的动画都有一定的优化，但是这依然无法弥补它们性能问题。主要原因是因为JavaScript的单线程机制使得其可能在有阻塞的情况下无法精确到毫秒触发。</p>
+<p>requestAnimationFrame()方法正是为了满足高性能动画的需求而提供的API，通过setInterval方法控制的动画其调用的间隔由程序员设置，而requestAnimationFrame()无须设置调用间隔， 它自动紧跟浏览器的绘制的帧率（一般浏览器的显示帧率是60fps，差不多每帧间隔16.7ms）</p>
+<p>就终极目的来说，requestAnimationFrame就是setTimeout。既然有了setTimeout，那还要requestAnimationFrame来干嘛。setTimeout会存在过度绘制，会造成帧丢失，继而导致动画断续显示。这也是setTimeout的定时器值推荐最小使用16.7ms的原因（16.7 = 1000 / 60, 即每秒60帧）。</p>
+<p>浏览器可以优化并行的动画动作，更合理的重新排列动作序列，并把能够合并的动作放在一个渲染周期内完成，从而呈现出更流畅的动画效果。requestAnimationFrame就是为了这个而出现的。我所做的事情很简单，跟着浏览器的绘制走，如果浏览设备绘制间隔是16.7ms，那我就这个间隔绘制；如果浏览设备绘制间隔是10ms, 我就10ms绘制。这样就不会存在过度绘制的问题，动画不会掉帧。通过requestAnimationFrame()，JS动画能够和CSS动画/变换或SVG SMIL动画同步发生。另外，如果在一个浏览器标签页里运行一个动画，当这个标签页不可见时，浏览器会暂停它，这会减少CPU，内存的压力，节省电池电量。</p>
+<h2 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame" target="_blank" rel="external">MDN</a>的原话：</p>
+<blockquote>
+<p>The window.requestAnimationFrame() method tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint. The method takes as an argument a callback to be invoked before the repaint.</p>
+</blockquote>
+<p>window.requestAnimationFrame() 方法告诉浏览器您希望执行动画，并请求浏览器调用指定的函数在下一次重绘之前更新动画。该方法将在重绘之前调用的回调作为参数。</p>
+<p>也可以说这个方法原理其实也就跟setTimeout/setInterval差不多，通过递归调用同一方法来不断更新画面以达到动起来的效果，但它优于setTimeout/setInterval的地方在于它是由浏览器专门为动画提供的API，在运行时浏览器会自动优化方法的调用，并且如果页面不是激活状态下的话，动画会自动暂停，有效节省了CPU开销。</p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">requestID = window.requestAnimationFrame(callback);               // Firefox 23 / IE10 / Chrome / Safari 7 (incl. iOS)</div><div class="line">requestID = window.mozRequestAnimationFrame(callback);                // Firefox &lt; 23</div><div class="line">requestID = window.webkitRequestAnimationFrame(callback); // Older versions Chrome/Webkit</div></pre></td></tr></table></figure>
+<p>可以直接调用，也可以通过window来调用，接收一个函数作为回调，返回一个ID值，通过把这个ID值传给window.cancelAnimationFrame()可以取消该次动画。</p>
+<h2 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h2><p>就目前来说，主流现代浏览器都对它提供了支持。可以去这里查看更详细的兼容性( <a href="http://caniuse.com/#search=requestAnimationFrame" target="_blank" rel="external">http://caniuse.com/#search=requestAnimationFrame</a> )。</p>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">(function() &#123;</div><div class="line">    var lastTime = 0;</div><div class="line">    var vendors = [&apos;webkit&apos;, &apos;moz&apos;];</div><div class="line">    for(var x = 0; x &lt; vendors.length &amp;&amp; !window.requestAnimationFrame; ++x) &#123;</div><div class="line">        window.requestAnimationFrame = window[vendors[x] + &apos;RequestAnimationFrame&apos;];</div><div class="line">        window.cancelAnimationFrame = window[vendors[x] + &apos;CancelAnimationFrame&apos;] ||    // name has changed in Webkit</div><div class="line">                                      window[vendors[x] + &apos;CancelRequestAnimationFrame&apos;];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (!window.requestAnimationFrame) &#123;</div><div class="line">        window.requestAnimationFrame = function(callback, element) &#123;</div><div class="line">            var currTime = new Date().getTime();</div><div class="line">            var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));</div><div class="line">            var id = window.setTimeout(function() &#123;</div><div class="line">                callback(currTime + timeToCall);</div><div class="line">            &#125;, timeToCall);</div><div class="line">            lastTime = currTime + timeToCall;</div><div class="line">            return id;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    if (!window.cancelAnimationFrame) &#123;</div><div class="line">        window.cancelAnimationFrame = function(id) &#123;</div><div class="line">            clearTimeout(id);</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;());</div></pre></td></tr></table></figure>
+<p>这是网上比较推荐的兼容做法。</p>
+<h2 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h2><ul>
+<li><p>setInterval控制的动画与requestAnimationFrame()的效果的对比可以看(  <a href="http://www.cnblogs.com/aaronjs/p/4283109.html" target="_blank" rel="external">http://www.cnblogs.com/aaronjs/p/4283109.html</a> )</p>
+</li>
+<li><p>张鑫旭也深入浅出的阐释了该方法( <a href="http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/</a> )注意前方高能</p>
+</li>
+<li><p>结合canvas去做的动画( <a href="http://www.webhek.com/post/requestanimationframe.html" target="_blank" rel="external">http://www.webhek.com/post/requestanimationframe.html</a> )</p>
+</li>
+<li><p>一篇非常详细的介绍jquery动画源码的文章 ( <a href="http://www.iteye.com/topic/786984" target="_blank" rel="external">http://www.iteye.com/topic/786984</a> ) 虽然目前jquery已经不是主流，但也有一定的学习价值。</p>
+</li>
+<li><p>这一篇更直观的给出了jquery动画的分析图例( <a href="http://nuysoft.iteye.com/blog/1172137" target="_blank" rel="external">http://nuysoft.iteye.com/blog/1172137</a> )。</p>
+</li>
+<li><p>这一篇对translate和改变top/left进行动画做了对比( <a href="http://www.tuicool.com/articles/UfYJb2E" target="_blank" rel="external">http://www.tuicool.com/articles/UfYJb2E</a> )</p>
+</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame</a></li>
+<li><a href="https://segmentfault.com/a/1190000008246652" target="_blank" rel="external">https://segmentfault.com/a/1190000008246652</a></li>
+<li><a href="https://segmentfault.com/a/1190000004039023" target="_blank" rel="external">https://segmentfault.com/a/1190000004039023</a></li>
+</ul>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>对requestAnimationFrame做了一个封装结合vue实现scrollTop/scrollLeft滚动条滚动，详细的请看这里( <a href="https://github.com/wuyaoxing/vue-scroll-animate" target="_blank" rel="external">https://github.com/wuyaoxing/vue-scroll-animate</a> )。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-04-05T06:47:11.424Z" itemprop="dateUpdated">2017年4月5日 14:47</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/public/2017/04/05/requestAnimationFrame-实现动画/" target="_blank" rel="external">https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/</a>
+    </div>
+    <footer>
+        <a href="https://wuyaoxing.github.io/public">
+            <img src="/public/img/avatar.jpg" alt="wuyaoxing">
+            wuyaoxing
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/&title=《requestAnimationFrame 实现动画》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/&title=《requestAnimationFrame 实现动画》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《requestAnimationFrame 实现动画》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/public/2017/03/28/设计模式之6大设计原则/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">设计模式之6大设计原则</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="requestAnimationFrame-实现动画" data-title="requestAnimationFrame 实现动画" data-url="https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'yxblog', theme: 'none'};
+lazyScripts.push('/public/js/embed.min.js?v=1.4.10');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/public/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/public/img/alipay.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Welcome to my blog &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/&title=《requestAnimationFrame 实现动画》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/&title=《requestAnimationFrame 实现动画》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《requestAnimationFrame 实现动画》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuUlEQVR42u3awWrkMBAE0Pz/T2dhT4FkvFXdEpmF59PgGct6Dlidan18xMfn3+Pr56/H919+P/9qnGT85zEPHHh4eHijqT8Pl3z7/XMCm11VPAI8PDy8a7zNS3y/YDzPZPYQ8fDw8N6B9zzpzeKRj4+Hh4f3//KeJ5RclU8XDw8P7z157Wv97BTb5eRK1oKHh4d3oYv0Pp+v9/fw8PDwRl312VKR3+vUfF7OEw8PD+8C714TKy+X2+g2OXNlvxgeHh7eosXVtvnbcfJYYfh3w8PDw1vw2ovbrQDPhXIb+B4OLPDw8PBGvHzTQP4g7kXAbXiBh4eHd4PXbqjabwWYjbPZBIaHh4d3ljcbKIlu28fULjbDrAUPDw/vUM6ZhAX5mRmyTUryqBcPDw/vLC8Z+lTJO0tW22bYy6wFDw8P7xBv36DaLCebkCKPPPDw8PDu8XJAHqfmQcY+jKh3QODh4eEteGcL4rYcT9pm+2YbHh4e3ine7NXfRrftXZJfRkg8PDy8C7xNe2n2Qs9baHnYkcQWeHh4eKd4+7g2L5HPhhFR5IGHh4d3gTfbIjA78/xaT2Yy21KAh4eHd4PX/nu/2RCQt9zaQr/Ip/Hw8PAO8W6ECJslpG16RW0wPDw8vDWvbUq1MUHO25faxdYBPDw8vAUvaSbNjrywzkOKzVV4eHh4p3j3NlTl48y2LEShMx4eHt4FXr4wJN/moW37+DZLER4eHt5Z3md5tLfflOZtOFJkLXh4eHgL3ixcyIfeLDN50XwgQMHDw8Mree1i0L70k2bYptQedvnw8PDw1ry8WdWuMHlMvHl8L+eGh4eH9wa8WVmcN8w24e8PIjw8PLxf5bUR7WxzwGzMf7TB8PDw8C7w2jAiKZHbkvpUZHwga8HDw8Nbd9iTKe6nkjzi5J1/YLXBw8PD+/n3fwBLuwMnMP0EtwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/public/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/public/js/main.min.js?v=1.4.10"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/public/js/search.min.js?v=1.4.10" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
