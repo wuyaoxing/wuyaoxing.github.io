@@ -28,7 +28,7 @@ requestAnimationFrame()方法正是为了">
 <meta property="og:site_name" content="Welcome to my blog">
 <meta property="og:description" content="以往JS控制的动画大多使用setInterval 或者setTimeout 每隔一段时间刷新元素的位置，来达到动画的效果，但是这种方式并不能准确地控制动画帧率，尽管主流的浏览器对于这两个函数实现的动画都有一定的优化，但是这依然无法弥补它们性能问题。主要原因是因为JavaScript的单线程机制使得其可能在有阻塞的情况下无法精确到毫秒触发。
 requestAnimationFrame()方法正是为了">
-<meta property="og:updated_time" content="2017-04-05T06:47:11.424Z">
+<meta property="og:updated_time" content="2017-04-25T03:58:40.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="requestAnimationFrame 实现动画">
 <meta name="twitter:description" content="以往JS控制的动画大多使用setInterval 或者setTimeout 每隔一段时间刷新元素的位置，来达到动画的效果，但是这种方式并不能准确地控制动画帧率，尽管主流的浏览器对于这两个函数实现的动画都有一定的优化，但是这依然无法弥补它们性能问题。主要原因是因为JavaScript的单线程机制使得其可能在有阻塞的情况下无法精确到毫秒触发。
@@ -153,7 +153,7 @@ requestAnimationFrame()方法正是为了">
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#requestAnimationFrame"><span class="post-toc-number">1.</span> <span class="post-toc-text">requestAnimationFrame</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本语法"><span class="post-toc-number">2.</span> <span class="post-toc-text">基本语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浏览器兼容性"><span class="post-toc-number">3.</span> <span class="post-toc-text">浏览器兼容性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#封装"><span class="post-toc-number">4.</span> <span class="post-toc-text">封装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#推荐"><span class="post-toc-number">5.</span> <span class="post-toc-text">推荐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考链接"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#写在最后"><span class="post-toc-number">7.</span> <span class="post-toc-text">写在最后</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#requestAnimationFrame"><span class="post-toc-number">1.</span> <span class="post-toc-text">requestAnimationFrame</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本语法"><span class="post-toc-number">2.</span> <span class="post-toc-text">基本语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浏览器兼容性"><span class="post-toc-number">3.</span> <span class="post-toc-text">浏览器兼容性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#封装"><span class="post-toc-number">4.</span> <span class="post-toc-text">封装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#推荐"><span class="post-toc-number">5.</span> <span class="post-toc-text">推荐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考链接"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#写在最后"><span class="post-toc-number">7.</span> <span class="post-toc-text">写在最后</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#补充一个缓动动画JS小算法"><span class="post-toc-number">8.</span> <span class="post-toc-text">补充一个缓动动画JS小算法</span></a></li></ol>
         </nav>
     </aside>
     
@@ -212,7 +212,29 @@ requestAnimationFrame()方法正是为了">
 <li><a href="https://segmentfault.com/a/1190000008246652" target="_blank" rel="external">https://segmentfault.com/a/1190000008246652</a></li>
 <li><a href="https://segmentfault.com/a/1190000004039023" target="_blank" rel="external">https://segmentfault.com/a/1190000004039023</a></li>
 </ul>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>对requestAnimationFrame做了一个封装结合vue实现scrollTop/scrollLeft滚动条滚动，详细的请看这里( <a href="https://github.com/wuyaoxing/vue-scroll-animate" target="_blank" rel="external">https://github.com/wuyaoxing/vue-scroll-animate</a> )。</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>对requestAnimationFrame做了一个封装结合vue实现scrollTop/scrollLeft滚动条滚动的缓动动画，详细的请看这里( <a href="https://github.com/wuyaoxing/vue-scroll-animate" target="_blank" rel="external">https://github.com/wuyaoxing/vue-scroll-animate</a> )。</p>
+<p>0425更新</p>
+<h2 id="补充一个缓动动画JS小算法"><a href="#补充一个缓动动画JS小算法" class="headerlink" title="补充一个缓动动画JS小算法"></a>补充一个缓动动画JS小算法</h2><p>原理如下：</p>
+<p>假设要从数值A变化到数值B，如果是线性运动，则每次移动距离是一样；如果是缓动，每次移动距离不一样。那如何才能不一样呢？很简单，按比例移动就可以。</p>
+<p>例如：每次移动剩余距离的一半。</p>
+<p>用一个简单的公式表示就是：</p>
+<blockquote>
+<p>A = A + (B - A) / 2</p>
+</blockquote>
+<p>这个简单的公式就是常用、易记的缓动小算法。我们可以结合requestAnimationFrame一起使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">// requestAnimationFrame的兼容处理</div><div class="line">if (!window.requestAnimationFrame) &#123;</div><div class="line">    requestAnimationFrame = function(fn) &#123;</div><div class="line">        setTimeout(fn, 17);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var _easeout = function(start, end, rate, callback) &#123;</div><div class="line">var _end = end;</div><div class="line">if (start == end || typeof start != ‘number’) &#123;</div><div class="line">return;</div><div class="line">&#125;</div><div class="line">end = end || 0;</div><div class="line">rate = rate || 2;</div><div class="line"></div><div class="line">var step = function() &#123;</div><div class="line">start = start + (end – start) / rate;</div><div class="line">if (Math.abs(start – _end) &lt; 1) &#123;</div><div class="line"></div><div class="line">// if (start &lt; 1) &#123;</div><div class="line">console.log(&apos;end&apos;);</div><div class="line">callback(end, true);</div><div class="line">return;</div><div class="line">&#125;</div><div class="line">callback(start, false);</div><div class="line">requestAnimationFrame(step);</div><div class="line">&#125;;</div><div class="line">step();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">调用</div><div class="line">var doc = document.body.scrollTop !== undefined ? document.body : document.documentElement;</div><div class="line">console.log(&apos;start&apos;, doc.scrollTop);</div><div class="line">console.log(&apos;end&apos;, end);</div><div class="line">_easeout(doc.scrollTop, end, 2, function(value) &#123;</div><div class="line">doc.scrollTop = value;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>参数</strong>：</p>
+<ul>
+<li>start是起始位置</li>
+<li>end是目标位置</li>
+<li>rate是缓动速率</li>
+<li>callback是变化的位置回调，支持两个参数，value和isEnding，表示当前的位置值（数值）以及是否动画结束了（布尔值）</li>
+</ul>
+<p><strong>参考链接</strong></p>
+<ul>
+<li><a href="http://www.zhangxinxu.com/wordpress/2017/01/share-a-animation-algorithm-js/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2017/01/share-a-animation-algorithm-js/</a></li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2016/12/how-use-tween-js-animation-easing/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2016/12/how-use-tween-js-animation-easing/</a></li>
+</ul>
 
         </div>
 
@@ -220,7 +242,7 @@ requestAnimationFrame()方法正是为了">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-04-05T06:47:11.424Z" itemprop="dateUpdated">2017年4月5日 14:47</time>
+    最后更新时间：<time datetime="2017-04-25T03:58:40.972Z" itemprop="dateUpdated">2017年4月25日 11:58</time>
 </span><br>
 
 
@@ -296,7 +318,14 @@ requestAnimationFrame()方法正是为了">
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/public/2017/04/25/SVN异常处理之cleanup/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">SVN异常处理之cleanup</h4>
+      </a>
+    </div>
   
 
   

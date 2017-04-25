@@ -13,23 +13,41 @@
     
     
     
-    <title>我为什么要写博客 | Welcome to my blog | null</title>
+    <title>SVN异常处理之cleanup | Welcome to my blog | null</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#673AB7">
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="未完待续…">
+    <meta name="description" content="事件起因昨天下午更新代码前执行 update 然后报了错，如下：
+
+svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted
+
+提示让执行cleanup，然后执行cleanup失败。
+解决方案今天上班写了会代码去update才想起这个事。然后就是谷歌（百度）。
+网上有种说法是：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我为什么要写博客">
-<meta property="og:url" content="https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/index.html">
+<meta property="og:title" content="SVN异常处理之cleanup">
+<meta property="og:url" content="https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/index.html">
 <meta property="og:site_name" content="Welcome to my blog">
-<meta property="og:description" content="未完待续…">
-<meta property="og:updated_time" content="2017-03-20T06:43:29.154Z">
+<meta property="og:description" content="事件起因昨天下午更新代码前执行 update 然后报了错，如下：
+
+svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted
+
+提示让执行cleanup，然后执行cleanup失败。
+解决方案今天上班写了会代码去update才想起这个事。然后就是谷歌（百度）。
+网上有种说法是：">
+<meta property="og:updated_time" content="2017-04-25T07:39:30.868Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我为什么要写博客">
-<meta name="twitter:description" content="未完待续…">
+<meta name="twitter:title" content="SVN异常处理之cleanup">
+<meta name="twitter:description" content="事件起因昨天下午更新代码前执行 update 然后报了错，如下：
+
+svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted
+
+提示让执行cleanup，然后执行cleanup失败。
+解决方案今天上班写了会代码去update才想起这个事。然后就是谷歌（百度）。
+网上有种说法是：">
     
         <link rel="alternative" href="/atom.xml" title="Welcome to my blog" type="application/atom+xml">
     
@@ -106,7 +124,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">我为什么要写博客</div>
+        <div class="flex-col header-title ellipsis">SVN异常处理之cleanup</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -128,11 +146,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">我为什么要写博客</h1>
+        <h1 class="title">SVN异常处理之cleanup</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-03-11T13:06:19.000Z" itemprop="datePublished" class="page-time">
-  2017-03-11
+                <time datetime="2017-04-25T07:18:37.000Z" itemprop="datePublished" class="page-time">
+  2017-04-25
 </time>
 
 
@@ -147,13 +165,20 @@
 
 <div class="container body-wrap">
     
-<article id="post-我为什么要写博客"
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#事件起因"><span class="post-toc-number">1.</span> <span class="post-toc-text">事件起因</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决方案"><span class="post-toc-number">2.</span> <span class="post-toc-text">解决方案</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#回忆"><span class="post-toc-number">3.</span> <span class="post-toc-text">回忆</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#收获"><span class="post-toc-number">4.</span> <span class="post-toc-text">收获</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-SVN异常处理之cleanup"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">我为什么要写博客</h1>
+        <h1 class="post-card-title">SVN异常处理之cleanup</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017年03月11日 21:06" datetime="2017-03-11T13:06:19.000Z"  itemprop="datePublished">2017-03-11</time>
+            <time class="post-time" title="2017年04月25日 15:18" datetime="2017-04-25T07:18:37.000Z"  itemprop="datePublished">2017-04-25</time>
 
             
 
@@ -168,7 +193,31 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>未完待续…</p>
+            <h2 id="事件起因"><a href="#事件起因" class="headerlink" title="事件起因"></a>事件起因</h2><p>昨天下午更新代码前执行 update 然后报了错，如下：</p>
+<blockquote>
+<p>svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted</p>
+</blockquote>
+<p>提示让执行cleanup，然后执行cleanup失败。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>今天上班写了会代码去update才想起这个事。然后就是谷歌（百度）。</p>
+<p>网上有种说法是： <strong>svn提交遇到恶心的问题，可能是因为上次cleanup中断后，进入死循环了。</strong></p>
+<p>解决方法：清空SVN的队列</p>
+<ol>
+<li>下载<a href="http://www.sqlite.org/download.html" target="_blank" rel="external">sqlite3.exe</a></li>
+<li>找到你项目的.svn文件，查看是否存在wc.db</li>
+<li>将sqlite3.exe放到.svn的同级目录</li>
+<li>启动cmd执行 sqlite3 .svn/wc.db “select * from work_queue”</li>
+<li>看到一些记录，下一步执行 sqlite3 .svn/wc.db “delete from work_queue”</li>
+<li>现在在到项目里面，执行cleanup，完全没问题了，图标状态也已经恢复了。</li>
+<li>没有装图片插件，提供不了图片，遗憾。</li>
+</ol>
+<h2 id="回忆"><a href="#回忆" class="headerlink" title="回忆"></a>回忆</h2><p>事后想了下问题出现的原因</p>
+<ul>
+<li>打开svn下文件，开始工作。我打开的是axure。</li>
+<li>准备更新，axure打开的文件未关闭。</li>
+<li>在这段时间内，正好其他同事对该文件进行了删除操作，其他操作可能会出现文件合并的情况。然后svn罢工了。</li>
+<li>准备commit，开始update，报错。</li>
+</ul>
+<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><p>只有不断的踩坑，才会成长。可以说这次动手解决SVN的报错对我很有意义。</p>
 
         </div>
 
@@ -176,11 +225,11 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-03-20T06:43:29.154Z" itemprop="dateUpdated">2017年3月20日 14:43</time>
+    最后更新时间：<time datetime="2017-04-25T07:39:30.868Z" itemprop="dateUpdated">2017年4月25日 15:39</time>
 </span><br>
 
 
-        这里写留言或版权声明：<a href="/public/2017/03/11/我为什么要写博客/" target="_blank" rel="external">https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/</a>
+        这里写留言或版权声明：<a href="/public/2017/04/25/SVN异常处理之cleanup/" target="_blank" rel="external">https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/</a>
     </div>
     <footer>
         <a href="https://wuyaoxing.github.io/public">
@@ -207,7 +256,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/&title=《我为什么要写博客》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/&title=《SVN异常处理之cleanup》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -217,22 +266,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/&title=《我为什么要写博客》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/&title=《SVN异常处理之cleanup》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《我为什么要写博客》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SVN异常处理之cleanup》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -255,13 +304,20 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/public/2017/03/13/hello-world/" id="post-prev" class="post-nav-link">
+      <a href="/public/2017/04/25/实现popup公共弹窗/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Hello World</h4>
+        <h4 class="title">实现popup公共弹窗</h4>
       </a>
     </div>
   
 
+  
+    <div class="waves-block waves-effect next">
+      <a href="/public/2017/04/05/requestAnimationFrame-实现动画/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">requestAnimationFrame 实现动画</h4>
+      </a>
+    </div>
   
 </nav>
 
@@ -270,7 +326,7 @@
     
 
 <div class="comments" id="comments">
-    <div class="ds-thread" data-thread-key="我为什么要写博客" data-title="我为什么要写博客" data-url="https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/"></div>
+    <div class="ds-thread" data-thread-key="SVN异常处理之cleanup" data-title="SVN异常处理之cleanup" data-url="https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/"></div>
 </div>
 <script>
 lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
@@ -352,7 +408,7 @@ lazyScripts.push('/public/js/embed.min.js?v=1.4.10');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/&title=《我为什么要写博客》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/&title=《SVN异常处理之cleanup》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -362,22 +418,22 @@ lazyScripts.push('/public/js/embed.min.js?v=1.4.10');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/&title=《我为什么要写博客》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/&title=《SVN异常处理之cleanup》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《我为什么要写博客》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SVN异常处理之cleanup》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2017/03/11/我为什么要写博客/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -388,7 +444,7 @@ lazyScripts.push('/public/js/embed.min.js?v=1.4.10');
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3aUW4bMQwFwNz/0ukB0rXfI6XGBcZfRtbe5SiARJP8+opf3z9eP6++/u7T+9nVwy88PDy8dehPt94E9/TE2bImMePh4eHd5m029DzE10+ZLeUbCx4eHt6H8V5/ZgbODwY8PDy8/4uXB52XKpLjAQ8PD+9zeEkxog1xFlayTFdqLXh4eHgxLy8ofM77K/09PDw8vHVXvd1wDzSrRsfA453x8PDwLvDyDTcJ+nUo+b7d3udNQQQPDw/vKC9vU7Wl3ll+mxdwk1IFHh4e3j1ePvY029brsMr2WFSfxsPDw7vGO5Wnt/dMrrb/Ejw8PLwbvPwWp0q0bRl3NRCAh4eHd4HXNqLarTxPytsjJFl0PDw8vHu8TfM+esyoeDErKBedPTw8PLwFb5ZAt0WEGXh2COHh4eHd4+3HpNrke3PM5EuGh4eH9294efM+35pPbff5EfKXv+Dh4eFd4N0bUW07U7OFK2LAw8PDW/M2W3Y7cNAua/ut4sTDw8PDW/DaoavVA+J0uR0RKyrWeHh4eEd57UhTezVP0NsiRZHo4+Hh4a15eSizln/+3VkiXg9d4eHh4a15+5GmdrtPrrYl46jigoeHh3eUl/zgz1Pt2Wc2ZYtidAAPDw/vEO/U2iQb96yQkY8XFL8b8PDw8Na8Ni2eDW+1C9cufd0rw8PDw1vw8lZTMmLVptEb9pt/GB4eHt413iY5bhmzFtfseMPDw8M7y/suX3nSPCtqzJ74eBUPDw/vAm820tQuRD5AcPY9Hh4e3j3erD3fHgPt4FQ+jvAGiYeHh3eNd2roatbEyg+YPE48PDy8z+G1iXJSkpiVHopiLh4eHt6v8vahtOBN0o+Hh4d3j5cnvu3wUz4gNUvKVwMEeHh4eCPebKRpUz7IYXkSP4Th4eHhdbw/Wp+Sl1Co23EAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuUlEQVR42u3awU4rMQwF0P7/T/Mktn0t99pJYXFmhUpnxidIsbHzeMTX1/f1/Mmr6/muV0949bT3nx++8PDw8EahzwKdhZIv1vNv85jx8PDwbvPeB/E+oNl2//5pCS9ZODw8PLzf5eWlbYJPvpkX6Hh4eHh/kzdLGHny2LwXDw8P7/O8th2QvCZvcOQ92Iu9Fjw8PLyY1w7A/sLPF+d7eHh4eIuperLttt/fJ5UiTjw8PLwLvPflchtW0vydLVzb7Ig6ynh4eHhr3qwFkNyVL2V78Ctq5uLh4eFd4OU3b45hFaEsqC+TBB4eHt4HefnAPkkbSXGcFOV5iY+Hh4d3g3cqlKSA3i9iHQ8eHh7eUd4sxLbwbYvj/DzAD+U+Hh4e3gVeXrbmJfVsApWkhzZ54OHh4d3g5Q9ty9lZekhIRbR4eHh4F3izxsFmSNYmktmirPoieHh4eDHvVJHdHtjaDNvaI194eHh4e16+yc5K2/0S5M3flwMwPDw8vKO82WBphsmbwrN78fDw8D7DO7z5xt/MC+tkIV7+AfDw8PCu8fJ/8k+1Ldp3DQt6PDw8vGu8tqnajqCK/nFQNBfDNjw8PLwLvM14vi3EZ2V3e0Rg2JLAw8PDi3ntcaW2fXBqDNYeycLDw8O7x7vxmk1btt368fDw8H6L1zZS8+H97FjVpkB/5GuDh4eHt+C1CSAfjLXF9OyYwg+pBQ8PD+8ar9189+3XfAnaZPaf/xjw8PDwDvG+ymvW0s3TQz6Kqw9d4eHh4R3inRp95S+etWv3B7/w8PDwzvJm7dSkLN40c/N+7A/34uHh4V3j7Vux7fDsVB6LEgMeHh7eH+DN2gp5UsnfWAzA8PDw8D7Om7VcZ+X1fqiGh4eHd5vXhpt/0m79G96qjYuHh4e3GHe1SSJZrFPFd74QeHh4eBd4/wCOpF/0vQK9XQAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

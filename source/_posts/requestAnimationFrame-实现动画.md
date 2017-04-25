@@ -95,5 +95,70 @@ requestID = window.webkitRequestAnimationFrame(callback); // Older versions Chro
 
 ## 写在最后
 
-对requestAnimationFrame做了一个封装结合vue实现scrollTop/scrollLeft滚动条滚动，详细的请看这里( https://github.com/wuyaoxing/vue-scroll-animate )。
+对requestAnimationFrame做了一个封装结合vue实现scrollTop/scrollLeft滚动条滚动的缓动动画，详细的请看这里( https://github.com/wuyaoxing/vue-scroll-animate )。
+
+0425更新
+## 补充一个缓动动画JS小算法
+
+原理如下：
+
+假设要从数值A变化到数值B，如果是线性运动，则每次移动距离是一样；如果是缓动，每次移动距离不一样。那如何才能不一样呢？很简单，按比例移动就可以。
+
+例如：每次移动剩余距离的一半。
+
+用一个简单的公式表示就是：
+
+> A = A + (B - A) / 2
+
+这个简单的公式就是常用、易记的缓动小算法。我们可以结合requestAnimationFrame一起使用。
+
+```
+// requestAnimationFrame的兼容处理
+if (!window.requestAnimationFrame) {
+    requestAnimationFrame = function(fn) {
+        setTimeout(fn, 17);
+    };
+}
+
+var _easeout = function(start, end, rate, callback) {
+var _end = end;
+if (start == end || typeof start != ‘number’) {
+return;
+}
+end = end || 0;
+rate = rate || 2;
+
+var step = function() {
+start = start + (end – start) / rate;
+if (Math.abs(start – _end) < 1) {
+
+// if (start < 1) {
+console.log('end');
+callback(end, true);
+return;
+}
+callback(start, false);
+requestAnimationFrame(step);
+};
+step();
+};
+
+调用
+var doc = document.body.scrollTop !== undefined ? document.body : document.documentElement;
+console.log('start', doc.scrollTop);
+console.log('end', end);
+_easeout(doc.scrollTop, end, 2, function(value) {
+doc.scrollTop = value;
+});
+```
+
+**参数**：
+- start是起始位置
+- end是目标位置
+- rate是缓动速率
+- callback是变化的位置回调，支持两个参数，value和isEnding，表示当前的位置值（数值）以及是否动画结束了（布尔值）
+
+**参考链接**
+- http://www.zhangxinxu.com/wordpress/2017/01/share-a-animation-algorithm-js/
+- http://www.zhangxinxu.com/wordpress/2016/12/how-use-tween-js-animation-easing/
 

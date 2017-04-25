@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>实现popup公共弹窗 | Welcome to my blog | null</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#673AB7">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。
+基础
+基于vue编写公共popup组件
+
+面临的问题
+显示隐藏
+弹窗位置
+渲染数据
+组件通信
+
+解决思路
+显示隐藏
+ 组件是放在全局的，既然是统一的公共组件，必然就要有统一的调用方法。
+
+首先想到的是统一规范约定的路由参数,通过监听参数变化控制popup的显示和隐藏以及数据的渲染。这种方式的弊端在于，参数加的莫名其妙，我们不需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现popup公共弹窗">
+<meta property="og:url" content="https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/index.html">
+<meta property="og:site_name" content="Welcome to my blog">
+<meta property="og:description" content="看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。
+基础
+基于vue编写公共popup组件
+
+面临的问题
+显示隐藏
+弹窗位置
+渲染数据
+组件通信
+
+解决思路
+显示隐藏
+ 组件是放在全局的，既然是统一的公共组件，必然就要有统一的调用方法。
+
+首先想到的是统一规范约定的路由参数,通过监听参数变化控制popup的显示和隐藏以及数据的渲染。这种方式的弊端在于，参数加的莫名其妙，我们不需">
+<meta property="og:updated_time" content="2017-04-25T07:43:06.474Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实现popup公共弹窗">
+<meta name="twitter:description" content="看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。
+基础
+基于vue编写公共popup组件
+
+面临的问题
+显示隐藏
+弹窗位置
+渲染数据
+组件通信
+
+解决思路
+显示隐藏
+ 组件是放在全局的，既然是统一的公共组件，必然就要有统一的调用方法。
+
+首先想到的是统一规范约定的路由参数,通过监听参数变化控制popup的显示和隐藏以及数据的渲染。这种方式的弊端在于，参数加的莫名其妙，我们不需">
+    
+        <link rel="alternative" href="/atom.xml" title="Welcome to my blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/public/img/favicon.ico">
+    <link rel="stylesheet" href="/public/css/style.css?v=1.4.10">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/public/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/public/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wuyaoxing</h5>
+          <a href="mailto:82565097@qq.com" title="82565097@qq.com" class="mail">82565097@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/public/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/public/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wuyaoxing" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/public/../calendar"  >
+                <i class="icon icon-lg icon-link"></i>
+                日历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">实现popup公共弹窗</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">实现popup公共弹窗</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-04-25T07:42:29.000Z" itemprop="datePublished" class="page-time">
+  2017-04-25
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基础"><span class="post-toc-number">1.</span> <span class="post-toc-text">基础</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#面临的问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">面临的问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决思路"><span class="post-toc-number">3.</span> <span class="post-toc-text">解决思路</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-实现popup公共弹窗"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">实现popup公共弹窗</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年04月25日 15:42" datetime="2017-04-25T07:42:29.000Z"  itemprop="datePublished">2017-04-25</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
+<li>基于vue编写公共popup组件</li>
+</ul>
+<h2 id="面临的问题"><a href="#面临的问题" class="headerlink" title="面临的问题"></a>面临的问题</h2><ul>
+<li>显示隐藏</li>
+<li>弹窗位置</li>
+<li>渲染数据</li>
+<li>组件通信</li>
+</ul>
+<h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><ol>
+<li><p>显示隐藏</p>
+<p> 组件是放在全局的，既然是统一的公共组件，必然就要有统一的调用方法。</p>
+<ul>
+<li><p>首先想到的是统一规范约定的路由参数,通过监听参数变化控制popup的显示和隐藏以及数据的渲染。这种方式的弊端在于，参数加的莫名其妙，我们不需要去记录每一步的弹窗操作，如果在参数较多的情况下，会增加架构设计的复杂度，这种参数变化会显得多余。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">url?popup=/popupType/:id</div></pre></td></tr></table></figure>
+</li>
+<li><p>第二种解决方案是通过vue组件之间的通信方式，在popup组件内通过bus.$on()监听其他组件通过bus.$emit()触发操作，触发时可以传入需要的参数，在监听的回调可以接收这个参数，然后就能根据参数去做其他事情了。这也是目前的处理方式。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// import Vue from &apos;vue&apos;</div><div class="line">const bus = new Vue()</div><div class="line">// 触发</div><div class="line">bus.$emit(&apos;popup-show&apos;, params)</div><div class="line">// 监听</div><div class="line">bus.$on(&apos;popup-show&apos;, callback)</div><div class="line">// 回收</div><div class="line">bus.$off(&apos;popup-show&apos;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>组件通信</p>
+<p> 组件之间的通信也是通过vue实例对事件的监听和触发来完成的。这一步操作是在你编写的popup组件内部完成的。</p>
+</li>
+<li><p>渲染数据</p>
+<p> 渲染数据是在组件内部完成的，在控制popup显示的时候可以传入需要查询数据的id或其他标识，然后在你编写的组件内部去做数据的渲染处理。</p>
+</li>
+<li><p>弹窗位置</p>
+<p> 前面的几点都是基础，这一条才问题的关键。</p>
+<p> <strong>分析</strong></p>
+<ol>
+<li>触发popup显示的DOM元素和popup不在一个组件内。也就是说触发popup显示的DOM元素不是唯一的，可以是任意位置。</li>
+<li>获取DOM元素在浏览器里的绝对位置和相对位置</li>
+<li>获取popup组件的宽高</li>
+<li>计算定位</li>
+<li>监听resize，浏览器窗口大小改变时重新计算定位</li>
+</ol>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-04-25T07:43:06.474Z" itemprop="dateUpdated">2017年4月25日 15:43</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/public/2017/04/25/实现popup公共弹窗/" target="_blank" rel="external">https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/</a>
+    </div>
+    <footer>
+        <a href="https://wuyaoxing.github.io/public">
+            <img src="/public/img/avatar.jpg" alt="wuyaoxing">
+            wuyaoxing
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/&title=《实现popup公共弹窗》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/&title=《实现popup公共弹窗》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《实现popup公共弹窗》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/public/2017/04/25/SVN异常处理之cleanup/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SVN异常处理之cleanup</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="实现popup公共弹窗" data-title="实现popup公共弹窗" data-url="https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'yxblog', theme: 'none'};
+lazyScripts.push('/public/js/embed.min.js?v=1.4.10');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/public/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/public/img/alipay.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Welcome to my blog &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/&title=《实现popup公共弹窗》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/&title=《实现popup公共弹窗》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《实现popup公共弹窗》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACu0lEQVR42u3aQW7jMAwF0N7/0jObWRRolf5PSW4GeF4FTmLpaSHRJD8+4uvPp+vrnfzb1//6OuJq9MMXHh4e3sbUk+muJtHeT562+n2xWHh4eHjXePlU8mnlC7f6V740y/t4eHh4b8DbCXMTZB7Q4+Hh4f1fvByTTzpfAjw8PLx34LWBb0J6nc5oD4nruRY8PDy8rt5UbPHv8PlKfQ8PDw9vu6reFsN2Rjw7z3/PxMPDw7vAyzfctnUgT8LmKYnhPPHw8PCO8vI0a17gT1oK2oaDZLG+eTIeHh7eg7zXU7+R3m0bFKIQHw8PD+8aL0G2Lao7R8hOo+o37wp4eHh4F3jttp7faVMbLWlYtcPDw8Pb5uUv/3nbU56EnaV3k7nh4eHhPclrmwPyMHeWGs4PkuUbAx4eHt4hXhJ/tmX+Wfl/1l5QjIKHh4d3iNe+5O+0AuzkCtq2hjo7goeHhxfz2pf8/aTtzlGRHCHLueHh4eEd4u0Ex3nS4XBZK19oPDw8vAu8tpSVY2ZlrTaJHIXUeHh4eBd4+2FxvunnTzhVcsPDw8M7y8snmk+9TRkkjVxtAhcPDw/vSd5so98vd7VjRSceHh4e3iO8tubelrWKitwoTI/OPTw8PLxDvDYZ0W76bfjeLvqydQAPDw/vKK9tijrVUjBrUxgWz/Dw8PAe4c3K/3m4/Hqis0TG8njDw8PDu8Zri/QHBi4PmLbFAQ8PD+8ZXpI2zduh6sTrjQsPDw/vAqwtaM2SFG2ofeBbPDw8vAu8/T22TU88+RkPDw/vHm9W+poVutpGgeQ5PywxHh4e3jXeLK2Q/CtPT+ykbuuv8fDw8B7ktS/8+ZEzazKIQmo8PDy8X+XNKk3JAdAG39ES4+Hh4V3j3Sh6zVLAs6PiQBoXDw8PL+btpBjaYdowPV+OrbYtPDw8vJT3F9OcpkttLn6oAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/public/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/public/js/main.min.js?v=1.4.10"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/public/js/search.min.js?v=1.4.10" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
