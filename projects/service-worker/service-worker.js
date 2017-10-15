@@ -5,6 +5,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(VERSION).then(cache => {
       return cache.addAll([
+        './index.html',
         './index.js',
         './style.css',
         './member.png'
@@ -29,18 +30,34 @@ self.addEventListener('activate', event => {
   )
 })
 
-// 捕获请求并返回缓存数据
-self.addEventListener('fetch', event => {
-  console.log(111, event)
-  event.respondWith(caches.match(event.request).catch(() => {
-    return fetch(event.request)
-  }).then(response => {
-    caches.open(VERSION).then(cache => {
-      cache.put(event.request, response)
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(resp) {
+      return resp || fetch(event.request).then(function(response) {
+        caches.open(VERSION).then(function(cache) {
+          cache.put(event.request, response.clone());
+        });
+        return response;
+      });
+    }).catch(function() {
+      return caches.match('./member.jpg');
     })
-    return response.clone()
-  }).catch(err => {
-    console.log(err)
-    return caches.match('./member.jpg')
-  }))
-})
+  );
+});
+
+// 捕获请求并返回缓存数据
+// self.addEventListener('fetch', event => {
+//   console.log(111, event)
+//   event.respondWith(caches.match(event.request).catch(() => {
+//     return fetch(event.request)
+//   }).then(response => {
+//     console.log(response)
+//     caches.open(VERSION).then(cache => {
+//       cache.put(event.request, response)
+//     })
+//     return response.clone()
+//   }).catch(err => {
+//     console.log(err)
+//     return caches.match('./member.jpg')
+//   }))
+// })
