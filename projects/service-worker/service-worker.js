@@ -31,7 +31,7 @@ self.addEventListener('activate', event => {
 
 // 捕获请求并返回缓存数据
 self.addEventListener('fetch', event => {
-  console.log(111, event, event.respondWith)
+  console.log(111, event)
   event.respondWith(caches.match(event.request).catch(() => {
     return fetch(event.request)
   }).then(response => {
@@ -39,7 +39,8 @@ self.addEventListener('fetch', event => {
       cache.put(event.request, response)
     })
     return response.clone()
-  }).catch(() => {
+  }).catch(err => {
+    console.log(err)
     return caches.match('./member.jpg')
   }))
 })
