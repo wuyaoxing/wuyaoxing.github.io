@@ -2,10 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Welcome to my blog</title>
   
+  
   <link href="/public/atom.xml" rel="self"/>
   
   <link href="https://wuyaoxing.github.io/public/"/>
-  <updated>2017-04-25T07:43:06.474Z</updated>
+  <updated>2018-03-26T06:40:46.604Z</updated>
   <id>https://wuyaoxing.github.io/public/</id>
   
   <author>
@@ -16,59 +17,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>杂谈 - 20180326</title>
+    <link href="https://wuyaoxing.github.io/public/2018/03/26/%E6%9D%82%E8%B0%88-20180326/"/>
+    <id>https://wuyaoxing.github.io/public/2018/03/26/杂谈-20180326/</id>
+    <published>2018-03-26T06:11:41.000Z</published>
+    <updated>2018-03-26T06:40:46.604Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>杂谈</strong>（其一）<br>茶香四溢心悠远，码上心头意阑珊。<br>夜来风起雨散去，闲敲键盘乐指尖。</p><p>这首小诗记录了当前惬意的生活。<br>写代码本应该是一件开心的事情，而我却给了自己很大的压力。致使近一个月的茫然无措，每天都过得很焦虑。<br>经过一个月的心路历程的探索、深度剖析、自我反省，理解并理顺了诸多事情，也得到了深刻的启发和和寻找到内心的方向——<strong>哲学</strong>。</p><p>我们不断地经历实践、思考、理论升华、再实践、再思考、再理论升华……</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;杂谈&lt;/strong&gt;（其一）&lt;br&gt;茶香四溢心悠远，码上心头意阑珊。&lt;br&gt;夜来风起雨散去，闲敲键盘乐指尖。&lt;/p&gt;
+&lt;p&gt;这首小诗记录了当前惬意的生活。&lt;br&gt;写代码本应该是一件开心的事情，而我却给了自己很大的压力。致使近一个月的茫然无措，每天都过得很焦
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>实现popup公共弹窗</title>
     <link href="https://wuyaoxing.github.io/public/2017/04/25/%E5%AE%9E%E7%8E%B0popup%E5%85%AC%E5%85%B1%E5%BC%B9%E7%AA%97/"/>
     <id>https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/</id>
     <published>2017-04-25T07:42:29.000Z</published>
-    <updated>2017-04-25T07:43:06.474Z</updated>
+    <updated>2018-03-26T05:49:20.784Z</updated>
     
-    <content type="html"><![CDATA[<p>看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。</p>
-<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
-<li>基于vue编写公共popup组件</li>
-</ul>
-<h2 id="面临的问题"><a href="#面临的问题" class="headerlink" title="面临的问题"></a>面临的问题</h2><ul>
-<li>显示隐藏</li>
-<li>弹窗位置</li>
-<li>渲染数据</li>
-<li>组件通信</li>
-</ul>
-<h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><ol>
-<li><p>显示隐藏</p>
-<p> 组件是放在全局的，既然是统一的公共组件，必然就要有统一的调用方法。</p>
-<ul>
-<li><p>首先想到的是统一规范约定的路由参数,通过监听参数变化控制popup的显示和隐藏以及数据的渲染。这种方式的弊端在于，参数加的莫名其妙，我们不需要去记录每一步的弹窗操作，如果在参数较多的情况下，会增加架构设计的复杂度，这种参数变化会显得多余。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">url?popup=/popupType/:id</div></pre></td></tr></table></figure>
-</li>
-<li><p>第二种解决方案是通过vue组件之间的通信方式，在popup组件内通过bus.$on()监听其他组件通过bus.$emit()触发操作，触发时可以传入需要的参数，在监听的回调可以接收这个参数，然后就能根据参数去做其他事情了。这也是目前的处理方式。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// import Vue from &apos;vue&apos;</div><div class="line">const bus = new Vue()</div><div class="line">// 触发</div><div class="line">bus.$emit(&apos;popup-show&apos;, params)</div><div class="line">// 监听</div><div class="line">bus.$on(&apos;popup-show&apos;, callback)</div><div class="line">// 回收</div><div class="line">bus.$off(&apos;popup-show&apos;)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>组件通信</p>
-<p> 组件之间的通信也是通过vue实例对事件的监听和触发来完成的。这一步操作是在你编写的popup组件内部完成的。</p>
-</li>
-<li><p>渲染数据</p>
-<p> 渲染数据是在组件内部完成的，在控制popup显示的时候可以传入需要查询数据的id或其他标识，然后在你编写的组件内部去做数据的渲染处理。</p>
-</li>
-<li><p>弹窗位置</p>
-<p> 前面的几点都是基础，这一条才问题的关键。</p>
-<p> <strong>分析</strong></p>
-<ol>
-<li>触发popup显示的DOM元素和popup不在一个组件内。也就是说触发popup显示的DOM元素不是唯一的，可以是任意位置。</li>
-<li>获取DOM元素在浏览器里的绝对位置和相对位置</li>
-<li>获取popup组件的宽高</li>
-<li>计算定位</li>
-<li>监听resize，浏览器窗口大小改变时重新计算定位</li>
-</ol>
-</li>
-</ol>
-]]></content>
+    <content type="html"><![CDATA[<p>看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。</p><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul><li>基于vue编写公共popup组件</li></ul><h2 id="面临的问题"><a href="#面临的问题" class="headerlink" title="面临的问题"></a>面临的问题</h2><ul><li>显示隐藏</li><li>弹窗位置</li><li>渲染数据</li><li>组件通信</li></ul><h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><ol><li><p>显示隐藏</p><p> 组件是放在全局的，既然是统一的公共组件，必然就要有统一的调用方法。</p><ul><li><p>首先想到的是统一规范约定的路由参数,通过监听参数变化控制popup的显示和隐藏以及数据的渲染。这种方式的弊端在于，参数加的莫名其妙，我们不需要去记录每一步的弹窗操作，如果在参数较多的情况下，会增加架构设计的复杂度，这种参数变化会显得多余。</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?popup=/popupType/:id</span><br></pre></td></tr></table></figure></li><li><p>第二种解决方案是通过vue组件之间的通信方式，在popup组件内通过bus.$on()监听其他组件通过bus.$emit()触发操作，触发时可以传入需要的参数，在监听的回调可以接收这个参数，然后就能根据参数去做其他事情了。这也是目前的处理方式。</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// import Vue from &apos;vue&apos;</span><br><span class="line">const bus = new Vue()</span><br><span class="line">// 触发</span><br><span class="line">bus.$emit(&apos;popup-show&apos;, params)</span><br><span class="line">// 监听</span><br><span class="line">bus.$on(&apos;popup-show&apos;, callback)</span><br><span class="line">// 回收</span><br><span class="line">bus.$off(&apos;popup-show&apos;)</span><br></pre></td></tr></table></figure></li></ul></li><li><p>组件通信</p><p> 组件之间的通信也是通过vue实例对事件的监听和触发来完成的。这一步操作是在你编写的popup组件内部完成的。</p></li><li><p>渲染数据</p><p> 渲染数据是在组件内部完成的，在控制popup显示的时候可以传入需要查询数据的id或其他标识，然后在你编写的组件内部去做数据的渲染处理。</p></li><li><p>弹窗位置</p><p> 前面的几点都是基础，这一条才问题的关键。</p><p> <strong>分析</strong></p><ol><li>触发popup显示的DOM元素和popup不在一个组件内。也就是说触发popup显示的DOM元素不是唯一的，可以是任意位置。</li><li>获取DOM元素在浏览器里的绝对位置和相对位置</li><li>获取popup组件的宽高</li><li>计算定位</li><li>监听resize，浏览器窗口大小改变时重新计算定位</li></ol></li></ol>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。&lt;/p&gt;
+      
+      
+        &lt;p&gt;看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。&lt;/p&gt;
 &lt;h2 id=&quot;基础&quot;&gt;&lt;a href=&quot;#基础&quot; class=&quot;headerlink&quot; title=&quot;基础&quot;&gt;&lt;/a&gt;基础&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;基于vue编写公共popup组件&lt;/li&gt;
+      
     
     </summary>
     
@@ -80,40 +66,18 @@
     <link href="https://wuyaoxing.github.io/public/2017/04/25/SVN%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E4%B9%8Bcleanup/"/>
     <id>https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/</id>
     <published>2017-04-25T07:18:37.000Z</published>
-    <updated>2017-04-25T07:39:30.868Z</updated>
+    <updated>2018-03-26T05:49:20.774Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="事件起因"><a href="#事件起因" class="headerlink" title="事件起因"></a>事件起因</h2><p>昨天下午更新代码前执行 update 然后报了错，如下：</p>
-<blockquote>
-<p>svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted</p>
-</blockquote>
-<p>提示让执行cleanup，然后执行cleanup失败。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>今天上班写了会代码去update才想起这个事。然后就是谷歌（百度）。</p>
-<p>网上有种说法是： <strong>svn提交遇到恶心的问题，可能是因为上次cleanup中断后，进入死循环了。</strong></p>
-<p>解决方法：清空SVN的队列</p>
-<ol>
-<li>下载<a href="http://www.sqlite.org/download.html" target="_blank" rel="external">sqlite3.exe</a></li>
-<li>找到你项目的.svn文件，查看是否存在wc.db</li>
-<li>将sqlite3.exe放到.svn的同级目录</li>
-<li>启动cmd执行 sqlite3 .svn/wc.db “select * from work_queue”</li>
-<li>看到一些记录，下一步执行 sqlite3 .svn/wc.db “delete from work_queue”</li>
-<li>现在在到项目里面，执行cleanup，完全没问题了，图标状态也已经恢复了。</li>
-<li>没有装图片插件，提供不了图片，遗憾。</li>
-</ol>
-<h2 id="回忆"><a href="#回忆" class="headerlink" title="回忆"></a>回忆</h2><p>事后想了下问题出现的原因</p>
-<ul>
-<li>打开svn下文件，开始工作。我打开的是axure。</li>
-<li>准备更新，axure打开的文件未关闭。</li>
-<li>在这段时间内，正好其他同事对该文件进行了删除操作，其他操作可能会出现文件合并的情况。然后svn罢工了。</li>
-<li>准备commit，开始update，报错。</li>
-</ul>
-<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><p>只有不断的踩坑，才会成长。可以说这次动手解决SVN的报错对我很有意义。</p>
-]]></content>
+    <content type="html"><![CDATA[<h2 id="事件起因"><a href="#事件起因" class="headerlink" title="事件起因"></a>事件起因</h2><p>昨天下午更新代码前执行 update 然后报了错，如下：</p><blockquote><p>svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted</p></blockquote><p>提示让执行cleanup，然后执行cleanup失败。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>今天上班写了会代码去update才想起这个事。然后就是谷歌（百度）。</p><p>网上有种说法是： <strong>svn提交遇到恶心的问题，可能是因为上次cleanup中断后，进入死循环了。</strong></p><p>解决方法：清空SVN的队列</p><ol><li>下载<a href="http://www.sqlite.org/download.html" target="_blank" rel="noopener">sqlite3.exe</a></li><li>找到你项目的.svn文件，查看是否存在wc.db</li><li>将sqlite3.exe放到.svn的同级目录</li><li>启动cmd执行 sqlite3 .svn/wc.db “select * from work_queue”</li><li>看到一些记录，下一步执行 sqlite3 .svn/wc.db “delete from work_queue”</li><li>现在在到项目里面，执行cleanup，完全没问题了，图标状态也已经恢复了。</li><li>没有装图片插件，提供不了图片，遗憾。</li></ol><h2 id="回忆"><a href="#回忆" class="headerlink" title="回忆"></a>回忆</h2><p>事后想了下问题出现的原因</p><ul><li>打开svn下文件，开始工作。我打开的是axure。</li><li>准备更新，axure打开的文件未关闭。</li><li>在这段时间内，正好其他同事对该文件进行了删除操作，其他操作可能会出现文件合并的情况。然后svn罢工了。</li><li>准备commit，开始update，报错。</li></ul><h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><p>只有不断的踩坑，才会成长。可以说这次动手解决SVN的报错对我很有意义。</p>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;事件起因&quot;&gt;&lt;a href=&quot;#事件起因&quot; class=&quot;headerlink&quot; title=&quot;事件起因&quot;&gt;&lt;/a&gt;事件起因&lt;/h2&gt;&lt;p&gt;昨天下午更新代码前执行 update 然后报了错，如下：&lt;/p&gt;
+      
+      
+        &lt;h2 id=&quot;事件起因&quot;&gt;&lt;a href=&quot;#事件起因&quot; class=&quot;headerlink&quot; title=&quot;事件起因&quot;&gt;&lt;/a&gt;事件起因&lt;/h2&gt;&lt;p&gt;昨天下午更新代码前执行 update 然后报了错，如下：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;svn cleanup f
+      
     
     </summary>
     
@@ -125,70 +89,16 @@
     <link href="https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-%E5%AE%9E%E7%8E%B0%E5%8A%A8%E7%94%BB/"/>
     <id>https://wuyaoxing.github.io/public/2017/04/05/requestAnimationFrame-实现动画/</id>
     <published>2017-04-05T06:46:12.000Z</published>
-    <updated>2017-04-25T03:58:40.972Z</updated>
+    <updated>2018-03-26T05:49:20.783Z</updated>
     
-    <content type="html"><![CDATA[<p>以往JS控制的动画大多使用setInterval 或者setTimeout 每隔一段时间刷新元素的位置，来达到动画的效果，但是这种方式并不能准确地控制动画帧率，尽管主流的浏览器对于这两个函数实现的动画都有一定的优化，但是这依然无法弥补它们性能问题。主要原因是因为JavaScript的单线程机制使得其可能在有阻塞的情况下无法精确到毫秒触发。</p>
-<p>requestAnimationFrame()方法正是为了满足高性能动画的需求而提供的API，通过setInterval方法控制的动画其调用的间隔由程序员设置，而requestAnimationFrame()无须设置调用间隔， 它自动紧跟浏览器的绘制的帧率（一般浏览器的显示帧率是60fps，差不多每帧间隔16.7ms）</p>
-<p>就终极目的来说，requestAnimationFrame就是setTimeout。既然有了setTimeout，那还要requestAnimationFrame来干嘛。setTimeout会存在过度绘制，会造成帧丢失，继而导致动画断续显示。这也是setTimeout的定时器值推荐最小使用16.7ms的原因（16.7 = 1000 / 60, 即每秒60帧）。</p>
-<p>浏览器可以优化并行的动画动作，更合理的重新排列动作序列，并把能够合并的动作放在一个渲染周期内完成，从而呈现出更流畅的动画效果。requestAnimationFrame就是为了这个而出现的。我所做的事情很简单，跟着浏览器的绘制走，如果浏览设备绘制间隔是16.7ms，那我就这个间隔绘制；如果浏览设备绘制间隔是10ms, 我就10ms绘制。这样就不会存在过度绘制的问题，动画不会掉帧。通过requestAnimationFrame()，JS动画能够和CSS动画/变换或SVG SMIL动画同步发生。另外，如果在一个浏览器标签页里运行一个动画，当这个标签页不可见时，浏览器会暂停它，这会减少CPU，内存的压力，节省电池电量。</p>
-<h2 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame" target="_blank" rel="external">MDN</a>的原话：</p>
-<blockquote>
-<p>The window.requestAnimationFrame() method tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint. The method takes as an argument a callback to be invoked before the repaint.</p>
-</blockquote>
-<p>window.requestAnimationFrame() 方法告诉浏览器您希望执行动画，并请求浏览器调用指定的函数在下一次重绘之前更新动画。该方法将在重绘之前调用的回调作为参数。</p>
-<p>也可以说这个方法原理其实也就跟setTimeout/setInterval差不多，通过递归调用同一方法来不断更新画面以达到动起来的效果，但它优于setTimeout/setInterval的地方在于它是由浏览器专门为动画提供的API，在运行时浏览器会自动优化方法的调用，并且如果页面不是激活状态下的话，动画会自动暂停，有效节省了CPU开销。</p>
-<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">requestID = window.requestAnimationFrame(callback);               // Firefox 23 / IE10 / Chrome / Safari 7 (incl. iOS)</div><div class="line">requestID = window.mozRequestAnimationFrame(callback);                // Firefox &lt; 23</div><div class="line">requestID = window.webkitRequestAnimationFrame(callback); // Older versions Chrome/Webkit</div></pre></td></tr></table></figure>
-<p>可以直接调用，也可以通过window来调用，接收一个函数作为回调，返回一个ID值，通过把这个ID值传给window.cancelAnimationFrame()可以取消该次动画。</p>
-<h2 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h2><p>就目前来说，主流现代浏览器都对它提供了支持。可以去这里查看更详细的兼容性( <a href="http://caniuse.com/#search=requestAnimationFrame" target="_blank" rel="external">http://caniuse.com/#search=requestAnimationFrame</a> )。</p>
-<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">(function() &#123;</div><div class="line">    var lastTime = 0;</div><div class="line">    var vendors = [&apos;webkit&apos;, &apos;moz&apos;];</div><div class="line">    for(var x = 0; x &lt; vendors.length &amp;&amp; !window.requestAnimationFrame; ++x) &#123;</div><div class="line">        window.requestAnimationFrame = window[vendors[x] + &apos;RequestAnimationFrame&apos;];</div><div class="line">        window.cancelAnimationFrame = window[vendors[x] + &apos;CancelAnimationFrame&apos;] ||    // name has changed in Webkit</div><div class="line">                                      window[vendors[x] + &apos;CancelRequestAnimationFrame&apos;];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (!window.requestAnimationFrame) &#123;</div><div class="line">        window.requestAnimationFrame = function(callback, element) &#123;</div><div class="line">            var currTime = new Date().getTime();</div><div class="line">            var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));</div><div class="line">            var id = window.setTimeout(function() &#123;</div><div class="line">                callback(currTime + timeToCall);</div><div class="line">            &#125;, timeToCall);</div><div class="line">            lastTime = currTime + timeToCall;</div><div class="line">            return id;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    if (!window.cancelAnimationFrame) &#123;</div><div class="line">        window.cancelAnimationFrame = function(id) &#123;</div><div class="line">            clearTimeout(id);</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;());</div></pre></td></tr></table></figure>
-<p>这是网上比较推荐的兼容做法。</p>
-<h2 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h2><ul>
-<li><p>setInterval控制的动画与requestAnimationFrame()的效果的对比可以看(  <a href="http://www.cnblogs.com/aaronjs/p/4283109.html" target="_blank" rel="external">http://www.cnblogs.com/aaronjs/p/4283109.html</a> )</p>
-</li>
-<li><p>张鑫旭也深入浅出的阐释了该方法( <a href="http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/</a> )注意前方高能</p>
-</li>
-<li><p>结合canvas去做的动画( <a href="http://www.webhek.com/post/requestanimationframe.html" target="_blank" rel="external">http://www.webhek.com/post/requestanimationframe.html</a> )</p>
-</li>
-<li><p>一篇非常详细的介绍jquery动画源码的文章 ( <a href="http://www.iteye.com/topic/786984" target="_blank" rel="external">http://www.iteye.com/topic/786984</a> ) 虽然目前jquery已经不是主流，但也有一定的学习价值。</p>
-</li>
-<li><p>这一篇更直观的给出了jquery动画的分析图例( <a href="http://nuysoft.iteye.com/blog/1172137" target="_blank" rel="external">http://nuysoft.iteye.com/blog/1172137</a> )。</p>
-</li>
-<li><p>这一篇对translate和改变top/left进行动画做了对比( <a href="http://www.tuicool.com/articles/UfYJb2E" target="_blank" rel="external">http://www.tuicool.com/articles/UfYJb2E</a> )</p>
-</li>
-</ul>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame</a></li>
-<li><a href="https://segmentfault.com/a/1190000008246652" target="_blank" rel="external">https://segmentfault.com/a/1190000008246652</a></li>
-<li><a href="https://segmentfault.com/a/1190000004039023" target="_blank" rel="external">https://segmentfault.com/a/1190000004039023</a></li>
-</ul>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>对requestAnimationFrame做了一个封装结合vue实现scrollTop/scrollLeft滚动条滚动的缓动动画，详细的请看这里( <a href="https://github.com/wuyaoxing/vue-scroll-animate" target="_blank" rel="external">https://github.com/wuyaoxing/vue-scroll-animate</a> )。</p>
-<p>0425更新</p>
-<h2 id="补充一个缓动动画JS小算法"><a href="#补充一个缓动动画JS小算法" class="headerlink" title="补充一个缓动动画JS小算法"></a>补充一个缓动动画JS小算法</h2><p>原理如下：</p>
-<p>假设要从数值A变化到数值B，如果是线性运动，则每次移动距离是一样；如果是缓动，每次移动距离不一样。那如何才能不一样呢？很简单，按比例移动就可以。</p>
-<p>例如：每次移动剩余距离的一半。</p>
-<p>用一个简单的公式表示就是：</p>
-<blockquote>
-<p>A = A + (B - A) / 2</p>
-</blockquote>
-<p>这个简单的公式就是常用、易记的缓动小算法。我们可以结合requestAnimationFrame一起使用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">// requestAnimationFrame的兼容处理</div><div class="line">if (!window.requestAnimationFrame) &#123;</div><div class="line">    requestAnimationFrame = function(fn) &#123;</div><div class="line">        setTimeout(fn, 17);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var _easeout = function(start, end, rate, callback) &#123;</div><div class="line">var _end = end;</div><div class="line">if (start == end || typeof start != ‘number’) &#123;</div><div class="line">return;</div><div class="line">&#125;</div><div class="line">end = end || 0;</div><div class="line">rate = rate || 2;</div><div class="line"></div><div class="line">var step = function() &#123;</div><div class="line">start = start + (end – start) / rate;</div><div class="line">if (Math.abs(start – _end) &lt; 1) &#123;</div><div class="line"></div><div class="line">// if (start &lt; 1) &#123;</div><div class="line">console.log(&apos;end&apos;);</div><div class="line">callback(end, true);</div><div class="line">return;</div><div class="line">&#125;</div><div class="line">callback(start, false);</div><div class="line">requestAnimationFrame(step);</div><div class="line">&#125;;</div><div class="line">step();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">调用</div><div class="line">var doc = document.body.scrollTop !== undefined ? document.body : document.documentElement;</div><div class="line">console.log(&apos;start&apos;, doc.scrollTop);</div><div class="line">console.log(&apos;end&apos;, end);</div><div class="line">_easeout(doc.scrollTop, end, 2, function(value) &#123;</div><div class="line">doc.scrollTop = value;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><strong>参数</strong>：</p>
-<ul>
-<li>start是起始位置</li>
-<li>end是目标位置</li>
-<li>rate是缓动速率</li>
-<li>callback是变化的位置回调，支持两个参数，value和isEnding，表示当前的位置值（数值）以及是否动画结束了（布尔值）</li>
-</ul>
-<p><strong>参考链接</strong></p>
-<ul>
-<li><a href="http://www.zhangxinxu.com/wordpress/2017/01/share-a-animation-algorithm-js/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2017/01/share-a-animation-algorithm-js/</a></li>
-<li><a href="http://www.zhangxinxu.com/wordpress/2016/12/how-use-tween-js-animation-easing/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2016/12/how-use-tween-js-animation-easing/</a></li>
-</ul>
-]]></content>
+    <content type="html"><![CDATA[<p>以往JS控制的动画大多使用setInterval 或者setTimeout 每隔一段时间刷新元素的位置，来达到动画的效果，但是这种方式并不能准确地控制动画帧率，尽管主流的浏览器对于这两个函数实现的动画都有一定的优化，但是这依然无法弥补它们性能问题。主要原因是因为JavaScript的单线程机制使得其可能在有阻塞的情况下无法精确到毫秒触发。</p><p>requestAnimationFrame()方法正是为了满足高性能动画的需求而提供的API，通过setInterval方法控制的动画其调用的间隔由程序员设置，而requestAnimationFrame()无须设置调用间隔， 它自动紧跟浏览器的绘制的帧率（一般浏览器的显示帧率是60fps，差不多每帧间隔16.7ms）</p><p>就终极目的来说，requestAnimationFrame就是setTimeout。既然有了setTimeout，那还要requestAnimationFrame来干嘛。setTimeout会存在过度绘制，会造成帧丢失，继而导致动画断续显示。这也是setTimeout的定时器值推荐最小使用16.7ms的原因（16.7 = 1000 / 60, 即每秒60帧）。</p><p>浏览器可以优化并行的动画动作，更合理的重新排列动作序列，并把能够合并的动作放在一个渲染周期内完成，从而呈现出更流畅的动画效果。requestAnimationFrame就是为了这个而出现的。我所做的事情很简单，跟着浏览器的绘制走，如果浏览设备绘制间隔是16.7ms，那我就这个间隔绘制；如果浏览设备绘制间隔是10ms, 我就10ms绘制。这样就不会存在过度绘制的问题，动画不会掉帧。通过requestAnimationFrame()，JS动画能够和CSS动画/变换或SVG SMIL动画同步发生。另外，如果在一个浏览器标签页里运行一个动画，当这个标签页不可见时，浏览器会暂停它，这会减少CPU，内存的压力，节省电池电量。</p><h2 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame" target="_blank" rel="noopener">MDN</a>的原话：</p><blockquote><p>The window.requestAnimationFrame() method tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint. The method takes as an argument a callback to be invoked before the repaint.</p></blockquote><p>window.requestAnimationFrame() 方法告诉浏览器您希望执行动画，并请求浏览器调用指定的函数在下一次重绘之前更新动画。该方法将在重绘之前调用的回调作为参数。</p><p>也可以说这个方法原理其实也就跟setTimeout/setInterval差不多，通过递归调用同一方法来不断更新画面以达到动起来的效果，但它优于setTimeout/setInterval的地方在于它是由浏览器专门为动画提供的API，在运行时浏览器会自动优化方法的调用，并且如果页面不是激活状态下的话，动画会自动暂停，有效节省了CPU开销。</p><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">requestID = window.requestAnimationFrame(callback);               // Firefox 23 / IE10 / Chrome / Safari 7 (incl. iOS)</span><br><span class="line">requestID = window.mozRequestAnimationFrame(callback);                // Firefox &lt; 23</span><br><span class="line">requestID = window.webkitRequestAnimationFrame(callback); // Older versions Chrome/Webkit</span><br></pre></td></tr></table></figure><p>可以直接调用，也可以通过window来调用，接收一个函数作为回调，返回一个ID值，通过把这个ID值传给window.cancelAnimationFrame()可以取消该次动画。</p><h2 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h2><p>就目前来说，主流现代浏览器都对它提供了支持。可以去这里查看更详细的兼容性( <a href="http://caniuse.com/#search=requestAnimationFrame" target="_blank" rel="noopener">http://caniuse.com/#search=requestAnimationFrame</a> )。</p><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">(function() &#123;</span><br><span class="line">    var lastTime = 0;</span><br><span class="line">    var vendors = [&apos;webkit&apos;, &apos;moz&apos;];</span><br><span class="line">    for(var x = 0; x &lt; vendors.length &amp;&amp; !window.requestAnimationFrame; ++x) &#123;</span><br><span class="line">        window.requestAnimationFrame = window[vendors[x] + &apos;RequestAnimationFrame&apos;];</span><br><span class="line">        window.cancelAnimationFrame = window[vendors[x] + &apos;CancelAnimationFrame&apos;] ||    // name has changed in Webkit</span><br><span class="line">                                      window[vendors[x] + &apos;CancelRequestAnimationFrame&apos;];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (!window.requestAnimationFrame) &#123;</span><br><span class="line">        window.requestAnimationFrame = function(callback, element) &#123;</span><br><span class="line">            var currTime = new Date().getTime();</span><br><span class="line">            var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));</span><br><span class="line">            var id = window.setTimeout(function() &#123;</span><br><span class="line">                callback(currTime + timeToCall);</span><br><span class="line">            &#125;, timeToCall);</span><br><span class="line">            lastTime = currTime + timeToCall;</span><br><span class="line">            return id;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    if (!window.cancelAnimationFrame) &#123;</span><br><span class="line">        window.cancelAnimationFrame = function(id) &#123;</span><br><span class="line">            clearTimeout(id);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure><p>这是网上比较推荐的兼容做法。</p><h2 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h2><ul><li><p>setInterval控制的动画与requestAnimationFrame()的效果的对比可以看(  <a href="http://www.cnblogs.com/aaronjs/p/4283109.html" target="_blank" rel="noopener">http://www.cnblogs.com/aaronjs/p/4283109.html</a> )</p></li><li><p>张鑫旭也深入浅出的阐释了该方法( <a href="http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/" target="_blank" rel="noopener">http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/</a> )注意前方高能</p></li><li><p>结合canvas去做的动画( <a href="http://www.webhek.com/post/requestanimationframe.html" target="_blank" rel="noopener">http://www.webhek.com/post/requestanimationframe.html</a> )</p></li><li><p>一篇非常详细的介绍jquery动画源码的文章 ( <a href="http://www.iteye.com/topic/786984" target="_blank" rel="noopener">http://www.iteye.com/topic/786984</a> ) 虽然目前jquery已经不是主流，但也有一定的学习价值。</p></li><li><p>这一篇更直观的给出了jquery动画的分析图例( <a href="http://nuysoft.iteye.com/blog/1172137" target="_blank" rel="noopener">http://nuysoft.iteye.com/blog/1172137</a> )。</p></li><li><p>这一篇对translate和改变top/left进行动画做了对比( <a href="http://www.tuicool.com/articles/UfYJb2E" target="_blank" rel="noopener">http://www.tuicool.com/articles/UfYJb2E</a> )</p></li></ul><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame</a></li><li><a href="https://segmentfault.com/a/1190000008246652" target="_blank" rel="noopener">https://segmentfault.com/a/1190000008246652</a></li><li><a href="https://segmentfault.com/a/1190000004039023" target="_blank" rel="noopener">https://segmentfault.com/a/1190000004039023</a></li></ul><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>对requestAnimationFrame做了一个封装结合vue实现scrollTop/scrollLeft滚动条滚动的缓动动画，详细的请看这里( <a href="https://github.com/wuyaoxing/vue-scroll-animate" target="_blank" rel="noopener">https://github.com/wuyaoxing/vue-scroll-animate</a> )。</p><p>0425更新</p><h2 id="补充一个缓动动画JS小算法"><a href="#补充一个缓动动画JS小算法" class="headerlink" title="补充一个缓动动画JS小算法"></a>补充一个缓动动画JS小算法</h2><p>原理如下：</p><p>假设要从数值A变化到数值B，如果是线性运动，则每次移动距离是一样；如果是缓动，每次移动距离不一样。那如何才能不一样呢？很简单，按比例移动就可以。</p><p>例如：每次移动剩余距离的一半。</p><p>用一个简单的公式表示就是：</p><blockquote><p>A = A + (B - A) / 2</p></blockquote><p>这个简单的公式就是常用、易记的缓动小算法。我们可以结合requestAnimationFrame一起使用。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// requestAnimationFrame的兼容处理</span><br><span class="line">if (!window.requestAnimationFrame) &#123;</span><br><span class="line">    requestAnimationFrame = function(fn) &#123;</span><br><span class="line">        setTimeout(fn, 17);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var _easeout = function(start, end, rate, callback) &#123;</span><br><span class="line">var _end = end;</span><br><span class="line">if (start == end || typeof start != ‘number’) &#123;</span><br><span class="line">return;</span><br><span class="line">&#125;</span><br><span class="line">end = end || 0;</span><br><span class="line">rate = rate || 2;</span><br><span class="line"></span><br><span class="line">var step = function() &#123;</span><br><span class="line">start = start + (end – start) / rate;</span><br><span class="line">if (Math.abs(start – _end) &lt; 1) &#123;</span><br><span class="line"></span><br><span class="line">// if (start &lt; 1) &#123;</span><br><span class="line">console.log(&apos;end&apos;);</span><br><span class="line">callback(end, true);</span><br><span class="line">return;</span><br><span class="line">&#125;</span><br><span class="line">callback(start, false);</span><br><span class="line">requestAnimationFrame(step);</span><br><span class="line">&#125;;</span><br><span class="line">step();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">调用</span><br><span class="line">var doc = document.body.scrollTop !== undefined ? document.body : document.documentElement;</span><br><span class="line">console.log(&apos;start&apos;, doc.scrollTop);</span><br><span class="line">console.log(&apos;end&apos;, end);</span><br><span class="line">_easeout(doc.scrollTop, end, 2, function(value) &#123;</span><br><span class="line">doc.scrollTop = value;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p><strong>参数</strong>：</p><ul><li>start是起始位置</li><li>end是目标位置</li><li>rate是缓动速率</li><li>callback是变化的位置回调，支持两个参数，value和isEnding，表示当前的位置值（数值）以及是否动画结束了（布尔值）</li></ul><p><strong>参考链接</strong></p><ul><li><a href="http://www.zhangxinxu.com/wordpress/2017/01/share-a-animation-algorithm-js/" target="_blank" rel="noopener">http://www.zhangxinxu.com/wordpress/2017/01/share-a-animation-algorithm-js/</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2016/12/how-use-tween-js-animation-easing/" target="_blank" rel="noopener">http://www.zhangxinxu.com/wordpress/2016/12/how-use-tween-js-animation-easing/</a></li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;以往JS控制的动画大多使用setInterval 或者setTimeout 每隔一段时间刷新元素的位置，来达到动画的效果，但是这种方式并不能准确地控制动画帧率，尽管主流的浏览器对于这两个函数实现的动画都有一定的优化，但是这依然无法弥补它们性能问题。主要原因是因为JavaSc
+      
+      
+        &lt;p&gt;以往JS控制的动画大多使用setInterval 或者setTimeout 每隔一段时间刷新元素的位置，来达到动画的效果，但是这种方式并不能准确地控制动画帧率，尽管主流的浏览器对于这两个函数实现的动画都有一定的优化，但是这依然无法弥补它们性能问题。主要原因是因为JavaSc
+      
     
     </summary>
     
@@ -200,13 +110,16 @@
     <link href="https://wuyaoxing.github.io/public/2017/03/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B6%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"/>
     <id>https://wuyaoxing.github.io/public/2017/03/28/设计模式之6大设计原则/</id>
     <published>2017-03-28T07:39:08.000Z</published>
-    <updated>2017-03-28T07:41:18.126Z</updated>
+    <updated>2018-03-26T05:49:20.788Z</updated>
     
     <content type="html"><![CDATA[<h2 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h2><h2 id="里式替换原则"><a href="#里式替换原则" class="headerlink" title="里式替换原则"></a>里式替换原则</h2><h2 id="依赖倒置原则"><a href="#依赖倒置原则" class="headerlink" title="依赖倒置原则"></a>依赖倒置原则</h2><h2 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h2><h2 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h2><h2 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h2>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;单一职责原则&quot;&gt;&lt;a href=&quot;#单一职责原则&quot; class=&quot;headerlink&quot; title=&quot;单一职责原则&quot;&gt;&lt;/a&gt;单一职责原则&lt;/h2&gt;&lt;h2 id=&quot;里式替换原则&quot;&gt;&lt;a href=&quot;#里式替换原则&quot; class=&quot;headerlink&quot; titl
+      
+      
+        &lt;h2 id=&quot;单一职责原则&quot;&gt;&lt;a href=&quot;#单一职责原则&quot; class=&quot;headerlink&quot; title=&quot;单一职责原则&quot;&gt;&lt;/a&gt;单一职责原则&lt;/h2&gt;&lt;h2 id=&quot;里式替换原则&quot;&gt;&lt;a href=&quot;#里式替换原则&quot; class=&quot;headerlink&quot; titl
+      
     
     </summary>
     
@@ -218,43 +131,17 @@
     <link href="https://wuyaoxing.github.io/public/2017/03/28/Web-Collection/"/>
     <id>https://wuyaoxing.github.io/public/2017/03/28/Web-Collection/</id>
     <published>2017-03-28T07:20:21.000Z</published>
-    <updated>2017-03-28T07:21:01.840Z</updated>
+    <updated>2018-03-26T05:49:20.775Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="框架类"><a href="#框架类" class="headerlink" title="框架类"></a>框架类</h2><ul>
-<li><a href="http://cn.vuejs.org/" target="_blank" rel="external">vuejs中文文档</a></li>
-<li><a href="http://router.vuejs.org/zh-cn/" target="_blank" rel="external">vue-router</a></li>
-<li><a href="http://vuex.vuejs.org/zh-cn/" target="_blank" rel="external">vuex</a></li>
-<li><a href="http://es6.ruanyifeng.com/#README" target="_blank" rel="external">es6阮一峰</a></li>
-<li><a href="http://www.bootcss.com/p/lesscss/" target="_blank" rel="external">less中文</a></li>
-<li><a href="http://momentjs.cn/docs/" target="_blank" rel="external">momentjs</a></li>
-<li><a href="http://www.css88.com/doc/lodash/" target="_blank" rel="external">lodash</a><br>-</li>
-</ul>
-<h2 id="博客类"><a href="#博客类" class="headerlink" title="博客类"></a>博客类</h2><ul>
-<li><p><a href="https://github.com/QingWei-Li/docsify/" target="_blank" rel="external">文档模板</a></p>
-</li>
-<li><p><a href="https://github.com/teambition/teambition-sdk/" target="_blank" rel="external">teambition-sdk</a></p>
-</li>
-<li><p><a href="https://github.com/pablohpsilva/vuejs-component-style-guide/blob/master/README-CN.md" target="_blank" rel="external">vuejs编码规范</a></p>
-</li>
-<li><p><a href="https://github.com/xufei/blog/issues/42" target="_blank" rel="external">徐飞-复杂单页应用的数据层设计</a></p>
-</li>
-<li><p><a href="https://github.com/DDFE/DDFE-blog" target="_blank" rel="external">DDFE-blog</a></p>
-</li>
-</ul>
-<h2 id="源码类"><a href="#源码类" class="headerlink" title="源码类"></a>源码类</h2><h2 id="对标网站"><a href="#对标网站" class="headerlink" title="对标网站"></a>对标网站</h2><ul>
-<li><a href="https://enterprise.taskworld.com" target="_blank" rel="external">taskworld</a></li>
-<li><a href="https://trello.com/" target="_blank" rel="external">trello</a></li>
-<li><a href="https://www.teambition.com/" target="_blank" rel="external">teambition</a></li>
-</ul>
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul>
-<li><a href="http://bccto.me/" target="_blank" rel="external">10分钟邮箱</a></li>
-</ul>
-]]></content>
+    <content type="html"><![CDATA[<h2 id="框架类"><a href="#框架类" class="headerlink" title="框架类"></a>框架类</h2><ul><li><a href="http://cn.vuejs.org/" target="_blank" rel="noopener">vuejs中文文档</a></li><li><a href="http://router.vuejs.org/zh-cn/" target="_blank" rel="noopener">vue-router</a></li><li><a href="http://vuex.vuejs.org/zh-cn/" target="_blank" rel="noopener">vuex</a></li><li><a href="http://es6.ruanyifeng.com/#README" target="_blank" rel="noopener">es6阮一峰</a></li><li><a href="http://www.bootcss.com/p/lesscss/" target="_blank" rel="noopener">less中文</a></li><li><a href="http://momentjs.cn/docs/" target="_blank" rel="noopener">momentjs</a></li><li><a href="http://www.css88.com/doc/lodash/" target="_blank" rel="noopener">lodash</a><br>-</li></ul><h2 id="博客类"><a href="#博客类" class="headerlink" title="博客类"></a>博客类</h2><ul><li><p><a href="https://github.com/QingWei-Li/docsify/" target="_blank" rel="noopener">文档模板</a></p></li><li><p><a href="https://github.com/teambition/teambition-sdk/" target="_blank" rel="noopener">teambition-sdk</a></p></li><li><p><a href="https://github.com/pablohpsilva/vuejs-component-style-guide/blob/master/README-CN.md" target="_blank" rel="noopener">vuejs编码规范</a></p></li><li><p><a href="https://github.com/xufei/blog/issues/42" target="_blank" rel="noopener">徐飞-复杂单页应用的数据层设计</a></p></li><li><p><a href="https://github.com/DDFE/DDFE-blog" target="_blank" rel="noopener">DDFE-blog</a></p></li></ul><h2 id="源码类"><a href="#源码类" class="headerlink" title="源码类"></a>源码类</h2><h2 id="对标网站"><a href="#对标网站" class="headerlink" title="对标网站"></a>对标网站</h2><ul><li><a href="https://enterprise.taskworld.com" target="_blank" rel="noopener">taskworld</a></li><li><a href="https://trello.com/" target="_blank" rel="noopener">trello</a></li><li><a href="https://www.teambition.com/" target="_blank" rel="noopener">teambition</a></li></ul><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul><li><a href="http://bccto.me/" target="_blank" rel="noopener">10分钟邮箱</a></li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;框架类&quot;&gt;&lt;a href=&quot;#框架类&quot; class=&quot;headerlink&quot; title=&quot;框架类&quot;&gt;&lt;/a&gt;框架类&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://cn.vuejs.org/&quot; target=&quot;_blank&quot; rel=&quot;external
+      
+      
+        &lt;h2 id=&quot;框架类&quot;&gt;&lt;a href=&quot;#框架类&quot; class=&quot;headerlink&quot; title=&quot;框架类&quot;&gt;&lt;/a&gt;框架类&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://cn.vuejs.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener
+      
     
     </summary>
     
@@ -266,58 +153,20 @@
     <link href="https://wuyaoxing.github.io/public/2017/03/28/%E7%94%98%E7%89%B9%E5%9B%BE%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/"/>
     <id>https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/</id>
     <published>2017-03-28T07:16:02.000Z</published>
-    <updated>2017-03-28T07:33:37.442Z</updated>
+    <updated>2018-03-26T05:49:20.787Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="甘特图介绍"><a href="#甘特图介绍" class="headerlink" title="甘特图介绍"></a>甘特图介绍</h2><p>甘特图主要有三种类型:</p>
-<ul>
-<li>甘特计划图 　　</li>
-<li>甘特进度图 　　</li>
-<li>甘特载负图</li>
-</ul>
-<p>甘特图的作用：</p>
-<ul>
-<li>计划项目时间</li>
-<li>跟踪项目进度</li>
-<li>测定工作负荷</li>
-</ul>
-<p>怎么做：</p>
-<ul>
-<li>在纵轴列出项目中的各项活动</li>
-<li>横轴列出连续的各个时间段</li>
-<li>在坐标图中标出每项工作所需的时间长度的横条</li>
-</ul>
-<p>甘特图适用范围：</p>
-<p>甘特图（Gantt Chart）由亨利·甘特于1910年开发的，他通过条状图来显示项目，进度，和其他时间相关的系统进展的内在关系随着时间进展的情况。</p>
-<p>其中，横轴表示时间，纵轴表示活动（项目）。线条表示在整个期间上计划和实际的活动完成情况。甘特图可以直观地表明任务计划在什么时候进行，及实际进展与计划要求的对比。管理者由此可以非常便利地弄清每一项任务（项目）还剩下哪些工作要做，并可评估工作是提前还是滞后，亦或正常进行。除此以外，甘特图还有简单、醒目和便于编制等特点。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">gantt</div><div class="line">dateFormat YYYY-MM-DD</div><div class="line">section 房地产开发</div><div class="line">T1: 2017-03-01, 90d</div><div class="line">section 医疗开发</div><div class="line">T2: 2017-03-28, 80d</div><div class="line">section 经济开发</div><div class="line">T3: 2017-06-02, 60d</div></pre></td></tr></table></figure>
-<p>甘特图的含义：</p>
-<ol>
-<li>以图形或表格的形式显示活动；</li>
-<li>现在是一种通用的显示进度的方法；</li>
-<li>构造时应包括实际日历天和持续时间，并且不要将周末和节假日算在进度之内。</li>
-</ol>
-<p>甘特图的优点：</p>
-<ul>
-<li>图形化概要，通用技术，易于理解；</li>
-<li>中小型项目一般不超过30项活动；</li>
-<li>有专业软件支持，无须担心复杂计算和分析</li>
-</ul>
-<p>甘特图的局限：</p>
-<ul>
-<li>甘特图事实上仅仅部分地反映了项目管理的三重约束（时间、成本和范围），因为它主要关注进程管理（时间）；</li>
-<li>软件的不足。尽管能够通过项目管理软件描绘出项目活动的内在关系，但是如果关系过多，纷繁芜杂的线图必将增加甘特图的阅读难度；</li>
-<li>为了不至于转移阅读者的注意力，还最好避免使用栅格。</li>
-</ul>
-<h2 id="甘特图技术分析"><a href="#甘特图技术分析" class="headerlink" title="甘特图技术分析"></a>甘特图技术分析</h2><p>项目中的技术要点</p>
-]]></content>
+    <content type="html"><![CDATA[<h2 id="甘特图介绍"><a href="#甘特图介绍" class="headerlink" title="甘特图介绍"></a>甘特图介绍</h2><p>甘特图主要有三种类型:</p><ul><li>甘特计划图 　　</li><li>甘特进度图 　　</li><li>甘特载负图</li></ul><p>甘特图的作用：</p><ul><li>计划项目时间</li><li>跟踪项目进度</li><li>测定工作负荷</li></ul><p>怎么做：</p><ul><li>在纵轴列出项目中的各项活动</li><li>横轴列出连续的各个时间段</li><li>在坐标图中标出每项工作所需的时间长度的横条</li></ul><p>甘特图适用范围：</p><p>甘特图（Gantt Chart）由亨利·甘特于1910年开发的，他通过条状图来显示项目，进度，和其他时间相关的系统进展的内在关系随着时间进展的情况。</p><p>其中，横轴表示时间，纵轴表示活动（项目）。线条表示在整个期间上计划和实际的活动完成情况。甘特图可以直观地表明任务计划在什么时候进行，及实际进展与计划要求的对比。管理者由此可以非常便利地弄清每一项任务（项目）还剩下哪些工作要做，并可评估工作是提前还是滞后，亦或正常进行。除此以外，甘特图还有简单、醒目和便于编制等特点。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line">dateFormat YYYY-MM-DD</span><br><span class="line">section 房地产开发</span><br><span class="line">T1: 2017-03-01, 90d</span><br><span class="line">section 医疗开发</span><br><span class="line">T2: 2017-03-28, 80d</span><br><span class="line">section 经济开发</span><br><span class="line">T3: 2017-06-02, 60d</span><br></pre></td></tr></table></figure><p>甘特图的含义：</p><ol><li>以图形或表格的形式显示活动；</li><li>现在是一种通用的显示进度的方法；</li><li>构造时应包括实际日历天和持续时间，并且不要将周末和节假日算在进度之内。</li></ol><p>甘特图的优点：</p><ul><li>图形化概要，通用技术，易于理解；</li><li>中小型项目一般不超过30项活动；</li><li>有专业软件支持，无须担心复杂计算和分析</li></ul><p>甘特图的局限：</p><ul><li>甘特图事实上仅仅部分地反映了项目管理的三重约束（时间、成本和范围），因为它主要关注进程管理（时间）；</li><li>软件的不足。尽管能够通过项目管理软件描绘出项目活动的内在关系，但是如果关系过多，纷繁芜杂的线图必将增加甘特图的阅读难度；</li><li>为了不至于转移阅读者的注意力，还最好避免使用栅格。</li></ul><h2 id="甘特图技术分析"><a href="#甘特图技术分析" class="headerlink" title="甘特图技术分析"></a>甘特图技术分析</h2><p>项目中的技术要点</p>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;甘特图介绍&quot;&gt;&lt;a href=&quot;#甘特图介绍&quot; class=&quot;headerlink&quot; title=&quot;甘特图介绍&quot;&gt;&lt;/a&gt;甘特图介绍&lt;/h2&gt;&lt;p&gt;甘特图主要有三种类型:&lt;/p&gt;
+      
+      
+        &lt;h2 id=&quot;甘特图介绍&quot;&gt;&lt;a href=&quot;#甘特图介绍&quot; class=&quot;headerlink&quot; title=&quot;甘特图介绍&quot;&gt;&lt;/a&gt;甘特图介绍&lt;/h2&gt;&lt;p&gt;甘特图主要有三种类型:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;甘特计划图 　　&lt;/li&gt;
 &lt;li&gt;甘特进度图 　　&lt;/li&gt;
 &lt;
+      
     
     </summary>
     
@@ -329,80 +178,17 @@
     <link href="https://wuyaoxing.github.io/public/2017/03/28/ESLint%E5%92%8Cvue%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B7%A5%E5%85%B7/"/>
     <id>https://wuyaoxing.github.io/public/2017/03/28/ESLint和vue的一些工具/</id>
     <published>2017-03-28T07:10:02.000Z</published>
-    <updated>2017-03-28T07:13:07.028Z</updated>
+    <updated>2018-03-26T05:49:20.772Z</updated>
     
-    <content type="html"><![CDATA[<p>任何实际项目的开发都不仅仅是完成编码，规范的开发流程和严谨的测试都是不可或缺的。合理使用各种工具来进行测试开发与调试，能极大地提升编码的效率以及团队协作效率，使开发过程事半功倍，对于提高代码质量、稳定线上服务至关重要。</p>
-<h2 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a>ESLint</h2><p>在日常的团队开发中，为了避免出现低级bug和统一代码风格，通常会在开发之前约定一套编码规范。使用 Lint 工具和代码风格检测工具，则可以辅助编码规范执行，有效控制代码质量。</p>
-<p>ESLint 由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写， 2013 年发布第一个版本。 NCZ 的初衷不是重复造一个轮子，而是在实际需求得不到 JSHint 团队响应 的情况下做出的选择：以可扩展、每条规则独立、不内置编码风格为理念编写一个 lint 工具。</p>
-<p>ESLint被设计为完全可配置的，主要有两种方式来配置ESLint：</p>
-<ul>
-<li>在注释中配置：使用JavaScript注释直接把配置嵌入到文件中。</li>
-<li>配置文件：使用一个JSON或YAML文件来为全部的目录和它的子目录指定配置信息。</li>
-</ul>
-<p>有很多信息是可以被配置的：</p>
-<ul>
-<li>Environments：你的脚步将要运行在什么环境中。如browser、node环境变量、es6环境变量、mocha环境变量等。</li>
-</ul>
-<blockquote>
-<p>{<br>   “env”: {<br>       “browser”: true,<br>       “node”: true<br>   }<br>}</p>
-</blockquote>
-<ul>
-<li>Globals：额外的全局变量。如指定你所要使用的全局变量，true代表允许重写、false代表不允许重写。</li>
-</ul>
-<blockquote>
-<p>{<br>   “globals”: {<br>       “var1”: true,<br>       “var2”: false<br>   }<br>}</p>
-</blockquote>
-<ul>
-<li>Rules：开启规则和发生错误时报告的等级。</li>
-</ul>
-<p>ESLint 主要有以下特点：</p>
-<ul>
-<li>默认规则包含所有 JSLint、JSHint 中存在的规则，易迁移；</li>
-<li>规则可配置性高：可设置「警告」、「错误」两个 error 等级，或者直接禁用；</li>
-<li>包含代码风格检测的规则（可以丢掉 JSCS 了）；</li>
-<li>支持插件扩展、自定义规则。</li>
-</ul>
-<p>EsLint提供以下几种校验：</p>
-<ul>
-<li>语法错误校验</li>
-<li>不重要或丢失的标点符号，如分号</li>
-<li>没法运行到的代码块（使用过WebStorm的童鞋应该了解）</li>
-<li>未被使用的参数提醒</li>
-<li>漏掉的结束符，如}</li>
-<li>确保样式的统一规则，如sass或者less</li>
-<li>检查变量的命名</li>
-</ul>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><blockquote>
-<p>npm install -g eslint</p>
-</blockquote>
-<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>如果你的项目还没有配置文件（.eslintrc）的话，可以通过指定–init参数来生成一个新的配置文件：</p>
-<blockquote>
-<p>eslint –init</p>
-</blockquote>
-<p>然后，就可以在任何JavaScript中运行ESLint了。.eslintrc 放在项目根目录，则会应用到整个项目；如果子目录中也包含 .eslintrc 文件，则子目录会忽略根目录的配置文件，应用该目录中的配置文件。这样可以方便地对不同环境的代码应用不同的规则。</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>运行eslint –init后，会在当前目录下生成一个.eslintrc文件，你可以在这个文件中配置一些规则。</p>
-<p>规则的错误等级有三种：</p>
-<ul>
-<li>0：关闭规则。</li>
-<li>1：打开规则，并且作为一个警告（不影响exit code）。</li>
-<li>2：打开规则，并且作为一个错误（exit code将会是1）。</li>
-</ul>
-<p>具体的规则可以在官网 (<a href="http://eslint.org/" target="_blank" rel="external">http://eslint.org/</a>) 上找到，或者使用别人写好的配置，例如eslint-config-airbnb (<a href="https://www.npmjs.com/package/eslint-config-airbnb" target="_blank" rel="external">https://www.npmjs.com/package/eslint-config-airbnb</a>) 。</p>
-<p>在团队协作中，统一的代码风格更具可读性、可维护性。ESLint 内置了一系列有关代码风格的 规则 ，可以根据团队的编码规范设置。</p>
-<h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><p>开发vuejs项目是可能会遇到一个问题，就是.vue后缀文件中的内容是不会被自动高亮显示的，感觉像是在记事本中开发一样。不过现在你不用担心，各大流行的IDE基本都已经支持.vue文件的语法高亮了，例如Sublime、WebStorm、idea、VSC等，就像安装普通插件一样安装vue插件。</p>
-<h2 id="调试工具"><a href="#调试工具" class="headerlink" title="调试工具"></a>调试工具</h2><p>vuejs团队为大家提供了Chrome下的调试工具，可以在Chrome的插件商定找到并安装。国内可能需要翻墙。我们可以到github上找到 <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">vue-devtools</a>,然后按照文档编译安装。</p>
-<p>安装成功后，打开开发者工具，在工具栏中就会出现Vue Devtools选项。该工具可以展示出各个组件的层级结构、组件当前状态、组件的prop值。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="http://www.tuicool.com/articles/7JZZJzn" target="_blank" rel="external">http://www.tuicool.com/articles/7JZZJzn</a></li>
-<li><a href="http://www.jianshu.com/p/2bcdce1dc8d4" target="_blank" rel="external">http://www.jianshu.com/p/2bcdce1dc8d4</a></li>
-<li>vuejs权威指南</li>
-</ul>
-]]></content>
+    <content type="html"><![CDATA[<p>任何实际项目的开发都不仅仅是完成编码，规范的开发流程和严谨的测试都是不可或缺的。合理使用各种工具来进行测试开发与调试，能极大地提升编码的效率以及团队协作效率，使开发过程事半功倍，对于提高代码质量、稳定线上服务至关重要。</p><h2 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a>ESLint</h2><p>在日常的团队开发中，为了避免出现低级bug和统一代码风格，通常会在开发之前约定一套编码规范。使用 Lint 工具和代码风格检测工具，则可以辅助编码规范执行，有效控制代码质量。</p><p>ESLint 由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写， 2013 年发布第一个版本。 NCZ 的初衷不是重复造一个轮子，而是在实际需求得不到 JSHint 团队响应 的情况下做出的选择：以可扩展、每条规则独立、不内置编码风格为理念编写一个 lint 工具。</p><p>ESLint被设计为完全可配置的，主要有两种方式来配置ESLint：</p><ul><li>在注释中配置：使用JavaScript注释直接把配置嵌入到文件中。</li><li>配置文件：使用一个JSON或YAML文件来为全部的目录和它的子目录指定配置信息。</li></ul><p>有很多信息是可以被配置的：</p><ul><li>Environments：你的脚步将要运行在什么环境中。如browser、node环境变量、es6环境变量、mocha环境变量等。</li></ul><blockquote><p>{<br>   “env”: {<br>       “browser”: true,<br>       “node”: true<br>   }<br>}</p></blockquote><ul><li>Globals：额外的全局变量。如指定你所要使用的全局变量，true代表允许重写、false代表不允许重写。</li></ul><blockquote><p>{<br>   “globals”: {<br>       “var1”: true,<br>       “var2”: false<br>   }<br>}</p></blockquote><ul><li>Rules：开启规则和发生错误时报告的等级。</li></ul><p>ESLint 主要有以下特点：</p><ul><li>默认规则包含所有 JSLint、JSHint 中存在的规则，易迁移；</li><li>规则可配置性高：可设置「警告」、「错误」两个 error 等级，或者直接禁用；</li><li>包含代码风格检测的规则（可以丢掉 JSCS 了）；</li><li>支持插件扩展、自定义规则。</li></ul><p>EsLint提供以下几种校验：</p><ul><li>语法错误校验</li><li>不重要或丢失的标点符号，如分号</li><li>没法运行到的代码块（使用过WebStorm的童鞋应该了解）</li><li>未被使用的参数提醒</li><li>漏掉的结束符，如}</li><li>确保样式的统一规则，如sass或者less</li><li>检查变量的命名</li></ul><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><blockquote><p>npm install -g eslint</p></blockquote><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>如果你的项目还没有配置文件（.eslintrc）的话，可以通过指定–init参数来生成一个新的配置文件：</p><blockquote><p>eslint –init</p></blockquote><p>然后，就可以在任何JavaScript中运行ESLint了。.eslintrc 放在项目根目录，则会应用到整个项目；如果子目录中也包含 .eslintrc 文件，则子目录会忽略根目录的配置文件，应用该目录中的配置文件。这样可以方便地对不同环境的代码应用不同的规则。</p><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>运行eslint –init后，会在当前目录下生成一个.eslintrc文件，你可以在这个文件中配置一些规则。</p><p>规则的错误等级有三种：</p><ul><li>0：关闭规则。</li><li>1：打开规则，并且作为一个警告（不影响exit code）。</li><li>2：打开规则，并且作为一个错误（exit code将会是1）。</li></ul><p>具体的规则可以在官网 (<a href="http://eslint.org/" target="_blank" rel="noopener">http://eslint.org/</a>) 上找到，或者使用别人写好的配置，例如eslint-config-airbnb (<a href="https://www.npmjs.com/package/eslint-config-airbnb" target="_blank" rel="noopener">https://www.npmjs.com/package/eslint-config-airbnb</a>) 。</p><p>在团队协作中，统一的代码风格更具可读性、可维护性。ESLint 内置了一系列有关代码风格的 规则 ，可以根据团队的编码规范设置。</p><h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><p>开发vuejs项目是可能会遇到一个问题，就是.vue后缀文件中的内容是不会被自动高亮显示的，感觉像是在记事本中开发一样。不过现在你不用担心，各大流行的IDE基本都已经支持.vue文件的语法高亮了，例如Sublime、WebStorm、idea、VSC等，就像安装普通插件一样安装vue插件。</p><h2 id="调试工具"><a href="#调试工具" class="headerlink" title="调试工具"></a>调试工具</h2><p>vuejs团队为大家提供了Chrome下的调试工具，可以在Chrome的插件商定找到并安装。国内可能需要翻墙。我们可以到github上找到 <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">vue-devtools</a>,然后按照文档编译安装。</p><p>安装成功后，打开开发者工具，在工具栏中就会出现Vue Devtools选项。该工具可以展示出各个组件的层级结构、组件当前状态、组件的prop值。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="http://www.tuicool.com/articles/7JZZJzn" target="_blank" rel="noopener">http://www.tuicool.com/articles/7JZZJzn</a></li><li><a href="http://www.jianshu.com/p/2bcdce1dc8d4" target="_blank" rel="noopener">http://www.jianshu.com/p/2bcdce1dc8d4</a></li><li>vuejs权威指南</li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;任何实际项目的开发都不仅仅是完成编码，规范的开发流程和严谨的测试都是不可或缺的。合理使用各种工具来进行测试开发与调试，能极大地提升编码的效率以及团队协作效率，使开发过程事半功倍，对于提高代码质量、稳定线上服务至关重要。&lt;/p&gt;
+      
+      
+        &lt;p&gt;任何实际项目的开发都不仅仅是完成编码，规范的开发流程和严谨的测试都是不可或缺的。合理使用各种工具来进行测试开发与调试，能极大地提升编码的效率以及团队协作效率，使开发过程事半功倍，对于提高代码质量、稳定线上服务至关重要。&lt;/p&gt;
 &lt;h2 id=&quot;ESLint&quot;&gt;&lt;a href
+      
     
     </summary>
     
@@ -414,19 +200,17 @@
     <link href="https://wuyaoxing.github.io/public/2017/03/19/%E6%8A%A5%E5%9B%BD%E5%AF%BA%E4%B9%8B%E8%A1%8C%E6%9C%89%E6%84%9F/"/>
     <id>https://wuyaoxing.github.io/public/2017/03/19/报国寺之行有感/</id>
     <published>2017-03-18T17:18:31.000Z</published>
-    <updated>2017-03-20T06:43:29.163Z</updated>
+    <updated>2018-03-26T05:49:20.785Z</updated>
     
-    <content type="html"><![CDATA[<p>这是一篇两年前的文章，那时的我还很有情怀！</p>
-<h2 id="报国寺之行所感"><a href="#报国寺之行所感" class="headerlink" title="报国寺之行所感"></a>报国寺之行所感</h2><p>今日与友几人，出去办事，至正午而别。觉时间尚早，便欲往报国寺。觅地铁多时而不得见，心燥而欲归。恰逢环卫指路于路人，遂行。正是山重水复疑无路，柳暗花明又一村。</p>
-<p>一路忐忑而激动，走出地铁，便迎来了，那神秘而期待许久的报国寺。行至园内，放下忐忑，只觉园外之景不值一提。舒缓身躯，放松疲惫，迎面而来的是颇有些历史的建筑，还有一排排整齐的冬青树和平整的道路，虽说已是初春，却也独青。紧接着映入眼帘的是夺目的钱币馆，也是今天到报国寺的唯一目的。可惜门尚未开，于是环顾四周，发现前边人们熙熙攘攘的倒是挺热闹的，一瞬间我便融入了人群中。珠宝玉石，旧书手串多如牛毛，一时间竟觉得时间凝固了。<br>陆续走进几家钱币馆，倒并没有激起我的兴致，却是大失所望，遍地银元，看的那叫一个没劲。<br>停留在人群中，沉浸在书海中，不觉时间在流逝。</p>
-<p>初至报国寺，竟无一收获，实乃憾事。然美景之入眼，文化之悠久，民风之淳朴却为津津乐道，此则人生之大乐哉！</p>
-<p>转眼就两年了，此情此景依稀宛如昨日，历历在目，满满的回忆，只是现在没了当年的意气风发。</p>
-]]></content>
+    <content type="html"><![CDATA[<p>这是一篇两年前的文章，那时的我还很有情怀！</p><h2 id="报国寺之行所感"><a href="#报国寺之行所感" class="headerlink" title="报国寺之行所感"></a>报国寺之行所感</h2><p>今日与友几人，出去办事，至正午而别。觉时间尚早，便欲往报国寺。觅地铁多时而不得见，心燥而欲归。恰逢环卫指路于路人，遂行。正是山重水复疑无路，柳暗花明又一村。</p><p>一路忐忑而激动，走出地铁，便迎来了，那神秘而期待许久的报国寺。行至园内，放下忐忑，只觉园外之景不值一提。舒缓身躯，放松疲惫，迎面而来的是颇有些历史的建筑，还有一排排整齐的冬青树和平整的道路，虽说已是初春，却也独青。紧接着映入眼帘的是夺目的钱币馆，也是今天到报国寺的唯一目的。可惜门尚未开，于是环顾四周，发现前边人们熙熙攘攘的倒是挺热闹的，一瞬间我便融入了人群中。珠宝玉石，旧书手串多如牛毛，一时间竟觉得时间凝固了。<br>陆续走进几家钱币馆，倒并没有激起我的兴致，却是大失所望，遍地银元，看的那叫一个没劲。<br>停留在人群中，沉浸在书海中，不觉时间在流逝。</p><p>初至报国寺，竟无一收获，实乃憾事。然美景之入眼，文化之悠久，民风之淳朴却为津津乐道，此则人生之大乐哉！</p><p>转眼就两年了，此情此景依稀宛如昨日，历历在目，满满的回忆，只是现在没了当年的意气风发。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;这是一篇两年前的文章，那时的我还很有情怀！&lt;/p&gt;
+      
+      
+        &lt;p&gt;这是一篇两年前的文章，那时的我还很有情怀！&lt;/p&gt;
 &lt;h2 id=&quot;报国寺之行所感&quot;&gt;&lt;a href=&quot;#报国寺之行所感&quot; class=&quot;headerlink&quot; title=&quot;报国寺之行所感&quot;&gt;&lt;/a&gt;报国寺之行所感&lt;/h2&gt;&lt;p&gt;今日与友几人，出去办事，至正午而别。觉时间
+      
     
     </summary>
     
@@ -438,42 +222,16 @@
     <link href="https://wuyaoxing.github.io/public/2017/03/13/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A230%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
     <id>https://wuyaoxing.github.io/public/2017/03/13/HEXO搭建个人博客30分钟快速入门/</id>
     <published>2017-03-13T05:35:35.000Z</published>
-    <updated>2017-03-20T06:43:29.151Z</updated>
+    <updated>2018-03-26T05:49:20.773Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo?"></a>什么是Hexo?</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="http://markdownpad.com/" target="_blank" rel="external">Markdown</a> (<a href="http://www.appinn.com/markdown/" target="_blank" rel="external">Markdown语法说明中文</a>) （或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。官网如是说，跟多介绍请移步<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo文档</a>，我在这里就不废话了。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Window环境（虽然很烂，却一直在用…），通过npm执行以下命令</p>
-<blockquote>
-<p>npm install -g hexo-cli</p>
-<p>hexo init blog</p>
-<p>cd blog</p>
-<p>npm install</p>
-<p>hexo server</p>
-</blockquote>
-<p><strong>npm</strong> 不好使的可以用淘宝npm镜像 <strong>cnpm</strong> 代替，有助于提升速度和成功率。</p>
-<p><strong>安装前提</strong> 你必须安装下面二个应用程序，这里暂不做详细介绍了，点击下面链接下载安装包一路next即可，装好后通过npm执行上面命令。</p>
-<ul>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a></li>
-<li><a href="https://git-for-windows.github.io/" target="_blank" rel="external">Git</a></li>
-</ul>
-<p>安装完git之后，你需要<a href="https://github.com/" target="_blank" rel="external">到这里</a>注册一个github账号，后面要用到SSH key，关于SSH key的生成和配置，github有详细的<a href="https://help.github.com/articles/connecting-to-github-with-ssh/" target="_blank" rel="external">帮助文档</a>可以参考。</p>
-<p>执行完以上步骤之后，浏览器会打开一个默认localhost:4000端口的地址，你就能看到默认主题为landscape的HEXO的你的博客了。兴奋吧！找一款好看的皮肤（<a href="https://hexo.io/themes/" target="_blank" rel="external">themes</a>）替换默认主题，打造属于你的个人博客吧，从此走上人生巅峰路，然后……  想多了。。。</p>
-<h2 id="创建博客用的git仓库"><a href="#创建博客用的git仓库" class="headerlink" title="创建博客用的git仓库"></a>创建博客用的git仓库</h2><p>仓库名称必须为 username.github.io<br>注：username为你刚注册或已经在使用的github的用户名，比如我的就是 <strong>wuyaoxing</strong> .github.io</p>
-<p>仓库创建成功后，github会给你该仓库的https和ssh地址。</p>
-<p>部署成功后，打开<a href="https://your-github-username.github.io，就能看见默认博客。" target="_blank" rel="external">https://your-github-username.github.io，就能看见默认博客。</a></p>
-<p>至此，hexo的博客生成和部署已经全部成功。</p>
-<p>不用买域名，不用搭服务器，完全开源，完全免费，不花一分钱，只要你有时间，分分钟折腾出一个博客。</p>
-<p>更多详情请参照官网，有不明白的地方也可以联系我，互相学习，共同进步。</p>
-<h2 id="我的参考"><a href="#我的参考" class="headerlink" title="我的参考"></a>我的参考</h2><ul>
-<li><a href="http://www.maintao.com/2014/hexo-beginner%27s-guide/" target="_blank" rel="external">hexo入门指南</a></li>
-<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">HEXO中文文档</a></li>
-<li><a href="https://levblanc.github.io/2015/07/13/building-github-pages-blog-with-hexo/" target="_blank" rel="external">如何使用Hexo搭建Github Pages博客</a></li>
-</ul>
-<p> 花了将近一下午时间终于搞定一个博客，以后就有事情做了，勤写博客，多做总结，抵抗懒惰…这篇文章完成于搭建好博客的一个星期之后。。。<br> 参考这些内容，一天就能搭建出一个令自己满意的个人博客，然后就加油写博客吧！</p>
-]]></content>
+    <content type="html"><![CDATA[<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo?"></a>什么是Hexo?</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="http://markdownpad.com/" target="_blank" rel="noopener">Markdown</a> (<a href="http://www.appinn.com/markdown/" target="_blank" rel="noopener">Markdown语法说明中文</a>) （或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。官网如是说，跟多介绍请移步<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">Hexo文档</a>，我在这里就不废话了。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Window环境（虽然很烂，却一直在用…），通过npm执行以下命令</p><blockquote><p>npm install -g hexo-cli</p></blockquote><blockquote><p>hexo init blog</p></blockquote><blockquote><p>cd blog</p></blockquote><blockquote><p>npm install</p></blockquote><blockquote><p>hexo server</p></blockquote><p><strong>npm</strong> 不好使的可以用淘宝npm镜像 <strong>cnpm</strong> 代替，有助于提升速度和成功率。</p><p><strong>安装前提</strong> 你必须安装下面二个应用程序，这里暂不做详细介绍了，点击下面链接下载安装包一路next即可，装好后通过npm执行上面命令。</p><ul><li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></li><li><a href="https://git-for-windows.github.io/" target="_blank" rel="noopener">Git</a></li></ul><p>安装完git之后，你需要<a href="https://github.com/" target="_blank" rel="noopener">到这里</a>注册一个github账号，后面要用到SSH key，关于SSH key的生成和配置，github有详细的<a href="https://help.github.com/articles/connecting-to-github-with-ssh/" target="_blank" rel="noopener">帮助文档</a>可以参考。</p><p>执行完以上步骤之后，浏览器会打开一个默认localhost:4000端口的地址，你就能看到默认主题为landscape的HEXO的你的博客了。兴奋吧！找一款好看的皮肤（<a href="https://hexo.io/themes/" target="_blank" rel="noopener">themes</a>）替换默认主题，打造属于你的个人博客吧，从此走上人生巅峰路，然后……  想多了。。。</p><h2 id="创建博客用的git仓库"><a href="#创建博客用的git仓库" class="headerlink" title="创建博客用的git仓库"></a>创建博客用的git仓库</h2><p>仓库名称必须为 username.github.io<br>注：username为你刚注册或已经在使用的github的用户名，比如我的就是 <strong>wuyaoxing</strong> .github.io</p><p>仓库创建成功后，github会给你该仓库的https和ssh地址。</p><p>部署成功后，打开<a href="https://your-github-username.github.io，就能看见默认博客。" target="_blank" rel="noopener">https://your-github-username.github.io，就能看见默认博客。</a></p><p>至此，hexo的博客生成和部署已经全部成功。</p><p>不用买域名，不用搭服务器，完全开源，完全免费，不花一分钱，只要你有时间，分分钟折腾出一个博客。</p><p>更多详情请参照官网，有不明白的地方也可以联系我，互相学习，共同进步。</p><h2 id="我的参考"><a href="#我的参考" class="headerlink" title="我的参考"></a>我的参考</h2><ul><li><a href="http://www.maintao.com/2014/hexo-beginner%27s-guide/" target="_blank" rel="noopener">hexo入门指南</a></li><li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">HEXO中文文档</a></li><li><a href="https://levblanc.github.io/2015/07/13/building-github-pages-blog-with-hexo/" target="_blank" rel="noopener">如何使用Hexo搭建Github Pages博客</a></li></ul><p> 花了将近一下午时间终于搞定一个博客，以后就有事情做了，勤写博客，多做总结，抵抗懒惰…这篇文章完成于搭建好博客的一个星期之后。。。<br> 参考这些内容，一天就能搭建出一个令自己满意的个人博客，然后就加油写博客吧！</p>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;什么是Hexo&quot;&gt;&lt;a href=&quot;#什么是Hexo&quot; class=&quot;headerlink&quot; title=&quot;什么是Hexo?&quot;&gt;&lt;/a&gt;什么是Hexo?&lt;/h2&gt;&lt;p&gt;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 &lt;a href=&quot;http://ma
+      
+      
+        &lt;h2 id=&quot;什么是Hexo&quot;&gt;&lt;a href=&quot;#什么是Hexo&quot; class=&quot;headerlink&quot; title=&quot;什么是Hexo?&quot;&gt;&lt;/a&gt;什么是Hexo?&lt;/h2&gt;&lt;p&gt;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 &lt;a href=&quot;http://ma
+      
     
     </summary>
     

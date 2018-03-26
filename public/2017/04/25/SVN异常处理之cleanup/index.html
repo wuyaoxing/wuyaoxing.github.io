@@ -20,34 +20,17 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="事件起因昨天下午更新代码前执行 update 然后报了错，如下：
-
-svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted
-
-提示让执行cleanup，然后执行cleanup失败。
-解决方案今天上班写了会代码去update才想起这个事。然后就是谷歌（百度）。
-网上有种说法是：">
+    <meta name="description" content="事件起因昨天下午更新代码前执行 update 然后报了错，如下：  svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted  提示让执行cleanup，然后执行cleanup失败。 解决方案今天上班写了会代码去update才想起这个事。然后就是谷歌（百度）。 网上有种说法是：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVN异常处理之cleanup">
 <meta property="og:url" content="https://wuyaoxing.github.io/public/2017/04/25/SVN异常处理之cleanup/index.html">
 <meta property="og:site_name" content="Welcome to my blog">
-<meta property="og:description" content="事件起因昨天下午更新代码前执行 update 然后报了错，如下：
-
-svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted
-
-提示让执行cleanup，然后执行cleanup失败。
-解决方案今天上班写了会代码去update才想起这个事。然后就是谷歌（百度）。
-网上有种说法是：">
-<meta property="og:updated_time" content="2017-04-25T07:39:30.868Z">
+<meta property="og:description" content="事件起因昨天下午更新代码前执行 update 然后报了错，如下：  svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted  提示让执行cleanup，然后执行cleanup失败。 解决方案今天上班写了会代码去update才想起这个事。然后就是谷歌（百度）。 网上有种说法是：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-26T05:49:20.774Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVN异常处理之cleanup">
-<meta name="twitter:description" content="事件起因昨天下午更新代码前执行 update 然后报了错，如下：
-
-svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted
-
-提示让执行cleanup，然后执行cleanup失败。
-解决方案今天上班写了会代码去update才想起这个事。然后就是谷歌（百度）。
-网上有种说法是：">
+<meta name="twitter:description" content="事件起因昨天下午更新代码前执行 update 然后报了错，如下：  svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted  提示让执行cleanup，然后执行cleanup失败。 解决方案今天上班写了会代码去update才想起这个事。然后就是谷歌（百度）。 网上有种说法是：">
     
         <link rel="alternative" href="/atom.xml" title="Welcome to my blog" type="application/atom+xml">
     
@@ -202,7 +185,7 @@ svn cleanup failed–previous operation has not finished; run cleanup if it was 
 <p>网上有种说法是： <strong>svn提交遇到恶心的问题，可能是因为上次cleanup中断后，进入死循环了。</strong></p>
 <p>解决方法：清空SVN的队列</p>
 <ol>
-<li>下载<a href="http://www.sqlite.org/download.html" target="_blank" rel="external">sqlite3.exe</a></li>
+<li>下载<a href="http://www.sqlite.org/download.html" target="_blank" rel="noopener">sqlite3.exe</a></li>
 <li>找到你项目的.svn文件，查看是否存在wc.db</li>
 <li>将sqlite3.exe放到.svn的同级目录</li>
 <li>启动cmd执行 sqlite3 .svn/wc.db “select * from work_queue”</li>
@@ -225,7 +208,7 @@ svn cleanup failed–previous operation has not finished; run cleanup if it was 
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-04-25T07:39:30.868Z" itemprop="dateUpdated">2017年4月25日 15:39</time>
+    最后更新时间：<time datetime="2018-03-26T05:49:20.774Z" itemprop="dateUpdated">2018年3月26日 13:49</time>
 </span><br>
 
 
@@ -394,7 +377,7 @@ lazyScripts.push('/public/js/embed.min.js?v=1.4.10');
     <div class="bottom">
         <p>
             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
-            <span>Welcome to my blog &copy; 2016 - 2017</span>
+            <span>Welcome to my blog &copy; 2016 - 2018</span>
         </p>
     </div>
 </footer>

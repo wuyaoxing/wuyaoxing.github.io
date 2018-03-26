@@ -20,58 +20,17 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。
-基础
-基于vue编写公共popup组件
-
-面临的问题
-显示隐藏
-弹窗位置
-渲染数据
-组件通信
-
-解决思路
-显示隐藏
- 组件是放在全局的，既然是统一的公共组件，必然就要有统一的调用方法。
-
-首先想到的是统一规范约定的路由参数,通过监听参数变化控制popup的显示和隐藏以及数据的渲染。这种方式的弊端在于，参数加的莫名其妙，我们不需">
+    <meta name="description" content="看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。 基础 基于vue编写公共popup组件  面临的问题 显示隐藏 弹窗位置 渲染数据 组件通信  解决思路 显示隐藏  组件是放在全局的，既然是统一的公共组件，必然就要有统一的调用方法。  首先想到的是统一规范约定的路由参数,通过监听参数变化控制popup的显示和隐藏以及数据的渲染。这种方式的弊端在于，参数加的莫名其妙，我们不需">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现popup公共弹窗">
 <meta property="og:url" content="https://wuyaoxing.github.io/public/2017/04/25/实现popup公共弹窗/index.html">
 <meta property="og:site_name" content="Welcome to my blog">
-<meta property="og:description" content="看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。
-基础
-基于vue编写公共popup组件
-
-面临的问题
-显示隐藏
-弹窗位置
-渲染数据
-组件通信
-
-解决思路
-显示隐藏
- 组件是放在全局的，既然是统一的公共组件，必然就要有统一的调用方法。
-
-首先想到的是统一规范约定的路由参数,通过监听参数变化控制popup的显示和隐藏以及数据的渲染。这种方式的弊端在于，参数加的莫名其妙，我们不需">
-<meta property="og:updated_time" content="2017-04-25T07:43:06.474Z">
+<meta property="og:description" content="看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。 基础 基于vue编写公共popup组件  面临的问题 显示隐藏 弹窗位置 渲染数据 组件通信  解决思路 显示隐藏  组件是放在全局的，既然是统一的公共组件，必然就要有统一的调用方法。  首先想到的是统一规范约定的路由参数,通过监听参数变化控制popup的显示和隐藏以及数据的渲染。这种方式的弊端在于，参数加的莫名其妙，我们不需">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-26T05:49:20.784Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现popup公共弹窗">
-<meta name="twitter:description" content="看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。
-基础
-基于vue编写公共popup组件
-
-面临的问题
-显示隐藏
-弹窗位置
-渲染数据
-组件通信
-
-解决思路
-显示隐藏
- 组件是放在全局的，既然是统一的公共组件，必然就要有统一的调用方法。
-
-首先想到的是统一规范约定的路由参数,通过监听参数变化控制popup的显示和隐藏以及数据的渲染。这种方式的弊端在于，参数加的莫名其妙，我们不需">
+<meta name="twitter:description" content="看到弹窗，给我的第一印象就是要找popup组件，其次是所在内容的组件。 基础 基于vue编写公共popup组件  面临的问题 显示隐藏 弹窗位置 渲染数据 组件通信  解决思路 显示隐藏  组件是放在全局的，既然是统一的公共组件，必然就要有统一的调用方法。  首先想到的是统一规范约定的路由参数,通过监听参数变化控制popup的显示和隐藏以及数据的渲染。这种方式的弊端在于，参数加的莫名其妙，我们不需">
     
         <link rel="alternative" href="/atom.xml" title="Welcome to my blog" type="application/atom+xml">
     
@@ -232,10 +191,10 @@
 <p> 组件是放在全局的，既然是统一的公共组件，必然就要有统一的调用方法。</p>
 <ul>
 <li><p>首先想到的是统一规范约定的路由参数,通过监听参数变化控制popup的显示和隐藏以及数据的渲染。这种方式的弊端在于，参数加的莫名其妙，我们不需要去记录每一步的弹窗操作，如果在参数较多的情况下，会增加架构设计的复杂度，这种参数变化会显得多余。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">url?popup=/popupType/:id</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?popup=/popupType/:id</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>第二种解决方案是通过vue组件之间的通信方式，在popup组件内通过bus.$on()监听其他组件通过bus.$emit()触发操作，触发时可以传入需要的参数，在监听的回调可以接收这个参数，然后就能根据参数去做其他事情了。这也是目前的处理方式。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// import Vue from &apos;vue&apos;</div><div class="line">const bus = new Vue()</div><div class="line">// 触发</div><div class="line">bus.$emit(&apos;popup-show&apos;, params)</div><div class="line">// 监听</div><div class="line">bus.$on(&apos;popup-show&apos;, callback)</div><div class="line">// 回收</div><div class="line">bus.$off(&apos;popup-show&apos;)</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// import Vue from &apos;vue&apos;</span><br><span class="line">const bus = new Vue()</span><br><span class="line">// 触发</span><br><span class="line">bus.$emit(&apos;popup-show&apos;, params)</span><br><span class="line">// 监听</span><br><span class="line">bus.$on(&apos;popup-show&apos;, callback)</span><br><span class="line">// 回收</span><br><span class="line">bus.$off(&apos;popup-show&apos;)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -264,7 +223,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-04-25T07:43:06.474Z" itemprop="dateUpdated">2017年4月25日 15:43</time>
+    最后更新时间：<time datetime="2018-03-26T05:49:20.784Z" itemprop="dateUpdated">2018年3月26日 13:49</time>
 </span><br>
 
 
@@ -340,7 +299,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/public/2018/03/26/杂谈-20180326/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">杂谈 - 20180326</h4>
+      </a>
+    </div>
   
 
   
@@ -426,7 +392,7 @@ lazyScripts.push('/public/js/embed.min.js?v=1.4.10');
     <div class="bottom">
         <p>
             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
-            <span>Welcome to my blog &copy; 2016 - 2017</span>
+            <span>Welcome to my blog &copy; 2016 - 2018</span>
         </p>
     </div>
 </footer>
