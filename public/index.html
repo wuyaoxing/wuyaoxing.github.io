@@ -145,6 +145,70 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-如何关闭node进程"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018年04月23日 17:42" datetime="2018-04-23T09:42:19.000Z"  itemprop="datePublished">2018-04-23</time>
+
+        
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/public/2018/04/23/如何关闭node进程/">如何关闭node进程</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        查看端口占用情况
+假如我们要杀死3000端口
+
+netstat -ano|findstr “3000”
+
+
+
+关闭进程
+任务管理器关闭
+
+找到对应PID的进程，结束进程
+
+
+命令行工具关闭
+
+找到对应进程的PID
+
+taskkill -PID &lt;进程号&gt; -F
+
+
+
+
+
+
+    
+
+        <a href="/public/2018/04/23/如何关闭node进程/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-浅谈-axios-在项目中的使用"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -600,48 +664,6 @@ teambition
     
 
         <a href="/public/2017/03/28/甘特图技术分析/" class="post-more waves-effect waves-button">
-            阅读全文...
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-ESLint和vue的一些工具"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017年03月28日 15:10" datetime="2017-03-28T07:10:02.000Z"  itemprop="datePublished">2017-03-28</time>
-
-        
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/public/2017/03/28/ESLint和vue的一些工具/">ESLint和vue的一些工具</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        任何实际项目的开发都不仅仅是完成编码，规范的开发流程和严谨的测试都是不可或缺的。合理使用各种工具来进行测试开发与调试，能极大地提升编码的效率以及团队协作效率，使开发过程事半功倍，对于提高代码质量、稳定线上服务至关重要。
-ESLint在日常的团队开发中，为了避免出现低级bug和统一代码风格，通常会在开发之前约定一套编码规范。使用 Lint 工具和代码风格检测工具，则可以辅助编码规范执行，有效控...
-    
-
-        <a href="/public/2017/03/28/ESLint和vue的一些工具/" class="post-more waves-effect waves-button">
             阅读全文...
         </a>
     </div>

@@ -6,7 +6,7 @@
   <link href="/public/atom.xml" rel="self"/>
   
   <link href="https://wuyaoxing.github.io/public/"/>
-  <updated>2018-04-14T07:51:24.068Z</updated>
+  <updated>2018-04-23T09:49:08.115Z</updated>
   <id>https://wuyaoxing.github.io/public/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何关闭node进程</title>
+    <link href="https://wuyaoxing.github.io/public/2018/04/23/%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%ADnode%E8%BF%9B%E7%A8%8B/"/>
+    <id>https://wuyaoxing.github.io/public/2018/04/23/如何关闭node进程/</id>
+    <published>2018-04-23T09:42:19.000Z</published>
+    <updated>2018-04-23T09:49:08.115Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="查看端口占用情况"><a href="#查看端口占用情况" class="headerlink" title="查看端口占用情况"></a>查看端口占用情况</h2><ul><li><p>假如我们要杀死3000端口</p><blockquote><p>netstat -ano|findstr “3000”</p></blockquote></li></ul><h2 id="关闭进程"><a href="#关闭进程" class="headerlink" title="关闭进程"></a>关闭进程</h2><ol><li><p>任务管理器关闭</p><ul><li>找到对应PID的进程，结束进程</li></ul></li><li><p>命令行工具关闭</p><ul><li><p>找到对应进程的PID</p><blockquote><p>taskkill -PID &lt;进程号&gt; -F</p></blockquote></li></ul></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;查看端口占用情况&quot;&gt;&lt;a href=&quot;#查看端口占用情况&quot; class=&quot;headerlink&quot; title=&quot;查看端口占用情况&quot;&gt;&lt;/a&gt;查看端口占用情况&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;假如我们要杀死3000端口&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;net
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>浅谈 axios 在项目中的使用</title>
