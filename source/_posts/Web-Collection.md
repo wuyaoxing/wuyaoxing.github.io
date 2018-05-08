@@ -2,6 +2,7 @@
 title: Web Collection
 date: 2017-03-28 15:20:21
 tags:
+    - collection
 ---
 
 

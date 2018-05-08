@@ -2,6 +2,7 @@
 title: 浅谈 axios 在项目中的使用
 date: 2018-04-14 15:47:13
 tags:
+    - axios
 ---
 
 [axios](https://github.com/axios/axios) 是Vue官方推荐的Request库。

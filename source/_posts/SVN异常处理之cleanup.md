@@ -2,7 +2,9 @@
 title: SVN异常处理之cleanup
 date: 2017-04-25 15:18:37
 tags:
+    - svn
 ---
+
 ## 事件起因
 
 昨天下午更新代码前执行 update 然后报了错，如下：
