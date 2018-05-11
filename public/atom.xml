@@ -6,7 +6,7 @@
   <link href="/public/atom.xml" rel="self"/>
   
   <link href="https://wuyaoxing.github.io/public/"/>
-  <updated>2018-05-10T09:59:16.855Z</updated>
+  <updated>2018-05-11T10:16:49.453Z</updated>
   <id>https://wuyaoxing.github.io/public/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SourceTree 免登录跳过初始设置的方法</title>
+    <link href="https://wuyaoxing.github.io/public/2018/05/11/SourceTree-%E5%85%8D%E7%99%BB%E5%BD%95%E8%B7%B3%E8%BF%87%E5%88%9D%E5%A7%8B%E8%AE%BE%E7%BD%AE%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>https://wuyaoxing.github.io/public/2018/05/11/SourceTree-免登录跳过初始设置的方法/</id>
+    <published>2018-05-11T10:05:23.000Z</published>
+    <updated>2018-05-11T10:16:49.453Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="SourceTree-免登录跳过初始设置的方法"><a href="#SourceTree-免登录跳过初始设置的方法" class="headerlink" title="SourceTree 免登录跳过初始设置的方法"></a>SourceTree 免登录跳过初始设置的方法</h2><ul><li>首先，安装完 SourceTree 以后先运行一次，弹出初始化登录页面后退出。<br>打开</li><li>我的电脑，在最上方的地址栏直接输入以下地址</li></ul><blockquote><p>%LocalAppData%\Atlassian\SourceTree\</p></blockquote><p>新建 accounts.json 文件</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"$id"</span>: <span class="string">"1"</span>,</span><br><span class="line">    <span class="attr">"$type"</span>: <span class="string">"SourceTree.Api.Host.Identity.Model.IdentityAccount, SourceTree.Api.Host.Identity"</span>,</span><br><span class="line">    <span class="attr">"Authenticate"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"HostInstance"</span>: &#123;</span><br><span class="line">      <span class="attr">"$id"</span>: <span class="string">"2"</span>,</span><br><span class="line">      <span class="attr">"$type"</span>: <span class="string">"SourceTree.Host.Atlassianaccount.AtlassianAccountInstance, SourceTree.Host.AtlassianAccount"</span>,</span><br><span class="line">      <span class="attr">"Host"</span>: &#123;</span><br><span class="line">        <span class="attr">"$id"</span>: <span class="string">"3"</span>,</span><br><span class="line">        <span class="attr">"$type"</span>: <span class="string">"SourceTree.Host.Atlassianaccount.AtlassianAccountHost, SourceTree.Host.AtlassianAccount"</span>,</span><br><span class="line">        <span class="attr">"Id"</span>: <span class="string">"atlassian account"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"BaseUrl"</span>: <span class="string">"https://id.atlassian.com/"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"Credentials"</span>: &#123;</span><br><span class="line">      <span class="attr">"$id"</span>: <span class="string">"4"</span>,</span><br><span class="line">      <span class="attr">"$type"</span>: <span class="string">"SourceTree.Model.BasicAuthCredentials, SourceTree.Api.Account"</span>,</span><br><span class="line">      <span class="attr">"Username"</span>: <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"Email"</span>: <span class="literal">null</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"IsDefault"</span>: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure><p>将上面代码复制，重新打开即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SourceTree-免登录跳过初始设置的方法&quot;&gt;&lt;a href=&quot;#SourceTree-免登录跳过初始设置的方法&quot; class=&quot;headerlink&quot; title=&quot;SourceTree 免登录跳过初始设置的方法&quot;&gt;&lt;/a&gt;SourceTree 免登录跳过初
+      
+    
+    </summary>
+    
+    
+      <category term="sourceTree" scheme="https://wuyaoxing.github.io/public/tags/sourceTree/"/>
+    
+      <category term="git" scheme="https://wuyaoxing.github.io/public/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>react中使用import()异步加载组件的实现</title>
