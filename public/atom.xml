@@ -6,7 +6,7 @@
   <link href="/public/atom.xml" rel="self"/>
   
   <link href="https://wuyaoxing.github.io/public/"/>
-  <updated>2018-05-11T10:16:49.453Z</updated>
+  <updated>2018-05-25T06:14:06.591Z</updated>
   <id>https://wuyaoxing.github.io/public/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>敦兮其若朴，旷兮其若谷</title>
+    <link href="https://wuyaoxing.github.io/public/2018/05/22/%E6%95%A6%E5%85%AE%E5%85%B6%E8%8B%A5%E6%9C%B4%EF%BC%8C%E6%97%B7%E5%85%AE%E5%85%B6%E8%8B%A5%E8%B0%B7/"/>
+    <id>https://wuyaoxing.github.io/public/2018/05/22/敦兮其若朴，旷兮其若谷/</id>
+    <published>2018-05-22T07:50:05.000Z</published>
+    <updated>2018-05-25T06:14:06.591Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>近三十，却未立，前路无知己，身旁无佳人，终年与孤独为友，以代码相伴，虽自在逍遥，只是终究有些寂寞。</li><li>人生如逆水行舟，不进则退，纵然孑然一身，却也不敢懈怠，外以强健体魄，内以丰富学识，如此律己自强，方可求得些许心安。</li></ul><p>过去的3年，未来的5年，都逃不过两段话。或许更久！<br>又是一岁！<br>写下箴言两句：敦兮其若朴，旷兮其若谷。</p><blockquote><p>tip：或感力不从心，思来半生若此。奈何世事有常，自此人便休矣。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;近三十，却未立，前路无知己，身旁无佳人，终年与孤独为友，以代码相伴，虽自在逍遥，只是终究有些寂寞。&lt;/li&gt;
+&lt;li&gt;人生如逆水行舟，不进则退，纵然孑然一身，却也不敢懈怠，外以强健体魄，内以丰富学识，如此律己自强，方可求得些许心安。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>SourceTree 免登录跳过初始设置的方法</title>
@@ -149,7 +174,7 @@
     <link href="https://wuyaoxing.github.io/public/2018/03/27/2018-todolist/"/>
     <id>https://wuyaoxing.github.io/public/2018/03/27/2018-todolist/</id>
     <published>2018-03-27T13:39:48.000Z</published>
-    <updated>2018-05-08T01:39:57.763Z</updated>
+    <updated>2018-05-25T05:48:56.122Z</updated>
     
     <content type="html"><![CDATA[<p>2018年已经过去好几个月了，这篇手记很久之前就应该写了。</p><h2 id="todolist"><a href="#todolist" class="headerlink" title="todolist"></a>todolist</h2><ul><li>2018很想出去转转，旅游，看看外面的世界。计划去西安、洛阳，不过一个人懒得动，若能结伴而行，甚好</li><li>关于人生，更想读读哲学。过年之后，心态转变，由<code>知其不可而为之</code> 到 <code>知其不可奈何而安之若命</code>，不再挣扎了，父母之命不可违，坦然面对</li><li>音乐之用，在于脱俗，在于提升思维层次，在于豁达人生格局。虽然五音不全，但是对洞箫却是非常的热爱，试着学习吹奏几首曲子。</li><li>多读几本书，去年买的四本《红楼梦》，直到现在也就才翻了3,40页，争取今年读完，然后读读原著。</li><li>去年开始健身，到现在断断续续，贵在坚持。争取练出一身肌肉，才好找女朋友哈哈</li><li>技术上，仍需精进，保持对技术的热情，不断地学习。</li><li>工欲善其事必先利其器，准备换个mac本，咬咬牙</li><li>工作之余，探索前端，包括对各种技术尝试，以期得到解决包括代码质量、性能等大型前端项目的最佳实践。期望能够全身心投入到一个项目中，能够不断地优化，以提高代码质量和性能，最终打造出一款引以为傲的产品。</li></ul><p>白天搬砖，晚上砌梦想。</p>]]></content>
     
