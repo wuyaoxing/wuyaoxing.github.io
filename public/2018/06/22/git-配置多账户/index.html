@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>git 配置多账户 | Welcome to my blog | null</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#673AB7">
+    
+    
+    <meta name="keywords" content="git">
+    <meta name="description" content="在工作中，公司会有专门的git账号（公司使用gitlab），有时会做些个人项目放到github，这时候就需要配置多个git账号和服务器。 第一个账号：  设置git账号   12git config --global user.name &amp;quot;username&amp;quot;git config --global user.email &amp;quot;xxxxx@xxxxxxx.xxxx&amp;quot;">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git 配置多账户">
+<meta property="og:url" content="https://wuyaoxing.github.io/public/2018/06/22/git-配置多账户/index.html">
+<meta property="og:site_name" content="Welcome to my blog">
+<meta property="og:description" content="在工作中，公司会有专门的git账号（公司使用gitlab），有时会做些个人项目放到github，这时候就需要配置多个git账号和服务器。 第一个账号：  设置git账号   12git config --global user.name &amp;quot;username&amp;quot;git config --global user.email &amp;quot;xxxxx@xxxxxxx.xxxx&amp;quot;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-22T12:10:43.490Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git 配置多账户">
+<meta name="twitter:description" content="在工作中，公司会有专门的git账号（公司使用gitlab），有时会做些个人项目放到github，这时候就需要配置多个git账号和服务器。 第一个账号：  设置git账号   12git config --global user.name &amp;quot;username&amp;quot;git config --global user.email &amp;quot;xxxxx@xxxxxxx.xxxx&amp;quot;">
+    
+        <link rel="alternative" href="/atom.xml" title="Welcome to my blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/public/img/favicon.ico">
+    <link rel="stylesheet" href="/public/css/style.css?v=1.4.10">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/public/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/public/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wuyaoxing</h5>
+          <a href="mailto:82565097@qq.com" title="82565097@qq.com" class="mail">82565097@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/public/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/public/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wuyaoxing" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/public/../calendar"  >
+                <i class="icon icon-lg icon-link"></i>
+                日历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git 配置多账户</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git 配置多账户</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-22T11:39:48.000Z" itemprop="datePublished" class="page-time">
+  2018-06-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-git-配置多账户"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git 配置多账户</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018年06月22日 19:39" datetime="2018-06-22T11:39:48.000Z"  itemprop="datePublished">2018-06-22</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>在工作中，公司会有专门的git账号（公司使用gitlab），有时会做些个人项目放到github，这时候就需要配置多个git账号和服务器。</p>
+<p>第一个账号：</p>
+<ul>
+<li><p>设置git账号</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;username&quot;</span><br><span class="line">git config --global user.email &quot;xxxxx@xxxxxxx.xxxx&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建个人SSH key</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxxx@xxx.xx&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把~/.ssh/id_rsa.pub的内容添加到gitlab的SSH keys中</p>
+</li>
+<li>测试  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitlab.com</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>第二个账号：</p>
+<ul>
+<li><p>创建个人SSH key</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 新建SSH key：  </span><br><span class="line">cd ~/.ssh     # 切换到C:\Users\Administrator\.ssh  </span><br><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br><span class="line"># 设置名称为id_rsa_wyx(名字随意)  </span><br><span class="line">Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa): id_rsa_wyx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加新密钥</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 因为默认只读取id_rsa，为了让SSH识别新的私钥，需将其添加到SSH agent中</span><br><span class="line">ssh-add ~/.ssh/id_rsa_wyx</span><br><span class="line">// 如果出现`Could not open a connection to your authentication agent`，则先输入</span><br><span class="line">ssh-agent bash</span><br><span class="line">// 然后再输入</span><br><span class="line">ssh-add ~/.ssh/id_rsa_wyx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改config文件</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 若config文件不存在，使用`touch config`创建</span><br><span class="line"># 该配置用于工作  </span><br><span class="line"># Host 服务器别名  </span><br><span class="line">Host gitlab.com</span><br><span class="line"># HostName 服务器ip地址或机器名  </span><br><span class="line">HostName gitlab.com</span><br><span class="line"># User连接服务器的用户名  </span><br><span class="line">User wuyaoxing  </span><br><span class="line"># IdentityFile 密匙文件的具体路径  </span><br><span class="line">IdentityFile ~/.ssh/id_rsa </span><br><span class="line">PreferredAuthentications publickey </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 该配置用于个人 github 上  </span><br><span class="line"># Host 服务器别名  </span><br><span class="line">Host github.com  </span><br><span class="line"># HostName 服务器ip地址或机器名  </span><br><span class="line">HostName github.com  </span><br><span class="line"># User连接服务器的用户名  </span><br><span class="line">User wuyaoxing  </span><br><span class="line"># IdentityFile 密匙文件的具体路径  </span><br><span class="line">IdentityFile ~/.ssh/id_rsa_wyx</span><br><span class="line">PreferredAuthentications publickey</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把~/.ssh/id_rsa_wyx.pub的内容添加到github的SSH keys中</p>
+</li>
+<li>测试  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>至此，已完成多个git账号配置，快去clone 项目吧。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-06-22T12:10:43.490Z" itemprop="dateUpdated">2018年6月22日 20:10</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/public/2018/06/22/git-配置多账户/" target="_blank" rel="external">https://wuyaoxing.github.io/public/2018/06/22/git-配置多账户/</a>
+    </div>
+    <footer>
+        <a href="https://wuyaoxing.github.io/public">
+            <img src="/public/img/avatar.jpg" alt="wuyaoxing">
+            wuyaoxing
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/public/tags/git/">git</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2018/06/22/git-配置多账户/&title=《git 配置多账户》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2018/06/22/git-配置多账户/&title=《git 配置多账户》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2018/06/22/git-配置多账户/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git 配置多账户》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2018/06/22/git-配置多账户/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2018/06/22/git-配置多账户/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/public/2018/06/11/归去来兮-201806111/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">归去来兮 - 201806111</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="git-配置多账户" data-title="git 配置多账户" data-url="https://wuyaoxing.github.io/public/2018/06/22/git-配置多账户/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'yxblog', theme: 'none'};
+lazyScripts.push('/public/js/embed.min.js?v=1.4.10');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/public/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/public/img/alipay.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Welcome to my blog &copy; 2016 - 2018</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2018/06/22/git-配置多账户/&title=《git 配置多账户》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2018/06/22/git-配置多账户/&title=《git 配置多账户》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2018/06/22/git-配置多账户/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git 配置多账户》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2018/06/22/git-配置多账户/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2018/06/22/git-配置多账户/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3a0U4kMQwEwP3/n4bXk46d67aTA6TKE9LOsK4gxcbO6xWvjz9W/vzf7yZr/+31wsPDw1uE/u7LklDevfXMbmPLY8bDw8O7zUsO93Y7kq15frLdGjw8PLzfwkuO8uTTvKDHw8PD+1285N22aG5JeHh4eD+B1xa+OeC5FZsU0LOyHg8PD+8ebzbQ+t6fr8z38PDw8NZT9VmSSIrsttT+GC08PDy8G7z9CP9UWyF5t40TDw8P7wZv38DNr1i1pXOenN7+Njw8PLwLvP1wKz+49xetZgM2PDw8vP/PGx7Hp+r99SANDw8P7yzv1FWqdjS1SSTDqR0eHh7eId7ZkrcYSi3au0ls/8h+eHh4eId4+cG9uaL6HNAw3DjZ4OHh4e15+YWA2Wg/Cbq92lU0lPHw8PAu8JL2a168Pr/VtkX212fx8PDwbvDao3zWAm6bFG0z923DAg8PD+8CLye1h3vehB3ed8gTDx4eHt41Xl4WJwd0y2jTUt4QwcPDwzvLy9NAHnqyBe31grag/6JLjYeHh3eU1waUYDbppB2qvY0HDw8P7xqvHXSdSgntRhQpYTPHw8PDwwt4s7CKEdTo+Vkz4ljew8PDwwt4s8K3nTrlpfkmkeDh4eHd47UHblvUti2MvNW7uciFh4eHt+fNjtrkED9VLifsvuLGw8PD2/KSFu3sLtOM8QpWkRjw8PDwrvFm7dd98d2Ou4rn8fDw8I7yNt2LpDm7KbUPfIqHh4d3gdceuMkFglkbNx+8zX4PHh4e3llekgxmZfcmeSTPR38APDw8vGu8WWs1Dz3/rlnSqj/Gw8PD+1Ze22J4TgD7BjEeHh7eT+MlBXeeGJILB7NGMx4eHt5t3qw10G5HvjXt1r9F4uHh4V3gzf7h35e8SWGdj9lem4WHh4eX8j4BIuo/pPO9brIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/public/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/public/js/main.min.js?v=1.4.10"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/public/js/search.min.js?v=1.4.10" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
