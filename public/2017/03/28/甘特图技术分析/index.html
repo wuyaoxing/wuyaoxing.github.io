@@ -1,183 +1,312 @@
 <!DOCTYPE html>
-<html>
-<head>
-    
-
-    
-
-    
 
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    <title>甘特图技术分析 | Welcome to my blog | null</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#673AB7">
-    
-    
-    <meta name="keywords" content="gantt">
-    <meta name="description" content="甘特图介绍甘特图主要有三种类型:  甘特计划图 　　 甘特进度图 　　 甘特载负图  甘特图的作用：  计划项目时间 跟踪项目进度 测定工作负荷  怎么做：  在纵轴列出项目中的各项活动 横轴列出连续的各个时间段 在坐标图中标出每项工作所需的时间长度的横条  甘特图适用范围： 甘特图（Gantt Chart）由亨利·甘特于1910年开发的，他通过条状图来显示项目，进度，和其他时间相关的系统进展的内">
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/public/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/public/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/public/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon.ico?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="gantt,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="甘特图介绍甘特图主要有三种类型:  甘特计划图 　　 甘特进度图 　　 甘特载负图  甘特图的作用：  计划项目时间 跟踪项目进度 测定工作负荷  怎么做：  在纵轴列出项目中的各项活动 横轴列出连续的各个时间段 在坐标图中标出每项工作所需的时间长度的横条  甘特图适用范围： 甘特图（Gantt Chart）由亨利·甘特于1910年开发的，他通过条状图来显示项目，进度，和其他时间相关的系统进展的内">
 <meta name="keywords" content="gantt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="甘特图技术分析">
 <meta property="og:url" content="https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/index.html">
-<meta property="og:site_name" content="Welcome to my blog">
+<meta property="og:site_name" content="Crane Perch Villa">
 <meta property="og:description" content="甘特图介绍甘特图主要有三种类型:  甘特计划图 　　 甘特进度图 　　 甘特载负图  甘特图的作用：  计划项目时间 跟踪项目进度 测定工作负荷  怎么做：  在纵轴列出项目中的各项活动 横轴列出连续的各个时间段 在坐标图中标出每项工作所需的时间长度的横条  甘特图适用范围： 甘特图（Gantt Chart）由亨利·甘特于1910年开发的，他通过条状图来显示项目，进度，和其他时间相关的系统进展的内">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-22T11:34:48.323Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-17T10:32:02.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="甘特图技术分析">
 <meta name="twitter:description" content="甘特图介绍甘特图主要有三种类型:  甘特计划图 　　 甘特进度图 　　 甘特载负图  甘特图的作用：  计划项目时间 跟踪项目进度 测定工作负荷  怎么做：  在纵轴列出项目中的各项活动 横轴列出连续的各个时间段 在坐标图中标出每项工作所需的时间长度的横条  甘特图适用范围： 甘特图（Gantt Chart）由亨利·甘特于1910年开发的，他通过条状图来显示项目，进度，和其他时间相关的系统进展的内">
-    
-        <link rel="alternative" href="/atom.xml" title="Welcome to my blog" type="application/atom+xml">
-    
-    <link rel="shortcut icon" href="/public/img/favicon.ico">
-    <link rel="stylesheet" href="/public/css/style.css?v=1.4.10">
-    <script>window.lazyScripts=[]</script>
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/public/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/">
+
+
+
+
+
+  <title>甘特图技术分析 | Crane Perch Villa</title>
+  
+
+
+
+
+
+
+
+
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap">
-      <div class="brand">
-        <a href="/public/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/public/img/avatar.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">wuyaoxing</h5>
-          <a href="mailto:82565097@qq.com" title="82565097@qq.com" class="mail">82565097@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/public/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Crane Perch Villa</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/public/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/public/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/wuyaoxing" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="http://www.weibo.com/" target="_blank" >
-                <i class="icon icon-lg icon-weibo"></i>
-                Weibo
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/public/../calendar"  >
-                <i class="icon icon-lg icon-link"></i>
-                日历
-              </a>
-            </li>
-        
-      </ul>
-    </div>
+      
+        <p class="site-subtitle">Using no way as way, <br> having no limitation as limitation.</p>
+      
   </div>
-</aside>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">甘特图技术分析</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
 
-    <div class="container fade-scale">
-        <h1 class="title">甘特图技术分析</h1>
-        <h5 class="subtitle">
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/public/" rel="section">
             
-                <time datetime="2017-03-28T07:16:02.000Z" itemprop="datePublished" class="page-time">
-  2017-03-28
-</time>
-
-
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
-        </h5>
-    </div>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/public/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/public/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
 
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
 
-</header>
+  
 
+  
+  
+  
 
-<div class="container body-wrap">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wuyaoxing.github.io/public/public/2017/03/28/甘特图技术分析/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wuyaoxing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/public/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Crane Perch Villa">
+    </span>
+
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#甘特图介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">甘特图介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#甘特图技术分析"><span class="post-toc-number">2.</span> <span class="post-toc-text">甘特图技术分析</span></a></li></ol>
-        </nav>
-    </aside>
-    
-<article id="post-甘特图技术分析"
-  class="post-article article-type-post fade" itemprop="blogPost">
+      <header class="post-header">
 
-    <div class="post-card">
-        <h1 class="post-card-title">甘特图技术分析</h1>
+        
+        
+          <h1 class="post-title" itemprop="name headline">甘特图技术分析</h1>
+        
+
         <div class="post-meta">
-            <time class="post-time" title="2017年03月28日 15:16" datetime="2017-03-28T07:16:02.000Z"  itemprop="datePublished">2017-03-28</time>
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-28T15:16:02+08:00">
+                2017-03-28
+              </time>
+            
 
             
 
-
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+          </span>
 
+          
 
+          
             
+          
+
+          
+          
+
+          
+
+          
+
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="甘特图介绍"><a href="#甘特图介绍" class="headerlink" title="甘特图介绍"></a>甘特图介绍</h2><p>甘特图主要有三种类型:</p>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="甘特图介绍"><a href="#甘特图介绍" class="headerlink" title="甘特图介绍"></a>甘特图介绍</h2><p>甘特图主要有三种类型:</p>
 <ul>
 <li>甘特计划图 　　</li>
 <li>甘特进度图 　　</li>
@@ -219,276 +348,393 @@
 </ul>
 <h2 id="甘特图技术分析"><a href="#甘特图技术分析" class="headerlink" title="甘特图技术分析"></a>甘特图技术分析</h2><p>项目中的技术要点</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-06-22T11:34:48.323Z" itemprop="dateUpdated">2018年6月22日 19:34</time>
-</span><br>
-
-
-        这里写留言或版权声明：<a href="/public/2017/03/28/甘特图技术分析/" target="_blank" rel="external">https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/</a>
+      
     </div>
-    <footer>
-        <a href="https://wuyaoxing.github.io/public">
-            <img src="/public/img/avatar.jpg" alt="wuyaoxing">
-            wuyaoxing
-        </a>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/public/tags/gantt/" rel="tag"># gantt</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/public/2017/03/28/ESLint和vue的一些工具/" rel="next" title="ESLint和vue的一些工具">
+                <i class="fa fa-chevron-left"></i> ESLint和vue的一些工具
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/public/2017/03/28/Web-Collection/" rel="prev" title="Web Collection">
+                Web Collection <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
-</blockquote>
-
-        
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/public/tags/gantt/">gantt</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/&title=《甘特图技术分析》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/&title=《甘特图技术分析》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《甘特图技术分析》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
+  </div>
+  
+  
+  
+  </article>
 
 
 
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
 
 
 
         </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
+  </div>
 
+  <aside id="sidebar" class="sidebar">
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/public/2017/03/28/Web-Collection/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Web Collection</h4>
-      </a>
-    </div>
-  
+    <div class="sidebar-inner">
 
-  
-    <div class="waves-block waves-effect next">
-      <a href="/public/2017/03/28/ESLint和vue的一些工具/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">ESLint和vue的一些工具</h4>
-      </a>
-    </div>
-  
-</nav>
+      
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/public/images/avatar.jpg" alt="wuyaoxing">
+            
+              <p class="site-author-name" itemprop="name">wuyaoxing</p>
+              <p class="site-description motion-element" itemprop="description">Keep the heart of the empty spirit, <br> invisible, <br> can't, <br> just like water.</p>
+          </div>
 
-    
+          <nav class="site-state motion-element">
 
-<div class="comments" id="comments">
-    <div class="ds-thread" data-thread-key="甘特图技术分析" data-title="甘特图技术分析" data-url="https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/"></div>
-</div>
-<script>
-lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/public/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
 
-var duoshuoQuery = {short_name:'yxblog', theme: 'none'};
-lazyScripts.push('/public/js/embed.min.js?v=1.4.10');
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
 
-</script>
+          </nav>
 
+          
 
-
-
-
-
-
-</article>
-
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢大爷~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <ul class="reward-items">
-        
-        <li>
-            <img src="/public/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
-        
-
-        
-        <li>
-            <img src="/public/img/alipay.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p>
-            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
-            <span>Welcome to my blog &copy; 2016 - 2018</span>
-        </p>
-    </div>
-</footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/&title=《甘特图技术分析》 — Welcome to my blog&pic=https://wuyaoxing.github.io/public/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/&title=《甘特图技术分析》 — Welcome to my blog&source=This is my blog." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《甘特图技术分析》 — Welcome to my blog&url=https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/&via=https://wuyaoxing.github.io/public" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://wuyaoxing.github.io/public/2017/03/28/甘特图技术分析/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqElEQVR42u3aQZIiMQwEQP7/afYBE0CVZDMTG+kTQYNR9qEtJD0e8Xq+XT8/k3/35+df7fbqkwcWHh4e3uXQ3/9MfjUJPY/nZWx4eHh413h5KO8f3HkoyT7tIYGHh4f393mzd9p0GQ8PD+//5uUlg7x40abgeHh4eN/hJYlve1Pyh3tyU67XWvDw8PC6ftOj3fp3X1/p7+Hh4eGtu+qbZliSLp86Bl5Gi4eHh3eB16azeWLdJtN10HmceHh4eF/n7Y+H/HHffis5VPDw8PDO8mYJ8abd1ZYY8ttXd/bw8PDwFrzZYGhyPOwT4uSdD8k0Hh4e3ld4OWwzBLC5cXUDDA8PD+8QL3+4z5Lm/NjIU/a6nIGHh4d3lJe3mjYjrXlAm9T8Q0qNh4eHd4iXJMSnGvkJaV/q/TA6gIeHh7fmtdu1CfepAu7spuDh4eHd4LXjArP3n/GalTaimPHw8PCO8vLHaz78lAd9qlU27PLh4eHhjXhJep1czcsKSSm2HS+IUmo8PDy8NW9/ALRFijaxbg+Dl2VcPDw8vEO8zU+2bf7ZLZvtj4eHh3ebtz8S2vQ3T7LzFe2Dh4eHt+YlJde82LopvLbJfVSSwMPDw7vA2zA2LbH9KOpqdAAPDw/vKC/ZaFOwSMJqC7sfvoWHh4d3mZeUUPNSRcKYhV7cAjw8PLwv8nLqbMSqLivMihd4eHh413hJQLMxghuM4pjBw8PDO8p7lqst7yYNtmS8YHgVDw8P7wIvX5vxgjz5PvsaDw8P7x6vbc/Pml55Oy0fQYhKyXh4eHjXeDfaWrOiw6z4G5Vx8fDw8H6Jd3YoalN6iOLBw8PD+5O89urmgMl3xsPDw7vNa4OejV61aXd7IK3KuHh4eHgxr/3DP2v8zwocbZn4MVt4eHh4Ke8fKbGmSy/pEdMAAAAASUVORK5CYII=" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/public/', SHARE: true, REWARD: true };
-
-
-
-</script>
-
-<script src="/public/js/main.min.js?v=1.4.10"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wuyaoxing" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
             </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          
+          
+
+          
+          
+
+          
+
         </div>
-    </a>
-</li>
-</template>
+      </section>
 
-<script src="/public/js/search.min.js?v=1.4.10" async></script>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#甘特图介绍"><span class="nav-number">1.</span> <span class="nav-text">甘特图介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#甘特图技术分析"><span class="nav-number">2.</span> <span class="nav-text">甘特图技术分析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wuyaoxing</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
+
+
+
+
+        
 
 
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/public/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/public/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/public/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/public/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/public/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/public/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/public/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/public/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/public/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/public/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/public/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/public/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/public/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>
