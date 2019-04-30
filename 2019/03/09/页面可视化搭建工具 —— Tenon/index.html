@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://wuyaoxing.github.io/images/tenon/engine.png">
 <meta property="og:image" content="https://wuyaoxing.github.io/images/tenon/sketch-map.png">
 <meta property="og:image" content="https://wuyaoxing.github.io/images/tenon/tenon-designer.png">
-<meta property="og:updated_time" content="2019-03-09T10:31:57.489Z">
+<meta property="og:updated_time" content="2019-04-30T04:58:13.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="页面可视化搭建工具 —— Tenon">
 <meta name="twitter:description" content="缘起目前就职的公司，有项目定制快速开发界面需求，为满足客户，经过1～2年的技术积累，沉淀出了界面设计器（页面可视化搭建工具）。 设计器代码由requirejs + jquery组成，随着业务不断扩展，为满足客户不定性需求，设计器代码越来越臃肿，代码扩展和后续维护都面临着牵一发而动全身的挑战。 在需求不断演进、技术不断革新的同时，用户体验要求也越来越高，因此我们开始了对整个产品线包括设计器在内的重构">
@@ -426,6 +426,7 @@
 <p>开发自适应组件以支持不同平台展示，没必要为不同平台单独定制项目。</p>
 <p><strong>视图布局</strong></p>
 <p><img src="/images/tenon/project.png" alt="项目"></p>
+<p>Tenon 由项目列表页面、设计页面、预览页面三部分组成。</p>
 <p><strong>核心理念</strong></p>
 <p><img src="/images/tenon/idea.png" alt="核心理念"></p>
 <p><strong>组件</strong></p>
@@ -440,9 +441,9 @@
 <li>背景属性</li>
 <li>容器属性</li>
 <li>边框属性</li>
-<li>列表属性</li>
 <li>定位属性</li>
 <li>鼠标属性</li>
+<li>…</li>
 </ul>
 </li>
 <li>组件级别</li>
@@ -477,10 +478,10 @@
 <li>组件A -&gt; emit -&gt; EventCenter -&gt; on -&gt; 组件B</li>
 </ul>
 <p><strong>复合组件</strong></p>
-<p>使用已有组件创建新的组件。</p>
+<p>使用已有组件创建新的组件。允许对复合组件内的组件进行二次编辑。</p>
 <p><strong>Dynamic Logic</strong></p>
 <p>组件级别，可编写代码，实现业务逻辑。</p>
-<h2 id="展望未来"><a href="#展望未来" class="headerlink" title="展望未来"></a>展望未来</h2><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>时常思考这样几个问题</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>时常思考这样几个问题</p>
 <ul>
 <li>为什么要做设计器以及做设计器的初衷是什么</li>
 <li>谁是使用者</li>
@@ -488,10 +489,10 @@
 </ul>
 <p>也许正如知乎网友所言：做的到可视化工具，做好可视化工具很难。</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>页面可视化搭建工具前生今世（<a href="https://github.com/CntChen/cntchen.github.io/issues/15）" target="_blank" rel="noopener">https://github.com/CntChen/cntchen.github.io/issues/15）</a></li>
-<li>json-schema（<a href="https://json-schema.org/）" target="_blank" rel="noopener">https://json-schema.org/）</a></li>
-<li>pipeline（<a href="https://github.com/page-pipepline）" target="_blank" rel="noopener">https://github.com/page-pipepline）</a></li>
-<li>VvvebJs（<a href="http://www.vvveb.com/vvvebjs/editor.html）" target="_blank" rel="noopener">http://www.vvveb.com/vvvebjs/editor.html）</a></li>
+<li>页面可视化搭建工具前生今世(<a href="https://github.com/CntChen/cntchen.github.io/issues/15" target="_blank" rel="noopener">https://github.com/CntChen/cntchen.github.io/issues/15</a>)</li>
+<li>json-schema(<a href="https://json-schema.org/" target="_blank" rel="noopener">https://json-schema.org/</a>)</li>
+<li>pipeline-editor(<a href="https://github.com/page-pipepline/pipeline-editor" target="_blank" rel="noopener">https://github.com/page-pipepline/pipeline-editor</a>)</li>
+<li>VvvebJs(<a href="http://www.vvveb.com/vvvebjs/editor.html" target="_blank" rel="noopener">http://www.vvveb.com/vvvebjs/editor.html</a>)</li>
 </ul>
 <h2 id="快速体验"><a href="#快速体验" class="headerlink" title="快速体验"></a>快速体验</h2><p><img src="/images/tenon/tenon-designer.png" alt="tenon-designer"></p>
 <p><strong><a href="https://wuyaoxing.github.io/tenon">Tenon</a></strong></p>
@@ -663,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#名称由来"><span class="nav-number">2.</span> <span class="nav-text">名称由来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求分类"><span class="nav-number">3.</span> <span class="nav-text">需求分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析问题"><span class="nav-number">4.</span> <span class="nav-text">分析问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构设计"><span class="nav-number">5.</span> <span class="nav-text">架构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展望未来"><span class="nav-number">6.</span> <span class="nav-text">展望未来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">7.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">8.</span> <span class="nav-text">References</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速体验"><span class="nav-number">9.</span> <span class="nav-text">快速体验</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#名称由来"><span class="nav-number">2.</span> <span class="nav-text">名称由来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求分类"><span class="nav-number">3.</span> <span class="nav-text">需求分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析问题"><span class="nav-number">4.</span> <span class="nav-text">分析问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构设计"><span class="nav-number">5.</span> <span class="nav-text">架构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">6.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">7.</span> <span class="nav-text">References</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速体验"><span class="nav-number">8.</span> <span class="nav-text">快速体验</span></a></li></ol></div>
             
 
           </div>
