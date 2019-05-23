@@ -238,7 +238,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wuyaoxing.github.io/2018/05/11/SourceTree-免登录跳过初始设置的方法/">
+    <link itemprop="mainEntityOfPage" href="https://wuyaoxing.github.io/2018/05/22/敦兮其若朴，旷兮其若谷/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wuyaoxing">
@@ -257,7 +257,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/11/SourceTree-免登录跳过初始设置的方法/" itemprop="url">SourceTree 免登录跳过初始设置的方法</a></h1>
+                <a class="post-title-link" href="/2018/05/22/敦兮其若朴，旷兮其若谷/" itemprop="url">敦兮其若朴，旷兮其若谷</a></h1>
         
 
         <div class="post-meta">
@@ -269,8 +269,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T18:05:23+08:00">
-                2018-05-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T15:50:05+08:00">
+                2018-05-22
               </time>
             
 
@@ -309,16 +309,14 @@
       
         
           
-            <h2 id="SourceTree-免登录跳过初始设置的方法"><a href="#SourceTree-免登录跳过初始设置的方法" class="headerlink" title="SourceTree 免登录跳过初始设置的方法"></a>SourceTree 免登录跳过初始设置的方法</h2><ul>
-<li>首先，安装完 SourceTree 以后先运行一次，弹出初始化登录页面后退出。<br>打开</li>
-<li>我的电脑，在最上方的地址栏直接输入以下地址</li>
+            <ul>
+<li>近三十，却未立，前路无知己，身旁无佳人，终年与孤独为友，以代码相伴，虽自在逍遥，只是终究有些寂寞。</li>
+<li>人生如逆水行舟，不进则退，纵然孑然一身，却也不敢懈怠，外以强健体魄，内以丰富学识，如此律己自强，方可求得些许心安。</li>
 </ul>
+<p>过去的3年，未来的5年，都逃不过两段话。或许更久！<br>又是一岁！<br>写下箴言两句：敦兮其若朴，旷兮其若谷。</p>
 <blockquote>
-<p>%LocalAppData%\Atlassian\SourceTree\</p>
+<p>tip：或感力不从心，思来半生若此。奈何世事有常，自此人便休矣。</p>
 </blockquote>
-<p>新建 accounts.json 文件</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"$id"</span>: <span class="string">"1"</span>,</span><br><span class="line">    <span class="attr">"$type"</span>: <span class="string">"SourceTree.Api.Host.Identity.Model.IdentityAccount, SourceTree.Api.Host.Identity"</span>,</span><br><span class="line">    <span class="attr">"Authenticate"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"HostInstance"</span>: &#123;</span><br><span class="line">      <span class="attr">"$id"</span>: <span class="string">"2"</span>,</span><br><span class="line">      <span class="attr">"$type"</span>: <span class="string">"SourceTree.Host.Atlassianaccount.AtlassianAccountInstance, SourceTree.Host.AtlassianAccount"</span>,</span><br><span class="line">      <span class="attr">"Host"</span>: &#123;</span><br><span class="line">        <span class="attr">"$id"</span>: <span class="string">"3"</span>,</span><br><span class="line">        <span class="attr">"$type"</span>: <span class="string">"SourceTree.Host.Atlassianaccount.AtlassianAccountHost, SourceTree.Host.AtlassianAccount"</span>,</span><br><span class="line">        <span class="attr">"Id"</span>: <span class="string">"atlassian account"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"BaseUrl"</span>: <span class="string">"https://id.atlassian.com/"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"Credentials"</span>: &#123;</span><br><span class="line">      <span class="attr">"$id"</span>: <span class="string">"4"</span>,</span><br><span class="line">      <span class="attr">"$type"</span>: <span class="string">"SourceTree.Model.BasicAuthCredentials, SourceTree.Api.Account"</span>,</span><br><span class="line">      <span class="attr">"Username"</span>: <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"Email"</span>: <span class="literal">null</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"IsDefault"</span>: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>将上面代码复制，重新打开即可。</p>
 
           
         
@@ -358,7 +356,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -406,7 +404,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
