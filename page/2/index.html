@@ -238,7 +238,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wuyaoxing.github.io/2020/03/08/杂谈-20200308/">
+    <link itemprop="mainEntityOfPage" href="https://wuyaoxing.github.io/2020/12/10/前端性能优化总结/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wuyaoxing">
@@ -257,7 +257,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/08/杂谈-20200308/" itemprop="url">杂谈-20200308</a></h1>
+                <a class="post-title-link" href="/2020/12/10/前端性能优化总结/" itemprop="url">前端性能优化总结</a></h1>
         
 
         <div class="post-meta">
@@ -269,8 +269,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T16:56:49+08:00">
-                2020-03-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-10T20:19:41+08:00">
+                2020-12-10
               </time>
             
 
@@ -309,11 +309,95 @@
       
         
           
-            <p>现在是一生中最轻松自由的时候。<br>上不必赡养父母，<br>下无需操心子女，<br>中间自己更是无忧无虑。</p>
-<p>但似乎少些什么，<br>轻松却不自在，<br>年轻却无所为。<br>总觉得得做些什么，干些什么才不负大好青春。</p>
-<p>过去心存高远，<br>志在四方，<br>天下事岂有难易乎！<br>好个年少轻狂。</p>
-<p>而今岁月无声，<br>年龄渐长，<br>越发蹉跎。</p>
-<p>时间可快，一晃数年，记忆中的自己，还是上学时的模样。</p>
+            <blockquote>
+<p>前端性能优化的目的是什么？或者说为什么要做性能优化</p>
+</blockquote>
+<ul>
+<li>软件系统<ul>
+<li>页面是否会崩溃</li>
+<li>软件系统的稳定性</li>
+<li>软件架构的稳定性</li>
+</ul>
+</li>
+<li>代码<ul>
+<li>代码规范一致性</li>
+<li>代码是否整洁、易读</li>
+<li>代码是否便于后期维护</li>
+</ul>
+</li>
+<li>用户<ul>
+<li>页面加载的更快</li>
+<li>对用户的操作响应的更及时</li>
+<li>给用户提供更为友好的体验</li>
+</ul>
+</li>
+</ul>
+<p>谈及优化，会有很多着手点来提升前端性能。只是应该 <strong> 在有限的时间内，做更有价值的事情。 </strong></p>
+<p>书归正传。</p>
+<p>我认为前端性能优化可分为两个部分，<strong>加载时优化</strong> 和 <strong>运行时优化</strong>。</p>
+<p><strong>加载时优化</strong></p>
+<ol>
+<li>减少HTTP请求数<ul>
+<li>这条策略是最重要最有效的。一个完整的请求是经过DNS寻址，与服务器建立连接，发送数据，等待服务器响应，接收数据这样一个消耗时间成本和资源成本的复杂的过程。</li>
+<li>从设计实现层面简化页面</li>
+<li>合理设置HTTP缓存</li>
+<li>资源合并与压缩</li>
+<li>CSS Sprites</li>
+</ul>
+</li>
+<li>打包<ul>
+<li>代码压缩合并</li>
+<li>Tree-shaking</li>
+<li>图片压缩</li>
+</ul>
+</li>
+<li>资源加载<ul>
+<li>预加载</li>
+<li>懒加载</li>
+<li>动态加载</li>
+</ul>
+</li>
+<li>缓存<ul>
+<li>资源缓存<ul>
+<li>浏览器缓存</li>
+<li>CDN 缓存</li>
+</ul>
+</li>
+<li>代码缓存</li>
+</ul>
+</li>
+<li>将 CSS 放在文件头部，JavaScript 文件放在底部</li>
+<li>SSR</li>
+<li>缩减首屏加载时间</li>
+<li>减小 Cookie 大小</li>
+</ol>
+<p><strong>运行时优化</strong></p>
+<ol>
+<li>HTML<ul>
+<li>简化布局，减少页面 DOM 数量</li>
+<li>避免层级深嵌套</li>
+<li>语义化标签</li>
+<li>避免使用 iframe 标签</li>
+</ul>
+</li>
+<li>CSS<ul>
+<li>尽量使用外部样式，并且放在页面顶部加载，一方面能够及时渲染，另一方面能够避免因某些样式导致阻塞渲染</li>
+<li>降低 CSS 选择器的复杂性</li>
+<li>使用 CSS3 新的属性</li>
+<li>CSS 预处理器</li>
+</ul>
+</li>
+<li>JavaScript<ul>
+<li>JavaScript 代码属于边加载边解析，解析的过程会阻塞浏览器渲染，因此需要把 JavaScript 代码放在页面底部加载</li>
+<li>减少 DOM 操作</li>
+<li>最小化 DOM 访问</li>
+<li>减少浏览器重绘重排</li>
+<li>防抖、节流</li>
+<li>写高性能的 JavaScript 代码</li>
+</ul>
+</li>
+<li>事件管理</li>
+</ol>
 
           
         
@@ -353,7 +437,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -401,7 +485,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -414,7 +498,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -461,7 +545,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

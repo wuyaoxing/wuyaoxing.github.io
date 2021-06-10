@@ -238,7 +238,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wuyaoxing.github.io/2018/06/22/git-配置多账户/">
+    <link itemprop="mainEntityOfPage" href="https://wuyaoxing.github.io/2019/02/24/侠客行/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wuyaoxing">
@@ -257,7 +257,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/22/git-配置多账户/" itemprop="url">git 配置多账户</a></h1>
+                <a class="post-title-link" href="/2019/02/24/侠客行/" itemprop="url">侠客行</a></h1>
         
 
         <div class="post-meta">
@@ -269,8 +269,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-22T19:39:48+08:00">
-                2018-06-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T19:51:58+08:00">
+                2019-02-24
               </time>
             
 
@@ -309,37 +309,15 @@
       
         
           
-            <p>在工作中，公司会有专门的git账号（公司使用gitlab），有时会做些个人项目放到github，这时候就需要配置多个git账号和服务器。</p>
-<p>第一个账号：</p>
-<ul>
-<li><p>设置git账号</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;username&quot;</span><br><span class="line">git config --global user.email &quot;xxxxx@xxxxxxx.xxxx&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建个人SSH key</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxxx@xxx.xx&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把~/.ssh/id_rsa.pub的内容添加到gitlab的SSH keys中</p>
-</li>
-<li>测试  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitlab.com</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>第二个账号：</p>
-<ul>
-<li><p>创建个人SSH key</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 新建SSH key：  </span><br><span class="line">cd ~/.ssh     # 切换到C:\Users\Administrator\.ssh  </span><br><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br><span class="line"># 设置名称为id_rsa_wyx(名字随意)  </span><br><span class="line">Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa): id_rsa_wyx</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加新密钥</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 因为默认只读取id_rsa，为了让SSH识别新的私钥，需将其添加到SSH agent中</span><br><span class="line">ssh-add ~/.ssh/id_rsa_wyx</span><br><span class="line">// 如果出现`Could not open a connection to your authentication agent`，则先输入</span><br><span class="line">ssh-agent bash</span><br><span class="line">// 然后再输入</span><br><span class="line">ssh-add ~/.ssh/id_rsa_wyx</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改config文件</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 若config文件不存在，使用`touch config`创建</span><br><span class="line"># 该配置用于工作  </span><br><span class="line"># Host 服务器别名  </span><br><span class="line">Host gitlab.com</span><br><span class="line"># HostName 服务器ip地址或机器名  </span><br><span class="line">HostName gitlab.com</span><br><span class="line"># User连接服务器的用户名  </span><br><span class="line">User wuyaoxing  </span><br><span class="line"># IdentityFile 密匙文件的具体路径  </span><br><span class="line">IdentityFile ~/.ssh/id_rsa </span><br><span class="line">PreferredAuthentications publickey </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 该配置用于个人 github 上  </span><br><span class="line"># Host 服务器别名  </span><br><span class="line">Host github.com  </span><br><span class="line"># HostName 服务器ip地址或机器名  </span><br><span class="line">HostName github.com  </span><br><span class="line"># User连接服务器的用户名  </span><br><span class="line">User wuyaoxing  </span><br><span class="line"># IdentityFile 密匙文件的具体路径  </span><br><span class="line">IdentityFile ~/.ssh/id_rsa_wyx</span><br><span class="line">PreferredAuthentications publickey</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把~/.ssh/id_rsa_wyx.pub的内容添加到github的SSH keys中</p>
-</li>
-<li>测试  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>至此，已完成多个git账号配置，快去clone 项目吧。</p>
+            <p>侠客，<br>快意人生刀马横行是为<strong>侠</strong>，<br>流浪不羁自由闯荡是为<strong>客</strong>。</p>
+<p>道之所在，虽千万人吾往矣；<br>义之所当，千金散尽犹不悔；<br>情之所钟，世俗礼法如粪土；<br>兴之所起，会须一饮三百杯。</p>
+<p><strong>《侠客行》</strong></p>
+<blockquote>
+<p>赵客缦胡缨，吴钩霜雪明。<br>银鞍照白马，飒沓如流星。<br>十步杀一人，千里不留行。<br>事了拂衣去，深藏身与名。<br>闲过信陵饮，脱剑膝前横。<br>将炙啖朱亥，持觞劝侯嬴。<br>三杯吐然诺，五岳倒为轻。<br>眼花耳热后，意气素霓生。<br>救赵挥金锤，邯郸先震惊。<br>千秋二壮士，煊赫大梁城。<br>纵死侠骨香，不惭世上英。<br>谁能书阁下，白首太玄经。</p>
+</blockquote>
+<p>自古文人都有一种侠客情节，<br>君不见，一碗烈酒，半斤牛肉，<br>烈马高歌，青衫磊落，仗剑直行，锄强扶弱。<br>这是每个热血书生都曾做过的白日梦，相信你我都曾幻想过。<br>诗仙李白也不例外。</p>
+<p>太史公曰：<br>今游侠，其行虽不轨于正义，<br>然其言必信，其行必果，已诺必诚，不爱其躯，赴士之厄困，<br>既已存亡死生矣，而不矜其能，羞伐其德，盖亦有足多者焉。</p>
+<p>侠之大者，为国为民。<br>但侠者难分大小，唯凭一心尔。</p>
 
           
         
@@ -379,7 +357,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -427,7 +405,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -440,7 +418,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -487,7 +465,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
