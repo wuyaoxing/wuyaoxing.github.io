@@ -186,6 +186,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -238,7 +248,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wuyaoxing.github.io/2019/02/24/侠客行/">
+    <link itemprop="mainEntityOfPage" href="https://wuyaoxing.github.io/2019/03/09/20190309-页面可视化搭建工具 —— Tenon/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wuyaoxing">
@@ -257,7 +267,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/24/侠客行/" itemprop="url">侠客行</a></h1>
+                <a class="post-title-link" href="/2019/03/09/20190309-页面可视化搭建工具 —— Tenon/" itemprop="url">页面可视化搭建工具 —— Tenon</a></h1>
         
 
         <div class="post-meta">
@@ -269,8 +279,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T19:51:58+08:00">
-                2019-02-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T10:10:18+08:00">
+                2019-03-09
               </time>
             
 
@@ -279,6 +289,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术分享/" itemprop="url" rel="index">
+                    <span itemprop="name">技术分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -309,15 +341,188 @@
       
         
           
-            <p>侠客，<br>快意人生刀马横行是为<strong>侠</strong>，<br>流浪不羁自由闯荡是为<strong>客</strong>。</p>
-<p>道之所在，虽千万人吾往矣；<br>义之所当，千金散尽犹不悔；<br>情之所钟，世俗礼法如粪土；<br>兴之所起，会须一饮三百杯。</p>
-<p><strong>《侠客行》</strong></p>
-<blockquote>
-<p>赵客缦胡缨，吴钩霜雪明。<br>银鞍照白马，飒沓如流星。<br>十步杀一人，千里不留行。<br>事了拂衣去，深藏身与名。<br>闲过信陵饮，脱剑膝前横。<br>将炙啖朱亥，持觞劝侯嬴。<br>三杯吐然诺，五岳倒为轻。<br>眼花耳热后，意气素霓生。<br>救赵挥金锤，邯郸先震惊。<br>千秋二壮士，煊赫大梁城。<br>纵死侠骨香，不惭世上英。<br>谁能书阁下，白首太玄经。</p>
-</blockquote>
-<p>自古文人都有一种侠客情节，<br>君不见，一碗烈酒，半斤牛肉，<br>烈马高歌，青衫磊落，仗剑直行，锄强扶弱。<br>这是每个热血书生都曾做过的白日梦，相信你我都曾幻想过。<br>诗仙李白也不例外。</p>
-<p>太史公曰：<br>今游侠，其行虽不轨于正义，<br>然其言必信，其行必果，已诺必诚，不爱其躯，赴士之厄困，<br>既已存亡死生矣，而不矜其能，羞伐其德，盖亦有足多者焉。</p>
-<p>侠之大者，为国为民。<br>但侠者难分大小，唯凭一心尔。</p>
+            <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>目前就职的公司，有项目定制快速开发界面需求，为满足客户，经过1～2年的技术积累，沉淀出了界面设计器（页面可视化搭建工具）。 设计器代码由requirejs + jquery组成，随着业务不断扩展，为满足客户不定性需求，设计器代码越来越臃肿，代码扩展和后续维护都面临着牵一发而动全身的挑战。 在需求不断演进、技术不断革新的同时，用户体验要求也越来越高，因此我们开始了对整个产品线包括设计器在内的重构。</p>
+<p><strong>Tenon</strong> 多半是利用业余时间，经由技术预研和个人想法实践而诞生。<br>期间踩坑、填坑，不断推翻重来，有难度也有挑战。</p>
+<h2 id="名称由来"><a href="#名称由来" class="headerlink" title="名称由来"></a>名称由来</h2><p><strong>Tenon</strong>，取自 mortise and tenon（    卯榫）。</p>
+<p>由木工卯榫结构（tenon structure）启发，在规则内保持灵活性。<br>榫卯作为一种传统工艺是一种文化，也代表着一种工匠精神，更是一种精致的生活体现~</p>
+<h2 id="需求分类"><a href="#需求分类" class="headerlink" title="需求分类"></a>需求分类</h2><ul>
+<li>静态页面</li>
+<li>固定业务逻辑页面</li>
+<li>定制页面</li>
+</ul>
+<p>前端页面需求可以分为这么三类。<br>对于定制页面，只要用户支付定制费，我们不吝啬开发，但在业务稳定的情况下界面设计器能极大地提高效率。<br>这也是可视化工具的初衷之一。</p>
+<h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><p><strong>页面构成</strong></p>
+<p>HTML DOM 树：</p>
+<p><img src="http://www.w3school.com.cn/i/ct_htmltree.gif" alt="HTML DOM Tree"></p>
+<p>设计器的操作对象是页面。  </p>
+<p>页面是一份 HTML 文档。<br>HTML 使用一种树形结构来表示页面。<br>树的每个节点为一个页面元素或文本节点。<br>一个页面元素可以包含多个页面元素节点或文本节点。<br>页面元素通常称为标签。<br>标签类型由 HTML 规范定义。</p>
+<p><img src="/images/tenon/page.png" alt="页面构成"></p>
+<ul>
+<li>page = HTML Tree + Data + Dynamic Logic（动态逻辑）</li>
+</ul>
+<p>HTML Tree 是页面元素的树形结构，<br>Data 是页面元素的属性或文本节点，<br>Dynamic Logic是使用js对页面修改和控制。</p>
+<p>组件化时代 Component Tree 相当于 HTML Tree。</p>
+<p>代码编辑器（IDE）本质上是对HTML Tree, Data 和 Dynamic Logic增删和修改。</p>
+<p>设计器是不要求使用者具有编程基础，使用可视化交互的方式通过拖拉、填表或编写代码实现页面可视化编辑的软件工具（可视化IDE）。</p>
+<p><strong>四个维度</strong></p>
+<ul>
+<li>HTML Tree 编辑<ul>
+<li>布局灵活，高度自由（元素、结构、样式、数据）</li>
+<li>交互简单</li>
+<li>不涉及业务逻辑</li>
+</ul>
+</li>
+<li>Component Tree 编辑<ul>
+<li>以组件为核心，快速迭代开发</li>
+<li>业务逻辑强耦合，复用程度高</li>
+</ul>
+</li>
+<li>页面 Data 编辑<ul>
+<li>样式、图片url、文本以及组件提供的属性等</li>
+</ul>
+</li>
+<li>Dynamic Logic 编辑<ul>
+<li>可编写代码，实现复杂业务逻辑</li>
+</ul>
+</li>
+</ul>
+<p>设计器提供的能力是编辑页面组成部分之一或多部分。</p>
+<p><strong>编辑自由度</strong></p>
+<ul>
+<li>html元素<ul>
+<li>可编辑的元素丰富</li>
+<li>页面结构灵活</li>
+<li>可视化编辑效率较低</li>
+<li>业务逻辑封装度较低</li>
+</ul>
+</li>
+<li>组件<ul>
+<li>可编辑的元素依赖设计器提供的组件</li>
+<li>可视化编辑效率较高</li>
+<li>业务逻辑封装度较高</li>
+</ul>
+</li>
+</ul>
+<p>编辑自由度, 是指页面可编辑单元的粒度。</p>
+<p><strong>布局方式</strong></p>
+<ul>
+<li>定位布局<ul>
+<li>页面结构单一</li>
+<li>组件位置固定，不容易支持自适应布局</li>
+</ul>
+</li>
+<li>嵌套布局<ul>
+<li>页面结构灵活</li>
+<li>支持自适应展示布局</li>
+</ul>
+</li>
+</ul>
+<p>关于设计器的实现，有嵌套和无嵌套两种布局方案。<br>在满足其业务需求的前提下，无论哪种实现，都是革命性的突破。<br>若是将两者结合，并遵循<strong>所见即所得</strong>的设计方式，或许是一种新的思路。</p>
+<p>定位布局是一种无嵌套布局，只需父元素设置<code>position: relation</code>属性便能实现拖拽组件生成页面。</p>
+<p>要满足嵌套布局，需要有嵌套布局容器组件。<br>嵌套布局容器组件（NestedLayoutContainer）是一个支持嵌套布局的组件。可插入特定组件（嵌套布局容器组件、定位布局容器组件、导航组件、视图组件等），并支持特定组件排序和属性设置（高度、宽度、对齐方式等）。</p>
+<p>要支持定位布局嵌入嵌套布局，需要有定位布局容器组件。<br>定位布局容器组件（PositionLayoutContainer）是一个支持无嵌套定位布局、且支持插入嵌套布局容器组件的组件。可插入无嵌套组件并限制最大拖动范围，即定位布局容器组件是无嵌套组件的父级。</p>
+<h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><p><strong>愿景</strong></p>
+<ul>
+<li>内容可配置，页面结构可配置，逻辑可配置</li>
+<li>what you see is what you get</li>
+</ul>
+<p><strong>定位</strong></p>
+<ul>
+<li>目标<ul>
+<li>快速搭建页面</li>
+<li>降低门槛</li>
+<li>提高效率</li>
+<li>便于后期实施人员维护</li>
+</ul>
+</li>
+<li>体验<ul>
+<li>易用性</li>
+<li>高效性</li>
+<li>可维护性</li>
+<li>页面呈现一致性</li>
+</ul>
+</li>
+</ul>
+<p><strong>平台支持</strong></p>
+<ul>
+<li>pc</li>
+<li>iPad</li>
+<li>mobile</li>
+</ul>
+<p>开发自适应组件以支持不同平台展示，没必要为不同平台单独定制项目。</p>
+<p><strong>视图布局</strong></p>
+<p><img src="/images/tenon/project.png" alt="项目"></p>
+<p>Tenon 由项目列表页面、设计页面、预览页面三部分组成。</p>
+<p><strong>核心理念</strong></p>
+<p><img src="/images/tenon/idea.png" alt="核心理念"></p>
+<p><strong>组件</strong></p>
+<p><img src="/images/tenon/component.png" alt="组件中心"></p>
+<p>组件是对HTML元素、样式布局、业务逻辑的封装。</p>
+<p><strong>数据</strong></p>
+<ul>
+<li>配置数据<ul>
+<li>css级别<ul>
+<li>字体属性</li>
+<li>文本属性</li>
+<li>背景属性</li>
+<li>容器属性</li>
+<li>边框属性</li>
+<li>定位属性</li>
+<li>鼠标属性</li>
+<li>…</li>
+</ul>
+</li>
+<li>组件级别</li>
+</ul>
+</li>
+</ul>
+<p>对配置数据的描述，使用JSON格式，并遵循 <a href="https://json-schema.org/" target="_blank" rel="noopener">JSON Schema</a> 规范。</p>
+<p>例如对边框属性的描述JSON Schema为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">const borderSchema = &#123;</span><br><span class="line">    title: &apos;border&apos;,</span><br><span class="line">    type: &apos;object&apos;,</span><br><span class="line">    properties: &#123;</span><br><span class="line">        borderWidth: &#123;</span><br><span class="line">            description: &apos;边框宽度&apos;,</span><br><span class="line">            type: &apos;number&apos;,</span><br><span class="line">            minimum: 0,</span><br><span class="line">            format: &apos;number&apos;,</span><br><span class="line">        &#125;,</span><br><span class="line">        borderRadius: &#123;</span><br><span class="line">            description: &apos;边框圆角&apos;,</span><br><span class="line">            type: &apos;number&apos;,</span><br><span class="line">            minimum: 0,</span><br><span class="line">            format: &apos;number&apos;,</span><br><span class="line">        &#125;,</span><br><span class="line">        borderStyle: &#123;</span><br><span class="line">            description: &apos;边框样式&apos;,</span><br><span class="line">            type: &apos;string&apos;,</span><br><span class="line">            enum: [</span><br><span class="line">                &#123;</span><br><span class="line">                    text: &apos;none&apos;,</span><br><span class="line">                    value: &apos;none&apos;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    text: &apos;solid&apos;,</span><br><span class="line">                    value: &apos;solid&apos;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    text: &apos;dashed&apos;,</span><br><span class="line">                    value: &apos;dashed&apos;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    text: &apos;dotted&apos;,</span><br><span class="line">                    value: &apos;dotted&apos;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    text: &apos;double&apos;,</span><br><span class="line">                    value: &apos;double&apos;</span><br><span class="line">                &#125;,</span><br><span class="line">            ],</span><br><span class="line">            format: &apos;select&apos;,</span><br><span class="line">        &#125;,</span><br><span class="line">        borderColor: &#123;</span><br><span class="line">            description: &apos;边框颜色&apos;,</span><br><span class="line">            type: &apos;string&apos;,</span><br><span class="line">            format: &apos;color&apos;,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 <a href="https://json-schema.org/" target="_blank" rel="noopener">JSON Schema</a> 描述组件有以下几点好处：</p>
+<ul>
+<li>配置数据校验，避免编辑错误</li>
+<li>生成属性编辑区域</li>
+<li>组件与配置数据解耦</li>
+<li>组件与设计器解耦</li>
+<li>数据趋于标准化，降低后期维护的差异性</li>
+</ul>
+<p>组件可以按照JSON Schema规范描述其支持的配置数据。<br>此时组件是一个独立的整体，可在任何地方使用。</p>
+<p><strong>解析器</strong></p>
+<ul>
+<li>页面数据结构</li>
+</ul>
+<p><img src="/images/tenon/page-data.png" alt="页面数据结构"></p>
+<ul>
+<li>解析引擎</li>
+</ul>
+<p><img src="/images/tenon/engine.png" alt="解析引擎"></p>
+<p><strong>简单流程原理示意图</strong></p>
+<p><img src="/images/tenon/sketch-map.png" alt="简单流程原理示意图"></p>
+<p><strong>事件机制</strong></p>
+<ul>
+<li>组件A -&gt; emit -&gt; EventCenter -&gt; on -&gt; 组件B</li>
+</ul>
+<p><strong>复合组件</strong></p>
+<p>使用已有组件创建新的组件。允许对复合组件内的组件进行二次编辑。</p>
+<p><strong>Dynamic Logic</strong></p>
+<p>组件级别，可编写代码，实现业务逻辑。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>时常思考这样几个问题</p>
+<ul>
+<li>为什么要做设计器以及做设计器的初衷是什么</li>
+<li>谁是使用者</li>
+<li>产品的定位和发展方向</li>
+</ul>
+<p>也许正如知乎网友所言：做的到可视化工具，做好可视化工具很难。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>页面可视化搭建工具前生今世(<a href="https://github.com/CntChen/cntchen.github.io/issues/15" target="_blank" rel="noopener">https://github.com/CntChen/cntchen.github.io/issues/15</a>)</li>
+<li>json-schema(<a href="https://json-schema.org/" target="_blank" rel="noopener">https://json-schema.org/</a>)</li>
+<li>pipeline-editor(<a href="https://github.com/page-pipepline/pipeline-editor" target="_blank" rel="noopener">https://github.com/page-pipepline/pipeline-editor</a>)</li>
+<li>VvvebJs(<a href="http://www.vvveb.com/vvvebjs/editor.html" target="_blank" rel="noopener">http://www.vvveb.com/vvvebjs/editor.html</a>)</li>
+</ul>
+<h2 id="快速体验"><a href="#快速体验" class="headerlink" title="快速体验"></a>快速体验</h2><p><img src="/images/tenon/tenon-designer.png" alt="tenon-designer"></p>
+<p><strong><a href="https://wuyaoxing.github.io/tenon">Tenon</a></strong></p>
+<hr>
 
           
         
@@ -357,7 +562,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -405,12 +610,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             

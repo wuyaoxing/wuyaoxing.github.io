@@ -186,6 +186,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -238,7 +248,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wuyaoxing.github.io/2017/06/24/javaScript连续判断语句的重构/">
+    <link itemprop="mainEntityOfPage" href="https://wuyaoxing.github.io/2018/03/26/20180326-杂谈/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wuyaoxing">
@@ -257,7 +267,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/24/javaScript连续判断语句的重构/" itemprop="url">javaScript连续判断语句的重构</a></h1>
+                <a class="post-title-link" href="/2018/03/26/20180326-杂谈/" itemprop="url">杂谈 - 20180326</a></h1>
         
 
         <div class="post-meta">
@@ -269,8 +279,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-24T09:59:46+08:00">
-                2017-06-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T14:11:41+08:00">
+                2018-03-26
               </time>
             
 
@@ -279,6 +289,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -309,29 +341,9 @@
       
         
           
-            <h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>由if else、switch case探讨重构，旨在抛砖引玉。</p>
-<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>有人认为：if else多就多呗，只要可读性强，维护起来方便。这句话本身就存在矛盾。</p>
-<h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><p>假使后台接口返回这种数据：</p>
-<p>fruit: 0 // 0：苹果，1：香蕉，2：梨…</p>
-<p>你需要根据fruit判断对应的水果名称</p>
-<p>用if else写会是这样的：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> currentFruit = <span class="string">''</span></span><br><span class="line"><span class="keyword">if</span>(fruit === <span class="number">0</span>) &#123;</span><br><span class="line">    currentFruit = <span class="string">'苹果'</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>(fruit === <span class="number">1</span>) &#123;</span><br><span class="line">    currentFruit = <span class="string">'香蕉'</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>(fruit === <span class="number">2</span>) &#123;</span><br><span class="line">    currentFruit = <span class="string">'梨'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果多增加几种水果，就要多写几条判断，这个时候就要考虑优化了。同样使用switch case也是复杂的，接下来我们看另一种实现：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _f = [<span class="string">'苹果'</span>,<span class="string">'香蕉'</span>,<span class="string">'梨'</span>]</span><br><span class="line"><span class="keyword">const</span> currentFruit = _f[fruit]</span><br></pre></td></tr></table></figure>
-<p>这种方法叫做表格驱动法，也叫hash表法。即字典、数据库。</p>
-<h2 id="优化分析"><a href="#优化分析" class="headerlink" title="优化分析"></a>优化分析</h2><ol>
-<li>优化if逻辑</li>
-</ol>
-<p>把最可能出现的条件放在前面，把最不可能出现的条件放在后面，这样程序执行时总会按照条件的先后顺序逐一检测所有的条件，直到发现匹配的条件才会停止继续检测。if 中的条件体应该总是按照从最大概率到最小概率排列，以保证理论速度最快。</p>
-<ol start="2">
-<li>关于switch case</li>
-</ol>
-<p>switch和if else在性能上貌似是没有什么区别的，主要还是根据需求进行分析和选择。</p>
-<ul>
-<li>如果条件较小的话选用if else比较合适。</li>
-<li>相反，条件数量较大的话，就建议选用switch。</li>
-</ul>
-<p>在大多数情况下，switch的性能不会比if else低。switch的确在实质上跟if else if 完全一样的效果，不过在很多情况下，使用switch要比if else方便不少。比如经典的值等分支，匹配一些状态常量的时候，比if else结构方便许多，不用反复写xx == yy。</p>
+            <p><strong>杂谈</strong>（其一）<br>茶香四溢心悠远，码上心头意阑珊。<br>夜来风起雨散去，闲敲键盘乐指尖。</p>
+<p>这首小诗记录了当前惬意的生活。<br>写代码本应该是一件开心的事情，而我却给了自己很大的压力。致使近一个月的茫然无措，每天都过得很焦虑。<br>经过一个月的心路历程的探索、深度剖析、自我反省，理解并理顺了诸多事情，也得到了深刻的启发和和寻找到内心的方向——<strong>哲学</strong>。</p>
+<p>我们不断地经历实践、思考、理论升华、再实践、再思考、再理论升华……</p>
 
           
         
@@ -371,7 +383,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/20/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/22/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/20/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/22/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -419,12 +431,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
