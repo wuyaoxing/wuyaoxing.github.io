@@ -6,7 +6,7 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -132,7 +132,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -143,7 +143,7 @@
   page-home">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -243,20 +243,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wuyaoxing.github.io/2017/04/25/20170425-SVN异常处理之cleanup/">
+    <link itemprop="mainEntityOfPage" href="https://wuyaoxing.github.io/2018/03/27/20180327-todolist/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wuyaoxing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Crane Perch Villa">
     </span>
 
@@ -267,7 +267,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/25/20170425-SVN异常处理之cleanup/" itemprop="url">SVN异常处理之cleanup</a></h1>
+                <a class="post-title-link" href="/2018/03/27/20180327-todolist/" itemprop="url">2018 - todolist</a></h1>
         
 
         <div class="post-meta">
@@ -279,8 +279,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-25T15:18:37+08:00">
-                2017-04-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T21:39:48+08:00">
+                2018-03-27
               </time>
             
 
@@ -301,9 +301,9 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/svn/" itemprop="url" rel="index">
-                    <span itemprop="name">svn</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
                   </a>
                 </span>
 
@@ -341,31 +341,18 @@
       
         
           
-            <h2 id="事件起因"><a href="#事件起因" class="headerlink" title="事件起因"></a>事件起因</h2><p>昨天下午更新代码前执行 update 然后报了错，如下：</p>
-<blockquote>
-<p>svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted</p>
-</blockquote>
-<p>提示让执行cleanup，然后执行cleanup失败。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>今天上班写了会代码去update才想起这个事。然后就是谷歌（百度）。</p>
-<p>网上有种说法是： <strong>svn提交遇到恶心的问题，可能是因为上次cleanup中断后，进入死循环了。</strong></p>
-<p>解决方法：清空SVN的队列</p>
-<ol>
-<li>下载<a href="http://www.sqlite.org/download.html" target="_blank" rel="noopener">sqlite3.exe</a></li>
-<li>找到你项目的.svn文件，查看是否存在wc.db</li>
-<li>将sqlite3.exe放到.svn的同级目录</li>
-<li>启动cmd执行 sqlite3 .svn/wc.db “select * from work_queue”</li>
-<li>看到一些记录，下一步执行 sqlite3 .svn/wc.db “delete from work_queue”</li>
-<li>现在在到项目里面，执行cleanup，完全没问题了，图标状态也已经恢复了。</li>
-<li>没有装图片插件，提供不了图片，遗憾。</li>
-</ol>
-<h2 id="回忆"><a href="#回忆" class="headerlink" title="回忆"></a>回忆</h2><p>事后想了下问题出现的原因</p>
-<ul>
-<li>打开svn下文件，开始工作。我打开的是axure。</li>
-<li>准备更新，axure打开的文件未关闭。</li>
-<li>在这段时间内，正好其他同事对该文件进行了删除操作，其他操作可能会出现文件合并的情况。然后svn罢工了。</li>
-<li>准备commit，开始update，报错。</li>
+            <p>2018年已经过去好几个月了，这篇手记很久之前就应该写了。</p>
+<h2 id="todolist"><a href="#todolist" class="headerlink" title="todolist"></a>todolist</h2><ul>
+<li>2018很想出去转转，旅游，看看外面的世界。计划去西安、洛阳、开封，不过一个人懒得动，若能结伴而行，甚好</li>
+<li>关于人生，更想读读哲学。过年之后，心态转变，由<code>知其不可而为之</code> 到 <code>知其不可奈何而安之若命</code>，不再挣扎了，父母之命不可违，坦然面对</li>
+<li>音乐之用，在于脱俗，在于提升思维层次，在于豁达人生格局。虽然五音不全，但是对洞箫却是非常的热爱，试着学习吹奏几首曲子。</li>
+<li>多读几本书，去年买的四本《红楼梦》，直到现在也就才翻了3,40页，争取今年读完，然后读读原著。</li>
+<li>去年开始健身，到现在断断续续，贵在坚持。争取练出一身肌肉，才好找女朋友哈哈</li>
+<li>技术上，仍需精进，保持对技术的热情，不断地学习。</li>
+<li>工欲善其事必先利其器，准备换个mac本，咬咬牙</li>
+<li>工作之余，探索前端，包括对各种技术尝试，以期得到解决包括代码质量、性能等大型前端项目的最佳实践。期望能够全身心投入到一个项目中，能够不断地优化，以提高代码质量和性能，最终打造出一款引以为傲的产品。</li>
 </ul>
-<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><p>只有不断的踩坑，才会成长。可以说这次动手解决SVN的报错对我很有意义。</p>
+<p>白天搬砖，晚上砌梦想。</p>
 
           
         
@@ -405,7 +392,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -438,7 +425,7 @@
 
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="wuyaoxing">
             
@@ -453,7 +440,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -464,7 +451,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -475,7 +462,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
